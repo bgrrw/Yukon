@@ -63,7 +63,14 @@
 		runLayer.addTo(map);
 	  
     var gpx = 'StElias.gpx'; // URL to your GPX file or the GPX itself
-    new L.GPX(gpx, {async: true}).addTo(map);
+    new L.GPX(gpx, {
+      async: true,
+      marker_options: {
+      startIconUrl: '',
+      endIconUrl: '',
+      shadowUrl: ''
+      }
+    }).addTo(map);
 
   </script>
 </body>

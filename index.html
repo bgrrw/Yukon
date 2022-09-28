@@ -25,26 +25,43 @@
   <!-- Create the interactive map content with JavaScript (.js) -->
   <script>
 
-  /* Set up the initial map center and zoom level */
-  var map = L.map('map', {
-    center: [41.77, -72.69], // EDIT coordinates to re-center map
-    zoom: 12,  // EDIT from 1 (zoomed out) to 18 (zoomed in)
-    scrollWheelZoom: false,
-    tap: false
-  });
+    var map = L.map('map').setView([51.505, -0.09], 13);
 
-  /* display basemap tiles -- see others at https://leaflet-extras.github.io/leaflet-providers/preview/ */
-  L.tileLayer(
-    'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://osm.org/copyright">\
-        OpenStreetMap</a> contributors, &copy;\
-        <a href="https://carto.com/attribution">CARTO</a>'
-  }).addTo(map);
+    var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
 
-  /* Display a point marker with pop-up text */
-  L.marker([41.77, -72.69]).addTo(map) // EDIT marker coordinates
-  .bindPopup("Insert pop-up text here"); // EDIT pop-up text message
+    var marker = L.marker([51.5, -0.09]).addTo(map)
+      .bindPopup('<b>Hello world!</b><br />I am a popup.').openPopup();
 
+    var circle = L.circle([51.508, -0.11], {
+      color: 'red',
+      fillColor: '#f03',
+      fillOpacity: 0.5,
+      radius: 500
+    }).addTo(map).bindPopup('I am a circle.');
+
+    var polygon = L.polygon([
+      [51.509, -0.08],
+      [51.503, -0.06],
+      [51.51, -0.047]
+    ]).addTo(map).bindPopup('I am a polygon.');
+
+
+    var popup = L.popup()
+      .setLatLng([51.513, -0.09])
+      .setContent('I am a standalone popup.')
+      .openOn(map);
+
+    function onMapClick(e) {
+      popup
+        .setLatLng(e.latlng)
+        .setContent('You clicked the map at ' + e.latlng.toString())
+        .openOn(map);
+    }
+
+    map.on('click', onMapClick);
   </script>
 </body>
 </html>

@@ -65,12 +65,19 @@
     var gpx = 'StElias.gpx'; // URL to your GPX file or the GPX itself
     new L.GPX(gpx, {
       async: true,
+      polyline_options: {  
+      color: 'red',
+      opacity: 0.75,
+      weight: 7,
+      lineCap: 'round'
+      },
       marker_options: {
       startIconUrl: '',
       endIconUrl: '',
       shadowUrl: ''
       }
     }).addTo(map);
+	  
 
   </script>
 </body>

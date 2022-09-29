@@ -53,7 +53,7 @@
   <!-- Display the map and title with HTML division tags  -->
   <!-- <div id="map-title">Brad & Sam's Yukon Adventures</div> -->
   <div id="map"></div>
-  <div id="title-pane"><p>Brad's Travel Map</p></div>
+  <div id="title-pane"><p>Brad & Sam's Yukon Adventures</p></div>
 
 
   <!-- Create the interactive map content with JavaScript (.js) -->
@@ -75,6 +75,16 @@
 		});
 
 		googleTerrain.addTo(map);
+	  var CampIcon = L.Icon.extend({
+	    options: {
+		shadowUrl: 'tent.png',
+		iconSize:     [38, 95],
+		shadowSize:   [50, 64],
+		iconAnchor:   [22, 94],
+		shadowAnchor: [4, 62],
+		popupAnchor:  [-3, -76]
+	    }
+	});
 	  
 	  // Read markers data from data.csv
 	  $.get('Camps.csv', function(csvString) {
@@ -88,6 +98,7 @@
 	      var row = data[i];
 
 	      var marker = L.marker([row.Latitude, row.Longitude], {
+		icon: CampIcon,
 		opacity: 1
 	      }).bindPopup(
 		      "<a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>", {

@@ -75,16 +75,16 @@
 		});
 
 		googleTerrain.addTo(map);
-	  var CampIcon = L.Icon.extend({
+	  var Icon = L.Icon.extend({
 	    options: {
-		shadowUrl: 'tent.png',
 		iconSize:     [38, 95],
-		shadowSize:   [50, 64],
 		iconAnchor:   [22, 94],
-		shadowAnchor: [4, 62],
 		popupAnchor:  [-3, -76]
 	    }
 	});
+	  
+	var CampIcon = new Icon({iconUrl: 'tent.png'});
+
 	  
 	  // Read markers data from data.csv
 	  $.get('Camps.csv', function(csvString) {

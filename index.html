@@ -70,7 +70,9 @@
 
 	      var marker = L.marker([row.Latitude, row.Longitude], {
 		opacity: 1
-	      }).bindPopup("<img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>");
+	      }).bindPopup("<img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>", {
+		  maxWidth: "auto"
+	      });
 				
 	      marker.addTo(map);
 	    }

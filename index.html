@@ -8,12 +8,13 @@
   <!-- Load Leaflet code library: see http://leafletjs.com/download.html -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <!-- omnivore for KML -->
   <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
+  <!-- GPX -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.7.0/gpx.min.js"></script>
-
-  <!-- Load jQuery and PapaParse to read data from a CSV file -->
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+	
+  <!-- Leaflet-KMZ -->
+  <script src="https://unpkg.com/leaflet-kmz@latest/dist/leaflet-kmz.js"></script>
 
   <!-- Position the map and title with Cascading Style Sheet (CSS) -->
   <style>
@@ -81,26 +82,18 @@
       shadowUrl: ''
       }
     }).addTo(map);
-    // Read markers data from data.csv
-    $.get('./Campgrounds.csv', function(csvString) {
-
-      // Use PapaParse to convert string to array of objects
-      var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
-
-      // For each row in data, create a marker and add it to the map
-      // For each row, columns `Latitude`, `Longitude`, and `Title` are required
-      for (var i in data) {
-	if (i.Visited = "Yes") {
-	  var visitedcampground = data[i]};
-
-        var marker = L.marker([visitedcampground.Latitude, visitedcampground.Longitude], {
-          opacity: 1
-        }).bindPopup(visitedcampground.Name);
-      
-        marker.addTo(map);
-      }
-
     });
+	  
+  // Instantiate KMZ layer (async)
+  var kmz = L.kmzLayer().addTo(map);
+
+  kmz.on('load', function(e) {
+    control.addOverlay(e.layer, e.name);
+    // e.layer.addTo(map);
+  });
+
+  // Add remote KMZ files as layers (NB if they are 3rd-party servers, they MUST have CORS enabled)
+  kmz.load('Camps.kmz');
 
   </script>
 </body>

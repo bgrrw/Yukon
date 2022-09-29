@@ -90,12 +90,12 @@
       // For each row in data, create a marker and add it to the map
       // For each row, columns `Latitude`, `Longitude`, and `Title` are required
       for (var i in data) {
-	if (data[i].Visited = "Yes") {
-	  var visited = data[i]};
+	if (i.Visited = "Yes") {
+	  var visitedcampground = data[i]};
 
-        var marker = L.marker([visited.Latitude, visited.Longitude], {
+        var marker = L.marker([visitedcampground.Latitude, visitedcampground.Longitude], {
           opacity: 1
-        }).bindPopup(visited.Title);
+        }).bindPopup(visitedcampground.Name);
       
         marker.addTo(map);
       }

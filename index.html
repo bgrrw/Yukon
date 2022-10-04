@@ -34,6 +34,11 @@
       margin-top: 0;
       margin-bottom: 0;
   }
+ 
+  p.popup {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 	  
   #title-pane {
   position: absolute;
@@ -127,7 +132,7 @@
 		icon: SummitIcon,
 		opacity: 1
 	      }).bindPopup(
-		      "<h1 class='popup'>" + row.Name +"</h1><p>Height: "+row.Height+"m</p><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>", {
+		      "<h1 class='popup'>" + row.Name +"</h1><p class='popup'>Height: "+row.Height+"m</p><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>", {
 		  maxWidth: "auto"
 	      });		
 	      marker.addTo(map);

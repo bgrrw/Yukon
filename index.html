@@ -84,30 +84,45 @@
 	});
 	  
 	var CampIcon = new Icon({iconUrl: 'tent.png'});
+	var SummitIcon = new Icon({iconUrl: 'summit.png'});
 
 	  
 	  // Read markers data from data.csv
 	  $.get('Camps.csv', function(csvString) {
-
 	    // Use PapaParse to convert string to array of objects
 	    var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
-
 	    // For each row in data, create a marker and add it to the map
 	    // For each row, columns `Latitude`, `Longitude`, and `Title` are required
 	    for (var i in data) {
 	      var row = data[i];
-
 	      var marker = L.marker([row.Latitude, row.Longitude], {
 		icon: CampIcon,
 		opacity: 1
 	      }).bindPopup(
 		      "<a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>", {
 		  maxWidth: "auto"
-	      });
-				
+	      });		
 	      marker.addTo(map);
 	    }
-
+	  });
+	  
+	  // Read markers data from data.csv
+	  $.get('Summits.csv', function(csvString) {
+	    // Use PapaParse to convert string to array of objects
+	    var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+	    // For each row in data, create a marker and add it to the map
+	    // For each row, columns `Latitude`, `Longitude`, and `Title` are required
+	    for (var i in data) {
+	      var row = data[i];
+	      var marker = L.marker([row.Lat, row.Long], {
+		icon: SummitIcon,
+		opacity: 1
+	      }).bindPopup(
+		      "<a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>", {
+		  maxWidth: "auto"
+	      });		
+	      marker.addTo(map);
+	    }
 	  });
 
   </script>

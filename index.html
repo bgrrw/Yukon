@@ -97,14 +97,13 @@
 	    }
 	});
 	
-	function GPXPopup(feature, layer) {
-		layer.bindPopup(feature.properties.name);
-	}
 	var customLayer = L.geoJson(null, {
     	    // http://leafletjs.com/reference.html#geojson-style
     	    style: function(feature) {
-                return { color: '#f00' },
-	    onEachFeature: GPXPopup
+                return { color: '#f00' };
+	    onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.name);
+	}
     	    }
 	});
 	  

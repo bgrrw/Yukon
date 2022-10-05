@@ -92,7 +92,12 @@
       layers: [baseLayers["Terrain"]]
     });
  
-    var layerControl = L.control.layers(baseLayers).addTo(map);
+	  
+    var Summits = L.layerGroup()
+    var overlays = {
+	'Cities': cities
+    };
+    var layerControl = L.control.layers(baseLayers,overlays).addTo(map);
     
     var Icon = L.Icon.extend({
       options: {
@@ -146,6 +151,7 @@
 	    }
 	  });
 	  
+
 	  // Read markers data from data.csv
 	  $.get('Summits.csv', function(csvString) {
 	    // Use PapaParse to convert string to array of objects
@@ -154,15 +160,14 @@
 	    // For each row, columns `Latitude`, `Longitude`, and `Title` are required
 	    for (var i in data) {
 	      var row = data[i];
-	      var Summits = L.marker([row.Lat, row.Long], {
+	      var SummitsMarkers = L.marker([row.Lat, row.Long], {
 		icon: SummitIcon,
 		opacity: 1
 	      }).bindPopup(
 		      "<h1 class='popup'>" + row.Name +"</h1><p class='popup'>Height: "+row.Height+"m</p><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>", {
 		  maxWidth: "auto"
-	      });		
-	      Summits.addTo(map);
-	      layerControl.addOverlay(Summits, 'Summits')
+	      }).addTo(Summits);		
+	      SummitsMarkers.addTo(map);
 	    }
 	  });
 

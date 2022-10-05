@@ -96,7 +96,12 @@
 		popupAnchor:  [0, -32]
 	    }
 	});
-	
+	var customLayer = L.geoJson(null, {
+    	    // http://leafletjs.com/reference.html#geojson-style
+    	    style: function(feature) {
+                return { color: '#f00' };
+    	    }
+	});
 	  
 	var listOfFilesPath = [
 	  "GPX/9549267296.gpx",
@@ -104,7 +109,7 @@
 	  "GPX/9639008152.gpx" // etc.
 	];
 	for (var i = 0; i < listOfFilesPath.length; i += 1) {
-	  omnivore.gpx(listOfFilesPath[i]).addTo(map);
+	  omnivore.gpx(listOfFilesPath[i], null, customLayer).addTo(map);
 	};
 	  
 	

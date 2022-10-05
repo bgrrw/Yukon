@@ -91,9 +91,7 @@
       zoomSnap: 0.25,
       layers: [baseLayers["Terrain"]]
     });
-
-    var layerControl = L.control.layers(baseLayers).addTo(map);
-	  
+ 
 	  
     
     var Icon = L.Icon.extend({
@@ -165,8 +163,12 @@
 	      });		
 	    }
 	  });
-	  
+      var overlays = {
+        'Summits': Summits
+      };
 	  //Summits.addTo(map);
+
+    var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
 
   </script>
 </body>

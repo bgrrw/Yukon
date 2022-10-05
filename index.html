@@ -100,7 +100,7 @@
     	    // http://leafletjs.com/reference.html#geojson-style
     	    style: function(feature) {
                 return { color: '#f00' };
-    	    }
+    	    }.bindPopup(feature.properties.name);
 	});
 	  
 	var listOfFilesPath = [

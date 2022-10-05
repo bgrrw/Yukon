@@ -92,7 +92,7 @@
       layers: [baseLayers["Terrain"]]
     });
  
-    var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
+    var layerControl = L.control.layers(baseLayers).addTo(map);
     
     var Icon = L.Icon.extend({
       options: {

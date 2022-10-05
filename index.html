@@ -96,8 +96,19 @@
 		popupAnchor:  [0, -32]
 	    }
 	});
+	
 	  
-	omnivore.gpx('GPX/9549267296.gpx').addTo(map);
+	var listOfFilesPath = [
+	  "GPX/9549267296.gpx",
+	  "GPX/9549271689.gpx",
+	  "GPX/9639008152.gpx" // etc.
+	];
+	for (var i = 0; i < listOfFilesPath.length; i += 1) {
+	  omnivore.gpx(listOfFilesPath[i]).addTo(map);
+	}
+	  
+	
+	#omnivore.gpx('GPX/9549267296.gpx').addTo(map);
 	  
 	  
 	var CampIcon = new Icon({iconUrl: 'tent.png'});

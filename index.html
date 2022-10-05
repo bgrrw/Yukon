@@ -156,16 +156,17 @@
 	    // For each row, columns `Latitude`, `Longitude`, and `Title` are required
 	    for (var i in data) {
 	      var row = data[i];
-	      var marker = L.marker([row.Lat, row.Long], {
+	      var Summits = L.marker([row.Lat, row.Long], {
 		icon: SummitIcon,
 		opacity: 1
 	      }).bindPopup(
 		      "<h1 class='popup'>" + row.Name +"</h1><p class='popup'>Height: "+row.Height+"m</p><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>", {
 		  maxWidth: "auto"
 	      });		
-	      marker.addTo(map);
 	    }
 	  });
+	  
+	  //Summits.addTo(map);
 
   </script>
 </body>

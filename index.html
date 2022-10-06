@@ -22,8 +22,8 @@
 
   <!-- Javascript Variable of Hiking GPX Source -->
   <script src="GPX_Sources.js" type="text/javascript"></script>
-  <!-- Javascript Variable of Teslin River -->
-  <script src="TeslinRiver.js" type="text/javascript"></script>
+  <!-- Javascript Variable of Canoe Tracks -->
+  <script src="Canoe.js" type="text/javascript"></script>
 
   <!-- Position the map and title with Cascading Style Sheet (CSS) -->
   <style>
@@ -111,35 +111,34 @@
 	}
     });
 	  
-	//GPX Tracks
-	var customLayer = L.geoJson(null, {
-    	    // http://leafletjs.com/reference.html#geojson-style
-    	    style: function(feature) {
-                return { color: '#f00' }},
-	    onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.name)
-    	    }
-	});
-	  
-	for (var i = 0; i < listOfFilesPath.length; i += 1) {
-	  omnivore.gpx(listOfFilesPath[i], null, customLayer).addTo(map);
-	};
+    //HikingGPX Tracks
+    var customLayer = L.geoJson(null, {
+      // http://leafletjs.com/reference.html#geojson-style
+      style: function(feature) {
+	return { color: '#f00' }},
+      onEachFeature: function(feature, layer) {
+	layer.bindPopup(feature.properties.name)
+      }
+    });
 
-    var Teslin = TeslinRiver
-	
-    L.geoJSON(Teslin, {
+    for (var i = 0; i < listOfFilesPath.length; i += 1) {
+      omnivore.gpx(listOfFilesPath[i], null, customLayer).addTo(map);
+    };
+
+    for (var i = 0; i < CanoeTracks.length; i += 1) {
+      L.geoJSON(CanoeTracks[i], {
       onEachFeature: function (feature, layer) {
       layer.bindPopup('<h1>'+feature.properties.name+'</h1>');}
-    }).addTo(map)
+    }).addTo(map);
+    };
+	
+
 	  
-    numPts = Teslin.features[0].geometry.coordinates.length;
-
-    var beg = Teslin.features[0].geometry.coordinates[0];
-    var end = Teslin.features[0].geometry.coordinates[numPts-1];
-
-
-    L.marker([beg[1],beg[0]]).addTo(map);
-    L.marker([end[1],end[0]]).addTo(map);
+    //numPts = Teslin.features[0].geometry.coordinates.length;
+    //var beg = Teslin.features[0].geometry.coordinates[0];
+    //var end = Teslin.features[0].geometry.coordinates[numPts-1];
+    //L.marker([beg[1],beg[0]]).addTo(map);
+    //L.marker([end[1],end[0]]).addTo(map);
 
     var CampIcon = new Icon({iconUrl: 'tent.png'});
     var SummitIcon = new Icon({iconUrl: 'summit.png'});

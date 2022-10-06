@@ -91,10 +91,20 @@
     var Summits = L.layerGroup()
     var Camps = L.layerGroup()
     var Cabins = L.layerGroup()
+    var Bears = L.layerGroup()
+    
+    var Hikes = L.layerGroup()
+    var Bikes = L.layerGroup()
+    var Canoes = L.layerGroup()
+    
     var overlays = {
+	'Hikes': Hikes,
+	'Bikes': Bikes,
+	'Canoes': Canoes,
 	'Summits': Summits,
 	'Camps': Camps,
-	'Cabins': Cabins
+	'Cabins': Cabins,
+        'Bears': Bears
     };
 	  
     var map = L.map('map', {
@@ -126,14 +136,14 @@
     });
 
     for (var i = 0; i < listOfFilesPath.length; i += 1) {
-      omnivore.gpx(listOfFilesPath[i], null, customLayer).addTo(map);
+      omnivore.gpx(listOfFilesPath[i], null, customLayer).addTo(Hikes).addTo(map);
     };
 
     //Canoe Tracks
     L.geoJSON(CanoeTracks, {
       onEachFeature: function (feature, layer) {
       layer.bindPopup('<h1>'+feature.properties.name+'</h1>');}
-    }).addTo(map);
+    }).addTo(Canoes).addTo(map);
 	  
     //Bike Tracks
     L.geoJSON(bikeTracks, {
@@ -141,7 +151,7 @@
 	return { color: '#FFA500' }},
       onEachFeature: function (feature, layer) {
       layer.bindPopup('<h1>'+feature.properties.name+'</h1>');}
-    }).addTo(map);  
+    }).addTo(Bikes).addTo(map);  
 		  
     //numPts = Teslin.features[0].geometry.coordinates.length;
     //var beg = Teslin.features[0].geometry.coordinates[0];
@@ -219,8 +229,8 @@
     popupAnchor:  [0, -32],
     });
 	  
-    var bear1 = L.marker([60.67231, -137.8], {icon: bearIcon}).addTo(map);
-    var bear2 = L.marker([61.02654, -138.59722], {icon: bearIcon}).addTo(map);
+    var bear1 = L.marker([60.67231, -137.8], {icon: bearIcon}).addTo(map).addTo(Bears);
+    var bear2 = L.marker([61.02654, -138.59722], {icon: bearIcon}).addTo(map).addTo(Bears);
 	  
   </script>
 </body>

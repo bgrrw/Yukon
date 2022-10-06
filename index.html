@@ -132,10 +132,10 @@
       layer.bindPopup('<h1>'+feature.properties.name+'</h1>');}
     }).addTo(map)
 	  
-    numPts = Teslin.geometry.coordinates.length;
+    numPts = Teslin.features[0].geometry.coordinates.length;
 
-    var beg = Teslin.geometry.coordinates[0];
-    var end = Teslin.geometry.coordinates[numPts-1];
+    var beg = Teslin.features[0].geometry.coordinates[0];
+    var end = Teslin.features[0].geometry.coordinates[numPts-1];
 
 
     L.marker([beg[1],beg[0]]).addTo(map);

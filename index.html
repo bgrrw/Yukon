@@ -131,7 +131,7 @@
       style: function(feature) {
 	return { color: '#f00' }},
       onEachFeature: function(feature, layer) {
-	layer.bindPopup(feature.properties.name)
+	layer.bindPopup("<h1 class='popup'>" +feature.properties.name+"</h1>")
       }
     });
 

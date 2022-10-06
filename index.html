@@ -88,9 +88,11 @@
     
     var Summits = L.layerGroup()
     var Camps = L.layerGroup()
+    var Cabins = L.layerGroup()
     var overlays = {
 	'Summits': Summits,
-	'Camps': Camps
+	'Camps': Camps,
+	'Cabins': Cabins
     };
 	  
     var map = L.map('map', {
@@ -98,7 +100,7 @@
       zoom: 5.5,
       zoomControl: false,
       zoomSnap: 0.25,
-      layers: [baseLayers["Terrain"],Summits,Camps]
+      layers: [baseLayers["Terrain"],Summits,Camps,Cabins]
     });
  
     var layerControl = L.control.layers(baseLayers,overlays).addTo(map);
@@ -137,12 +139,12 @@
     //L.marker([beg[1],beg[0]]).addTo(map);
     //L.marker([end[1],end[0]]).addTo(map);
 
+	  
+    // Point Layes
     var CampIcon = new Icon({iconUrl: 'tent.png'});
     var CabinIcon = new Icon({iconUrl: 'cabin.png'});
     var SummitIcon = new Icon({iconUrl: 'summit.png'});
 	  
-
-    // Point Layes
     // Read markers data from data.csv
     $.get('Camps.csv', function(csvString) {
     // Use PapaParse to convert string to array of objects
@@ -176,11 +178,10 @@
         }).bindPopup(
 	  "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>", {
 	   maxWidth: "auto"
-          }).addTo(Camps);		
+          }).addTo(Cabins);		
           Cabinsmarker.addTo(map);
         }
       });
-
 
     // Read markers data from data.csv
     $.get('Summits.csv', function(csvString) {

@@ -22,6 +22,8 @@
 
   <!-- Javascript Variable of Hiking GPX Source -->
   <script src="GPX_Sources.js" type="text/javascript"></script>
+  <!-- Javascript Variable of Teslin River -->
+  <script src="TeslinRiver.js" type="text/javascript"></script>
 
   <!-- Position the map and title with Cascading Style Sheet (CSS) -->
   <style>
@@ -108,6 +110,7 @@
 	popupAnchor:  [0, -32]
 	}
     });
+	  
 	//GPX Tracks
 	var customLayer = L.geoJson(null, {
     	    // http://leafletjs.com/reference.html#geojson-style
@@ -123,50 +126,50 @@
 	};
 	  
 	
-	//omnivore.gpx('GPX/9549267296.gpx').addTo(map);
-	  
-	var CampIcon = new Icon({iconUrl: 'tent.png'});
-	var SummitIcon = new Icon({iconUrl: 'summit.png'});
+    L.geoJSON(TeslinRiver).addTo(map)
 
-	  // Point Layes
-	  // Read markers data from data.csv
-	  $.get('Camps.csv', function(csvString) {
-	    // Use PapaParse to convert string to array of objects
-	    var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
-	    // For each row in data, create a marker and add it to the map
-	    // For each row, columns `Latitude`, `Longitude`, and `Title` are required
-	    for (var i in data) {
-	      var row = data[i];
-	      var Campsmarker = L.marker([row.Latitude, row.Longitude], {
-		icon: CampIcon,
-		opacity: 1
-	      }).bindPopup(
-		      "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>", {
-		  maxWidth: "auto"
-	      }).addTo(Camps);		
-	      Campsmarker.addTo(map);
-	    }
-	  });
-	  
+    var CampIcon = new Icon({iconUrl: 'tent.png'});
+    var SummitIcon = new Icon({iconUrl: 'summit.png'});
 
-	  // Read markers data from data.csv
-	  $.get('Summits.csv', function(csvString) {
-	    // Use PapaParse to convert string to array of objects
-	    var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
-	    // For each row in data, create a marker and add it to the map
-	    // For each row, columns `Latitude`, `Longitude`, and `Title` are required
-	    for (var i in data) {
-	      var row = data[i];
-	      var SummitsMarkers = L.marker([row.Lat, row.Long], {
-		icon: SummitIcon,
-		opacity: 1
-	      }).bindPopup(
-		      "<h1 class='popup'>" + row.Name +"</h1><p class='popup'>Height: "+row.Height+"m</p><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>", {
-		  maxWidth: "auto"
-	      }).addTo(Summits);		
-	      SummitsMarkers.addTo(map);
-	    }
-	  });
+    // Point Layes
+    // Read markers data from data.csv
+    $.get('Camps.csv', function(csvString) {
+    // Use PapaParse to convert string to array of objects
+      var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+      // For each row in data, create a marker and add it to the map
+      // For each row, columns `Latitude`, `Longitude`, and `Title` are required
+      for (var i in data) {
+        var row = data[i];
+        var Campsmarker = L.marker([row.Latitude, row.Longitude], {
+	  icon: CampIcon,
+	  opacity: 1
+        }).bindPopup(
+	  "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>", {
+	   maxWidth: "auto"
+          }).addTo(Camps);		
+          Campsmarker.addTo(map);
+        }
+      });
+
+
+    // Read markers data from data.csv
+    $.get('Summits.csv', function(csvString) {
+      // Use PapaParse to convert string to array of objects
+      var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+      // For each row in data, create a marker and add it to the map
+      // For each row, columns `Latitude`, `Longitude`, and `Title` are required
+      for (var i in data) {
+        var row = data[i];
+        var SummitsMarkers = L.marker([row.Lat, row.Long], {
+	  icon: SummitIcon,
+	  opacity: 1
+        }).bindPopup(
+	  "<h1 class='popup'>" + row.Name +"</h1><p class='popup'>Height: "+row.Height+"m</p><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>", {
+	  maxWidth: "auto"
+          }).addTo(Summits);		
+          SummitsMarkers.addTo(map);
+        }
+      });
 
   </script>
 </body>

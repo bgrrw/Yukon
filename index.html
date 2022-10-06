@@ -118,7 +118,7 @@
       layers: [baseLayers["Terrain"],tracks["Hikes"],tracks["Bikes"],tracks["Canoes"],points["Summits"],points["Camps"],points["Cabins"],points["Bears"]]
     });
  
-    var layerControl = L.control.layers(baseLayers,overlays).addTo(map);
+    var layerControl = L.control.layers(baseLayers,tracks,points).addTo(map);
     
     var Icon = L.Icon.extend({
       options: {

@@ -1,5 +1,5 @@
 // JavaScript source code	
-var TeslinRiver = {
+var CanoeTracks = {
     "type": "FeatureCollection",
     "features": [
         {
@@ -25425,13 +25425,7 @@ var TeslinRiver = {
                     ]
                 ]
             }
-        }
-    ]
-}
-
-var Frenchman Lake = {
-    "type": "FeatureCollection",
-    "features": [
+        },
         {
             "type": "Feature",
             "properties": {
@@ -29971,13 +29965,7 @@ var Frenchman Lake = {
                     ]
                 ]
             }
-        }
-    ]
-}
-
-var LowerTakhini = {
-    "type": "FeatureCollection",
-    "features": [
+        },
         {
             "type": "Feature",
             "properties": {
@@ -37155,13 +37143,7 @@ var LowerTakhini = {
                     ]
                 ]
             }
-        }
-    ]
-}
-
-var Cntrl2SSchwatka = {
-    "type": "FeatureCollection",
-    "features": [
+        },
         {
             "type": "Feature",
             "properties": {
@@ -60396,13 +60378,7 @@ var Cntrl2SSchwatka = {
                     ]
                 ]
             }
-        }
-    ]
-}
-
-var UpperTakini = {
-    "type": "FeatureCollection",
-    "features": [
+        },
         {
             "type": "Feature",
             "properties": {
@@ -84637,13 +84613,7 @@ var UpperTakini = {
                     ]
                 ]
             }
-        }
-    ]
-}
-
-var Rotary2Burma = {
-    "type": "FeatureCollection",
-    "features": [
+        },
         {
             "type": "Feature",
             "properties": {

@@ -211,7 +211,17 @@
           SummitsMarkers.addTo(map);
         }
       });
-
+	  
+    var bearIcon = L.icon({
+    iconUrl: 'bear.png',
+    iconSize:     [32], // size of the icon
+    iconAnchor:   [16, 32],
+    popupAnchor:  [0, -32],
+    });
+	  
+    var bear1 = L.marker([60.67231, -137.8], {icon: bearIcon}).addTo(map);
+    var bear2 = L.marker([61.02654, -138.59722], {icon: bearIcon}).addTo(map);
+	  
   </script>
 </body>
 </html>

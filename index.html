@@ -129,7 +129,16 @@
     L.geoJSON(TeslinRiver, {
       onEachFeature: function (feature, layer) {
       layer.bindPopup('<h1>'+feature.properties.name+'</h1>');}
-  }).addTo(map)
+    }).addTo(map)
+	  
+    numPts = TeslinRiver.geometry.coordinates.length;
+
+    var beg = TeslinRiver.geometry.coordinates[0];
+    var end = TeslinRiver.geometry.coordinates[numPts-1];
+
+
+    L.marker([beg[1],beg[0]]).addTo(map);
+    L.marker([end[1],end[0]]).addTo(map);
 
     var CampIcon = new Icon({iconUrl: 'tent.png'});
     var SummitIcon = new Icon({iconUrl: 'summit.png'});

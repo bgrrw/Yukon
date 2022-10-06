@@ -126,7 +126,10 @@
 	};
 	  
 	
-    L.geoJSON(TeslinRiver).addTo(map)
+    L.geoJSON(TeslinRiver, {
+      onEachFeature: function (feature, layer) {
+      layer.bindPopup('<h1>'+feature.properties.name+'</h1>');
+  }).addTo(map)
 
     var CampIcon = new Icon({iconUrl: 'tent.png'});
     var SummitIcon = new Icon({iconUrl: 'summit.png'});

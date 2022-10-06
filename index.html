@@ -124,17 +124,18 @@
 	for (var i = 0; i < listOfFilesPath.length; i += 1) {
 	  omnivore.gpx(listOfFilesPath[i], null, customLayer).addTo(map);
 	};
-	  
+
+    var Teslin = TeslinRiver
 	
-    L.geoJSON(TeslinRiver, {
+    L.geoJSON(Teslin, {
       onEachFeature: function (feature, layer) {
       layer.bindPopup('<h1>'+feature.properties.name+'</h1>');}
     }).addTo(map)
 	  
-    numPts = TeslinRiver.geometry.coordinates.length;
+    numPts = Teslin.geometry.coordinates.length;
 
-    var beg = TeslinRiver.geometry.coordinates[0];
-    var end = TeslinRiver.geometry.coordinates[numPts-1];
+    var beg = Teslin.geometry.coordinates[0];
+    var end = Teslin.geometry.coordinates[numPts-1];
 
 
     L.marker([beg[1],beg[0]]).addTo(map);

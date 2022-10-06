@@ -125,15 +125,12 @@
       omnivore.gpx(listOfFilesPath[i], null, customLayer).addTo(map);
     };
 
-    for (var i = 0; i < CanoeTracks.length; i += 1) {
-      L.geoJSON(CanoeTracks[i], {
+
+      L.geoJSON(CanoeTracks, {
       onEachFeature: function (feature, layer) {
       layer.bindPopup('<h1>'+feature.properties.name+'</h1>');}
     }).addTo(map);
-    };
-	
-
-	  
+		  
     //numPts = Teslin.features[0].geometry.coordinates.length;
     //var beg = Teslin.features[0].geometry.coordinates[0];
     //var end = Teslin.features[0].geometry.coordinates[numPts-1];

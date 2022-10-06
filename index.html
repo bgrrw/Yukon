@@ -115,7 +115,7 @@
       zoom: 5.5,
       zoomControl: false,
       zoomSnap: 0.25,
-      layers: [baseLayers["Terrain"],tracks,points]
+      layers: [baseLayers["Terrain"],tracks["Hikes"],tracks["Bikes"],tracks["Canoes"],points["Summits"],points["Camps"],points["Cabins"],points["Bears"]]
     });
  
     var layerControl = L.control.layers(baseLayers,overlays).addTo(map);

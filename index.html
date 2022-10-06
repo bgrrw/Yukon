@@ -24,6 +24,8 @@
   <script src="GPX_Sources.js" type="text/javascript"></script>
   <!-- Javascript Variable of Canoe Tracks -->
   <script src="Canoe.js" type="text/javascript"></script>
+  <!-- Javascript Variable of Bike Tracks -->
+  <script src="Bike.js" type="text/javascript"></script>
 
   <!-- Position the map and title with Cascading Style Sheet (CSS) -->
   <style>
@@ -127,11 +129,19 @@
       omnivore.gpx(listOfFilesPath[i], null, customLayer).addTo(map);
     };
 
-
-      L.geoJSON(CanoeTracks, {
+    //Canoe Tracks
+    L.geoJSON(CanoeTracks, {
       onEachFeature: function (feature, layer) {
       layer.bindPopup('<h1>'+feature.properties.name+'</h1>');}
     }).addTo(map);
+	  
+    //Bike Tracks
+    L.geoJSON(bikeTracks, {
+      style: function(feature) {
+	return { color: '#FFA500' }},
+      onEachFeature: function (feature, layer) {
+      layer.bindPopup('<h1>'+feature.properties.name+'</h1>');}
+    }).addTo(map);  
 		  
     //numPts = Teslin.features[0].geometry.coordinates.length;
     //var beg = Teslin.features[0].geometry.coordinates[0];

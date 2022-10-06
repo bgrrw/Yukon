@@ -97,14 +97,17 @@
     var Bikes = L.layerGroup()
     var Canoes = L.layerGroup()
     
-    var overlays = {
-	'Hikes': Hikes,
-	'Bikes': Bikes,
-	'Canoes': Canoes,
+    var points = {
 	'Summits': Summits,
 	'Camps': Camps,
 	'Cabins': Cabins,
         'Bears': Bears
+    };
+
+    var tracks = {
+	'Hikes': Hikes,
+	'Bikes': Bikes,
+	'Canoes': Canoes
     };
 	  
     var map = L.map('map', {
@@ -112,7 +115,7 @@
       zoom: 5.5,
       zoomControl: false,
       zoomSnap: 0.25,
-      layers: [baseLayers["Terrain"],Summits,Camps,Cabins]
+      layers: [baseLayers["Terrain"],tracks,points]
     });
  
     var layerControl = L.control.layers(baseLayers,overlays).addTo(map);

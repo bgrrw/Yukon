@@ -84,19 +84,21 @@
 	'Imagery': L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}')
     };
     
+    var Summits = L.layerGroup()
+    var Camps = L.layerGroup()
+    var overlays = {
+	'Summits': Summits,
+	'Camps': Camps
+    };
+	  
     var map = L.map('map', {
       center: [65, -135],
       zoom: 5.5,
       zoomControl: false,
       zoomSnap: 0.25,
-      layers: [baseLayers["Terrain"]]
+      layers: [baseLayers["Terrain"],Summits,Camps]
     });
  
-	  
-    var Summits = L.layerGroup()
-    var overlays = {
-	'Summits': Summits
-    };
     var layerControl = L.control.layers(baseLayers,overlays).addTo(map);
     
     var Icon = L.Icon.extend({
@@ -106,7 +108,7 @@
 	popupAnchor:  [0, -32]
 	}
     });
-	
+	//GPX Tracks
 	var customLayer = L.geoJson(null, {
     	    // http://leafletjs.com/reference.html#geojson-style
     	    style: function(feature) {
@@ -116,11 +118,6 @@
     	    }
 	});
 	  
-	//var listOfFilesPath = [
-	  //"GPX/9549267296.gpx",
-	  //"GPX/9549271689.gpx",
-	  //"GPX/9639008152.gpx" // etc.
-	//];
 	for (var i = 0; i < listOfFilesPath.length; i += 1) {
 	  omnivore.gpx(listOfFilesPath[i], null, customLayer).addTo(map);
 	};
@@ -131,7 +128,7 @@
 	var CampIcon = new Icon({iconUrl: 'tent.png'});
 	var SummitIcon = new Icon({iconUrl: 'summit.png'});
 
-	  
+	  // Point Layes
 	  // Read markers data from data.csv
 	  $.get('Camps.csv', function(csvString) {
 	    // Use PapaParse to convert string to array of objects
@@ -140,14 +137,14 @@
 	    // For each row, columns `Latitude`, `Longitude`, and `Title` are required
 	    for (var i in data) {
 	      var row = data[i];
-	      var marker = L.marker([row.Latitude, row.Longitude], {
+	      var Campsmarker = L.marker([row.Latitude, row.Longitude], {
 		icon: CampIcon,
 		opacity: 1
 	      }).bindPopup(
 		      "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>", {
 		  maxWidth: "auto"
-	      });		
-	      marker.addTo(map);
+	      }).addTo(Camps);		
+	      Campsmarker.addTo(map);
 	    }
 	  });
 	  

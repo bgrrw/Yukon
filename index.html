@@ -276,7 +276,14 @@
 	  
     var bear1 = L.marker([60.67231, -137.8], {icon: bearIcon}).addTo(map).addTo(Bears);
     var bear2 = L.marker([61.02654, -138.59722], {icon: bearIcon}).addTo(map).addTo(Bears);
-	  
+
+    function onMapClick(e) {
+	hikeTracks.setStyle(Hikestyle);
+	customLayer.setStyle(Hikestyle);
+	canoeTacks.setStyle(Canoestyle);
+	bikeTracks.setStyle(Bikestyle);
+    }
+    map.on('click', onMapClick);
   </script>
 </body>
 </html>

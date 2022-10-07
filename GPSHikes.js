@@ -4228,7 +4228,7 @@ var GPSHikes = {
         "Group Identification" : "2020-02-02 15:56:15",
         "Shape_Length" : 15592.322383237088,
         "Type" : "Hike",
-        "Name" : "Mount White Ice Falls"
+        "name" : "Mount White Ice Falls"
       }
     },
     {
@@ -12406,7 +12406,7 @@ var GPSHikes = {
         "Group Identification" : "2020-02-22 17:11:57",
         "Shape_Length" : 19005.541913840923,
         "Type" : "Hike",
-        "Name" : "Mount Decoeli Attempt"
+        "name" : "Mount Decoeli Attempt"
       }
     },
     {
@@ -17904,7 +17904,7 @@ var GPSHikes = {
         "Group Identification" : "2020-03-21 16:16:40",
         "Shape_Length" : 8602.5427577948103,
         "Type" : "Hike",
-        "Name" : "Spirit Canyon"
+        "name" : "Spirit Canyon"
       }
     },
     {
@@ -26688,7 +26688,7 @@ var GPSHikes = {
         "Group Identification" : "2020-03-23 13:51:10",
         "Shape_Length" : 33467.194641781614,
         "Type" : "Hike",
-        "Name" : "Mount McIntyre"
+        "name" : "Mount McIntyre"
       }
     },
     {
@@ -31168,7 +31168,7 @@ var GPSHikes = {
         "Group Identification" : "2020-03-29 15:43:17",
         "Shape_Length" : 18221.722102025949,
         "Type" : "Hike",
-        "Name" : "Grey Mount South Prominence"
+        "name" : "Grey Mount South Prominence"
       }
     },
     {
@@ -39246,7 +39246,7 @@ var GPSHikes = {
         "Group Identification" : "2020-04-13 16:28:06",
         "Shape_Length" : 13525.807274901968,
         "Type" : "Hike",
-        "Name" : "Fish Lake Trail"
+        "name" : "Fish Lake Trail"
       }
     },
     {
@@ -43400,7 +43400,7 @@ var GPSHikes = {
         "Group Identification" : "2020-04-14 16:40:27",
         "Shape_Length" : 18203.626709744767,
         "Type" : "Hike",
-        "Name" : "Magnusson Trails"
+        "name" : "Magnusson Trails"
       }
     },
     {
@@ -51016,7 +51016,7 @@ var GPSHikes = {
         "Group Identification" : "2020-05-02 18:07:30",
         "Shape_Length" : 9807.6055762493652,
         "Type" : "Hike",
-        "Name" : "Ibex Ridge Attempt"
+        "name" : "Ibex Ridge Attempt"
       }
     },
     {
@@ -56650,7 +56650,7 @@ var GPSHikes = {
         "Group Identification" : "2020-05-04 12:30:21",
         "Shape_Length" : 25646.778134198747,
         "Type" : "Hike",
-        "Name" : "Chadburn Lake"
+        "name" : "Chadburn Lake"
       }
     },
     {
@@ -62292,7 +62292,7 @@ var GPSHikes = {
         "Group Identification" : "2020-05-10",
         "Shape_Length" : 12185.036794069596,
         "Type" : "Hike",
-        "Name" : "Grey Mountain"
+        "name" : "Grey Mountain"
       }
     },
     {
@@ -66926,7 +66926,7 @@ var GPSHikes = {
         "Group Identification" : "2020-05-23 15:39:54",
         "Shape_Length" : 19446.687229581818,
         "Type" : "Hike",
-        "Name" : "Haeckel Hill"
+        "name" : "Haeckel Hill"
       }
     },
     {
@@ -71440,7 +71440,7 @@ var GPSHikes = {
         "Group Identification" : "2020-07-12 16:19:40",
         "Shape_Length" : 17927.13305106567,
         "Type" : "Hike",
-        "Name" : "Long Lake"
+        "name" : "Long Lake"
       }
     },
     {
@@ -73524,7 +73524,7 @@ var GPSHikes = {
         "Group Identification" : "2020-08-08 14:17:29",
         "Shape_Length" : 3649.8221046351914,
         "Type" : "Hike",
-        "Name" : "Rock Glacier"
+        "name" : "Rock Glacier"
       }
     },
     {
@@ -80370,7 +80370,7 @@ var GPSHikes = {
         "Group Identification" : "2020-08-22 16:14:56",
         "Shape_Length" : 12828.112568511147,
         "Type" : "Hike",
-        "Name" : "International Falls"
+        "name" : "International Falls"
       }
     },
     {
@@ -87542,7 +87542,7 @@ var GPSHikes = {
         "Group Identification" : "2020-08-29 18:45:51",
         "Shape_Length" : 31220.155008378948,
         "Type" : "Hike",
-        "Name" : "Mount McIntyre"
+        "name" : "Mount McIntyre"
       }
     },
     {
@@ -98364,7 +98364,7 @@ var GPSHikes = {
         "Group Identification" : "2020-09-13 18:38:38",
         "Shape_Length" : 34256.083985616504,
         "Type" : "Hike",
-        "Name" : "Tally Ho Mountain"
+        "name" : "Tally Ho Mountain"
       }
     },
     {
@@ -104192,7 +104192,7 @@ var GPSHikes = {
         "Group Identification" : "2020-09-19 17:54:55",
         "Shape_Length" : 12933.086745757237,
         "Type" : "Hike",
-        "Name" : "Kusawa Attempt"
+        "name" : "Kusawa Attempt"
       }
     },
     {
@@ -110382,7 +110382,7 @@ var GPSHikes = {
         "Group Identification" : "2020-09-26 17:56:59",
         "Shape_Length" : 16284.788007457892,
         "Type" : "Hike",
-        "Name" : "Sam McGee"
+        "name" : "Sam McGee"
       }
     },
     {
@@ -112768,7 +112768,7 @@ var GPSHikes = {
         "Group Identification" : "2020-10-18 15:45:03",
         "Shape_Length" : 10427.274953418506,
         "Type" : "Hike",
-        "Name" : "Research Forest"
+        "name" : "Research Forest"
       }
     },
     {
@@ -119166,7 +119166,7 @@ var GPSHikes = {
         "Group Identification" : "2020-11-13 01:11:42",
         "Shape_Length" : 11272.328330536249,
         "Type" : "Hike",
-        "Name" : "Mount White"
+        "name" : "Mount White"
       }
     },
     {
@@ -125840,7 +125840,7 @@ var GPSHikes = {
         "Group Identification" : "2021-08-07 17:31:06",
         "Shape_Length" : 17580.187662793105,
         "Type" : "Hike",
-        "Name" : "Grizzly Lake In"
+        "name" : "Grizzly Lake In"
       }
     },
     {
@@ -130150,7 +130150,7 @@ var GPSHikes = {
         "Group Identification" : "2021-08-08 16:36:50",
         "Shape_Length" : 8969.6939244285313,
         "Type" : "Hike",
-        "Name" : "Divide Lake In"
+        "name" : "Divide Lake In"
       }
     },
     {
@@ -138584,7 +138584,7 @@ var GPSHikes = {
         "Group Identification" : "2021-08-09 23:16:50",
         "Shape_Length" : 16807.439398599585,
         "Type" : "Hike",
-        "Name" : "Talus Lake"
+        "name" : "Talus Lake"
       }
     },
     {
@@ -142578,7 +142578,7 @@ var GPSHikes = {
         "Group Identification" : "2021-08-10 17:45:17",
         "Shape_Length" : 8916.4816079466436,
         "Type" : "Hike",
-        "Name" : "Divide Lake Out"
+        "name" : "Divide Lake Out"
       }
     },
     {
@@ -148268,7 +148268,7 @@ var GPSHikes = {
         "Group Identification" : "2021-08-11 12:53:35",
         "Shape_Length" : 17332.060611609391,
         "Type" : "Hike",
-        "Name" : "Grizzly Out"
+        "name" : "Grizzly Out"
       }
     },
     {
@@ -152006,7 +152006,7 @@ var GPSHikes = {
         "Group Identification" : "Goldensides_2020-09-05 16:21:26",
         "Shape_Length" : 9667.602984405783,
         "Type" : "Hike",
-        "Name" : "GoldenSides"
+        "name" : "GoldenSides"
       }
     },
     {
@@ -159188,7 +159188,7 @@ var GPSHikes = {
         "Group Identification" : "GrizzlyLakeViewpoint_2020-09-06 16:58:17",
         "Shape_Length" : 16564.376702855228,
         "Type" : "Hike",
-        "Name" : "Grizzly Ridge"
+        "name" : "Grizzly Ridge"
       }
     },
     {
@@ -161298,7 +161298,7 @@ var GPSHikes = {
         "Group Identification" : "NorthKlondikeValley_2020-09-07 12:29:40",
         "Shape_Length" : 7061.0110875417113,
         "Type" : "Hike",
-        "Name" : "North Klondike Valley"
+        "name" : "North Klondike Valley"
       }
     }
   ]

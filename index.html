@@ -156,6 +156,7 @@
       layer.on("click", function (e) {
 	layer.bringToFront();
 	hikeTracks.setStyle(Hikestyle);
+	customLayer.setStyle(Hikestyle);
 	canoeTacks.setStyle(Canoestyle);
 	bikeTracks.setStyle(Bikestyle);
         layer.setStyle(highlight);  //highlights selected.
@@ -164,11 +165,8 @@
     //HikingGPX Tracks
     var customLayer = L.geoJson(null, {
       // http://leafletjs.com/reference.html#geojson-style
-      style: function(feature) {
-	return { color: '#f00' }},
-      onEachFeature: function(feature, layer) {
-	layer.bindPopup("<h1 class='popup'>" +feature.properties.name+"</h1>")
-      }
+      style: Hikestyle,
+      onEachFeature: forEachFeature
     });
 
     for (var i = 0; i < listOfFilesPath.length; i += 1) {

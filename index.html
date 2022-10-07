@@ -145,12 +145,12 @@
 
     //GPS Unit Hiking Tracks
     // Instantiate KMZ layer (async)
-    var kmz = L.kmzLayer('GPSHikes.kmz', {
-	style: function(feature) {
+    L.geoJSON(GPSHikes, {
+      style: function(feature) {
 	return { color: '#f00' }},
       onEachFeature: function (feature, layer) {
-      layer.bindPopup('<h1>'+feature.properties.Name+'</h1>');}    
-    }).addTo(Hikes).addTo(map);
+      layer.bindPopup('<h1>'+feature.properties.Name+'</h1>');}
+    }).addTo(Hikes).addTo(map);  
 	  
     //kmz.load('GPSHikes.kmz');
     //kmz.on('load', function(e) {

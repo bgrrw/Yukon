@@ -152,7 +152,7 @@
     }};
 	  
     function forEachFeature(feature, layer) {
-      ayer.bindPopup('<h1>'+feature.properties.name+'</h1>'),
+      layer.bindPopup('<h1>'+feature.properties.name+'</h1>'),
       layer.on("click", function (e) {
 	layer.bringToFront();
 	hikeTracks.setStyle(Hikestyle);

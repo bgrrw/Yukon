@@ -182,7 +182,7 @@
     // Instantiate KMZ layer (async)
     var hikeTracks = L.geoJSON(GPSHikes, {
       style: Hikestyle,
-      onEachFeature: LinePopup;}
+      onEachFeature: LinePopup
     }).addTo(Hikes).addTo(map);  
 	  
     //kmz.load('GPSHikes.kmz');
@@ -195,13 +195,13 @@
     //Canoe Tracks
     var canoeTacks = L.geoJSON(CanoeTracks, {
       style: Canoestyle,
-      onEachFeature: LinePopup;}
+      onEachFeature: LinePopup
     }).addTo(Canoes).addTo(map);
 	  
     //Bike Tracks
     var bikeTracks = L.geoJSON(bikeTracks, {
       style: Bikestyle,
-      onEachFeature: LinePopup;}
+      onEachFeature: LinePopup
     }).addTo(Bikes).addTo(map);  
 		  
     //numPts = Teslin.features[0].geometry.coordinates.length;

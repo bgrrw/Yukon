@@ -129,6 +129,41 @@
 	}
     });
 	  
+    var highlight = {
+      'color': '#70F3FF',
+      'weight': 3,
+      'opacity': 1,	
+    };	  
+
+    function Hikestyle(feature) {
+    return {
+        color: '#f00',
+		weight: 2
+    }};
+    function Bikestyle(feature) {
+    return {
+        color: '#FFA500',
+		weight: 2
+    }};
+    function Canoestyle(feature) {
+    return {
+        color: '#003371',
+		weight: 2
+    }};
+	  
+    function highlightLine(feature, layer) {
+      layer.on("click", function (e) {
+	layer.bringToFront();
+	hikeTracks.setStyle(Hikestyle);
+	canoeTacks.setStyle(Canoestyle);
+	bikeTracks.setStyle(Bikestyle);
+        layer.setStyle(highlight);  //highlights selected.
+     });}
+
+    function LinePopup(feature, layer) {
+      layer.bindPopup('<h1>'+feature.properties.Name+'</h1>');}
+    }
+	  
     //HikingGPX Tracks
     var customLayer = L.geoJson(null, {
       // http://leafletjs.com/reference.html#geojson-style
@@ -145,11 +180,9 @@
 
     //GPS Unit Hiking Tracks
     // Instantiate KMZ layer (async)
-    L.geoJSON(GPSHikes, {
-      style: function(feature) {
-	return { color: '#f00' }},
-      onEachFeature: function (feature, layer) {
-      layer.bindPopup('<h1>'+feature.properties.Name+'</h1>');}
+    var hikeTracks = L.geoJSON(GPSHikes, {
+      style: Hikestyle,
+      onEachFeature: LinePopup;}
     }).addTo(Hikes).addTo(map);  
 	  
     //kmz.load('GPSHikes.kmz');
@@ -160,19 +193,15 @@
     //var control = L.control.layers(null, null, { collapsed:false }).addTo(map);
 	  
     //Canoe Tracks
-    L.geoJSON(CanoeTracks, {
-      style: function(feature) {
-	return { color: '#003371' }},
-      onEachFeature: function (feature, layer) {
-      layer.bindPopup('<h1>'+feature.properties.name+'</h1>');}
+    var canoeTacks = L.geoJSON(CanoeTracks, {
+      style: Canoestyle,
+      onEachFeature: LinePopup;}
     }).addTo(Canoes).addTo(map);
 	  
     //Bike Tracks
-    L.geoJSON(bikeTracks, {
-      style: function(feature) {
-	return { color: '#FFA500' }},
-      onEachFeature: function (feature, layer) {
-      layer.bindPopup('<h1>'+feature.properties.name+'</h1>');}
+    var bikeTracks = L.geoJSON(bikeTracks, {
+      style: Bikestyle,
+      onEachFeature: LinePopup;}
     }).addTo(Bikes).addTo(map);  
 		  
     //numPts = Teslin.features[0].geometry.coordinates.length;

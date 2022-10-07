@@ -26,6 +26,8 @@
   <script src="Canoe.js" type="text/javascript"></script>
   <!-- Javascript Variable of Bike Tracks -->
   <script src="Bike.js" type="text/javascript"></script>
+  <!-- Javascript Variable of Bike Tracks -->
+  <script src="GPSHikes.js" type="text/javascript"></script>
 
   <!-- Position the map and title with Cascading Style Sheet (CSS) -->
   <style>
@@ -140,6 +142,14 @@
     for (var i = 0; i < listOfFilesPath.length; i += 1) {
       omnivore.gpx(listOfFilesPath[i], null, customLayer).addTo(Hikes).addTo(map);
     };
+
+    //GPS Unit Hiking Tracks
+    L.geoJSON(GPSHikes, {    
+      style: function(feature) {
+	return { color: '#FF00' }},
+      onEachFeature: function (feature, layer) {
+      layer.bindPopup('<h1 class='popup>'+feature.properties.name+'</h1>');}
+    }).addTo(Hikes).addTo(map);
 
     //Canoe Tracks
     L.geoJSON(CanoeTracks, {

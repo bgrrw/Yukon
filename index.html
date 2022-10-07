@@ -151,7 +151,8 @@
 		weight: 2
     }};
 	  
-    function highlightLine(feature, layer) {
+    function forEachFeature(feature, layer) {
+      ayer.bindPopup('<h1>'+feature.properties.name+'</h1>'),
       layer.on("click", function (e) {
 	layer.bringToFront();
 	hikeTracks.setStyle(Hikestyle);
@@ -159,11 +160,7 @@
 	bikeTracks.setStyle(Bikestyle);
         layer.setStyle(highlight);  //highlights selected.
      });}
-
-    function LinePopup(feature, layer) {
-      layer.bindPopup('<h1>'+feature.properties.Name+'</h1>');}
-    
-	  
+   
     //HikingGPX Tracks
     var customLayer = L.geoJson(null, {
       // http://leafletjs.com/reference.html#geojson-style
@@ -182,7 +179,7 @@
     // Instantiate KMZ layer (async)
     var hikeTracks = L.geoJSON(GPSHikes, {
       style: Hikestyle,
-      onEachFeature: LinePopup
+      onEachFeature: forEachFeature
     }).addTo(Hikes).addTo(map);  
 	  
     //kmz.load('GPSHikes.kmz');
@@ -195,13 +192,13 @@
     //Canoe Tracks
     var canoeTacks = L.geoJSON(CanoeTracks, {
       style: Canoestyle,
-      onEachFeature: LinePopup
+      onEachFeature: forEachFeature
     }).addTo(Canoes).addTo(map);
 	  
     //Bike Tracks
     var bikeTracks = L.geoJSON(bikeTracks, {
       style: Bikestyle,
-      onEachFeature: LinePopup
+      onEachFeature: forEachFeature
     }).addTo(Bikes).addTo(map);  
 		  
     //numPts = Teslin.features[0].geometry.coordinates.length;

@@ -161,6 +161,8 @@
 	  
     //Canoe Tracks
     L.geoJSON(CanoeTracks, {
+      style: function(feature) {
+	return { color: '#003371' }},
       onEachFeature: function (feature, layer) {
       layer.bindPopup('<h1>'+feature.properties.name+'</h1>');}
     }).addTo(Canoes).addTo(map);

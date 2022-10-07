@@ -139,31 +139,32 @@
       }
     });
 
-    for (var i = 0; i < listOfFilesPath.length; i += 1) {
-      omnivore.gpx(listOfFilesPath[i], null, customLayer).addTo(Hikes).addTo(map);
-    };
+    //for (var i = 0; i < listOfFilesPath.length; i += 1) {
+    //  omnivore.gpx(listOfFilesPath[i], null, customLayer).addTo(Hikes).addTo(map);
+    //};
 
+  
     //GPS Unit Hiking Tracks
-    L.geoJSON(GPSHikes, {    
+    L.geoJSON(GPSHikes, {
       style: function(feature) {
-	return { color: '#FF00' }},
-      onEachFeature: function (feature, layer) {
-      layer.bindPopup("<h1 class='popup'>" +feature.properties.name+"</h1>");}
-    }).addTo(Hikes).addTo(map);
-
-    //Canoe Tracks
-    L.geoJSON(CanoeTracks, {
+	return { color: '#f00' }},
       onEachFeature: function (feature, layer) {
       layer.bindPopup('<h1>'+feature.properties.name+'</h1>');}
-    }).addTo(Canoes).addTo(map);
+    }).addTo(Hikes).addTo(map); 
+	  
+    //Canoe Tracks
+ //   L.geoJSON(CanoeTracks, {
+  //    onEachFeature: function (feature, layer) {
+ //     layer.bindPopup('<h1>'+feature.properties.name+'</h1>');}
+   // }).addTo(Canoes).addTo(map);
 	  
     //Bike Tracks
-    L.geoJSON(bikeTracks, {
-      style: function(feature) {
-	return { color: '#FFA500' }},
-      onEachFeature: function (feature, layer) {
-      layer.bindPopup('<h1>'+feature.properties.name+'</h1>');}
-    }).addTo(Bikes).addTo(map);  
+    //L.geoJSON(bikeTracks, {
+    //  style: function(feature) {
+	//return { color: '#FFA500' }},
+   //   onEachFeature: function (feature, layer) {
+  //    layer.bindPopup('<h1>'+feature.properties.name+'</h1>');}
+   // }).addTo(Bikes).addTo(map);  
 		  
     //numPts = Teslin.features[0].geometry.coordinates.length;
     //var beg = Teslin.features[0].geometry.coordinates[0];

@@ -149,7 +149,7 @@
 	style: function(feature) {
 	return { color: '#f00' }},
       onEachFeature: function (feature, layer) {
-      layer.bindPopup('<h1>'+feature.properties.name+'</h1>');}    
+      layer.bindPopup('<h1>'+feature.properties.Name+'</h1>');}    
     }).addTo(Hikes).addTo(map);
 	  
     //kmz.load('GPSHikes.kmz');

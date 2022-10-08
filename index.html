@@ -273,9 +273,16 @@
     iconAnchor:   [16, 32],
     popupAnchor:  [0, -32],
     });
+    var blackbearIcon = L.icon({
+    iconUrl: 'blackbear.png',
+    iconSize:     [32], // size of the icon
+    iconAnchor:   [16, 32],
+    popupAnchor:  [0, -32],
+    });
 	  
     var bear1 = L.marker([60.67231, -137.8], {icon: bearIcon}).addTo(map).addTo(Bears);
     var bear2 = L.marker([61.02654, -138.59722], {icon: bearIcon}).addTo(map).addTo(Bears);
+    var bear2 = L.marker([59.1118, -135.3663], {icon: blackbearIcon}).addTo(map).addTo(Bears);
 
     function onMapClick(e) {
 	hikeTracks.setStyle(Hikestyle);

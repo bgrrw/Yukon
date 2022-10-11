@@ -207,10 +207,10 @@
     }).addTo(Bikes).addTo(map);
 	  
     //XCountrySkiTracks Tracks
-    var XCountrySkiTracks = L.geoJSON(bikeTracks, {
+    var XCountrySkiTracks = L.geoJSON(XCountrySkiTracks, {
       style: XCountrySkistyle,
       onEachFeature: forEachFeature
-    }).addTo(Bikes).addTo(map); 
+    }).addTo(XCountrySki).addTo(map); 
 		  
     //numPts = Teslin.features[0].geometry.coordinates.length;
     //var beg = Teslin.features[0].geometry.coordinates[0];

@@ -154,7 +154,7 @@
     }};
     function XCountrySkistyle(feature) {
     return {
-        color: '#58D310',
+        color: '#4F7942',
 		weight: 2
     }};
 	  
@@ -166,6 +166,7 @@
 	customLayer.setStyle(Hikestyle);
 	canoeTacks.setStyle(Canoestyle);
 	bikeTracks.setStyle(Bikestyle);
+	XCountrySki.setStyle(XCountrySkistyle);
         layer.setStyle(highlight);  //highlights selected.
      });}
    
@@ -302,6 +303,7 @@
 	customLayer.setStyle(Hikestyle);
 	canoeTacks.setStyle(Canoestyle);
 	bikeTracks.setStyle(Bikestyle);
+	XCountrySki.setStyle(XCountrySkistyle);
     }
     map.on('click', onMapClick);
   </script>

@@ -98,11 +98,13 @@
     var Hikes = L.layerGroup()
     var Bikes = L.layerGroup()
     var Canoes = L.layerGroup()
+    var XCountrySki = L.layerGroup()
 
     var overlays = {
 	'Hikes': Hikes,
 	'Bikes': Bikes,
 	'Canoes': Canoes,
+	'X-Country Ski': XCountrySki,
 	'Summits<img src="summit.png" style="width:32px;height:32px;">': Summits,
 	'Camps<img src="tent.png" style="width:32px;height:32px;">': Camps,
 	'Cabins<img src="cabin.png" style="width:32px;height:32px;">': Cabins,
@@ -114,7 +116,7 @@
       zoom: 5.5,
       zoomControl: false,
       zoomSnap: 0.25,
-      layers: [baseLayers["Terrain"],Hikes,Bikes,Canoes,Summits,Camps,Cabins,Bears]
+      layers: [baseLayers["Terrain"],Hikes,Bikes,Canoes,XCountrySki,Summits,Camps,Cabins,Bears]
     });
   for (var i = 0; i < overlays.length; i += 1) {overlays[i];}
 	  

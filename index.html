@@ -108,7 +108,7 @@
 	'Summits': Summits,
 	'Camps': Camps,
 	'Cabins': Cabins,
-	'Bears <img src="bear.png style="width:128px;height:128px;">': Bears
+	'Bears <img src="bear.png style="width:32px;height:32px;">': Bears
     };
 	  
     var map = L.map('map', {
@@ -116,9 +116,11 @@
       zoom: 5.5,
       zoomControl: false,
       zoomSnap: 0.25,
-      layers: [baseLayers["Terrain"]]//,overlays["Hikes"],overlays["Bikes"],overlays["Canoes"],overlays["Summits"],overlays["Camps"],overlays["Cabins"],overlays['Bears <img src="bear.png">']]
+      layers: [baseLayers["Terrain"],for (var i = 0; i < overlays.length; i += 1) {overlays[i];}]//,overlays["Hikes"],overlays["Bikes"],overlays["Canoes"],overlays["Summits"],overlays["Camps"],overlays["Cabins"],overlays['Bears <img src="bear.png">']]
     });
- 
+  for (var i = 0; i < overlays.length; i += 1) {overlays[i];}
+	  
+	  
     var layerControl = L.control.layers(baseLayers,overlays).addTo(map);
     
     var Icon = L.Icon.extend({

@@ -162,9 +162,9 @@
       layer.bindPopup('<h1>'+feature.properties.name+'</h1>'+feature.properties.time.slice(0,10)),
       layer.on("click", function (e) {
 	layer.bringToFront();
-	hikeTracks.setStyle(Hikestyle);
+	//hikeTracks.setStyle(Hikestyle);
 	//customLayer.setStyle(Hikestyle);
-	//canoeTacks.setStyle(Canoestyle);
+	canoeTacks.setStyle(Canoestyle);
 	bikeTracks.setStyle(Bikestyle);
 	XCountrySkiTracks.setStyle(XCountrySkistyle);
         layer.setStyle(highlight);  //highlights selected.
@@ -182,18 +182,10 @@
     };
 
     //GPS Unit Hiking Tracks
-    // Instantiate KMZ layer (async)
     var hikeTracks = L.geoJSON(GPSHikes, {
       style: Hikestyle,
       onEachFeature: forEachFeature
     }).addTo(Hikes).addTo(map);  
-	  
-    //kmz.load('GPSHikes.kmz');
-    //kmz.on('load', function(e) {
-    //  control.addOverlay(e.layer, e.name);
-      // e.layer.addTo(map);
-    //});
-    //var control = L.control.layers(null, null, { collapsed:false }).addTo(map);
 	  
     //Canoe Tracks
     var canoeTacks = L.geoJSON(CanoeTracks, {

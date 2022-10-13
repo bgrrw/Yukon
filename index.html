@@ -182,10 +182,10 @@
     };
 
     //GPS Unit Hiking Tracks
-    //var hikeTracks = L.geoJSON(GPSHikes, {
-    //  style: Hikestyle,
-    //  onEachFeature: forEachFeature
-    //}).addTo(Hikes).addTo(map);  
+    var hikeTracks = L.geoJSON(GPSHikes, {
+      style: Hikestyle,
+      onEachFeature: forEachFeature
+    }).addTo(Hikes).addTo(map);  
 	  
     //Canoe Tracks
     var canoeTacks = L.geoJSON(CanoeTracks, {

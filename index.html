@@ -159,7 +159,7 @@
     }};
 	  
     function forEachFeature(feature, layer) {
-      layer.bindPopup('<h1>'+feature.properties.name+'</h1>'),
+      layer.bindPopup('<h1>'+feature.properties.name+'</h1>'+feature.properties.time.slice(0,10)),
       layer.on("click", function (e) {
 	layer.bringToFront();
 	hikeTracks.setStyle(Hikestyle);

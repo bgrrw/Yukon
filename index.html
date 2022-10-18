@@ -293,16 +293,6 @@
     }
     map.on('click', onMapClick);
 	  
-    map.on('zoomend', function () {
-      if (map.getZoom() < 9) {
-        map.addLayer(xCanadaPoints);
-	map.addLayer(xCanadaDrive);
-        }
-      if (map.getZoom() >= 9 ) {
-        map.removeLayer(xCanadaPoints)
-        map.removeLayer(xCanadaDrive);
-        }
-      });
   </script>
 </body>
 </html>

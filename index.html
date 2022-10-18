@@ -90,7 +90,6 @@
 	    maxZoom:20
 	})
     };
-    var xCanadaPoints = L.layerGroup()
     var Summits = L.layerGroup()
     var Camps = L.layerGroup()
     var Cabins = L.layerGroup()
@@ -138,12 +137,6 @@
       'opacity': 1,	
     };	  
 
-    function DriveStyle(feature) {
-    return {
-        color: '#000000',
-		weight: 2,
-		dashArray: '10, 5'
-    }};  
     function Hikestyle(feature) {
     return {
         color: '#f00',
@@ -176,13 +169,7 @@
 	XCountrySkiTracks.setStyle(XCountrySkistyle);
         layer.setStyle(highlight);  //highlights selected.
      });}
-   
-    //Cross-Candada Drive
-    var xCanadaDrive = L.geoJSON(CrossCanadaDrive, {
-      style: DriveStyle,
-      onEachFeature: forEachFeature
-      }).addTo(map);
-	  
+   	  
     //HikingGPX Tracks
     var customLayer = L.geoJson(null, {
       // http://leafletjs.com/reference.html#geojson-style
@@ -217,61 +204,11 @@
       style: XCountrySkistyle,
       onEachFeature: forEachFeature
     }).addTo(XCountrySki).addTo(map); 
-		  
-    //numPts = Teslin.features[0].geometry.coordinates.length;
-    //var beg = Teslin.features[0].geometry.coordinates[0];
-    //var end = Teslin.features[0].geometry.coordinates[numPts-1];
-    //L.marker([beg[1],beg[0]]).addTo(map);
-    //L.marker([end[1],end[0]]).addTo(map);
-	  
+		  	  
     // Point Layes
     var CampIcon = new Icon({iconUrl: 'tent.png'});
     var CabinIcon = new Icon({iconUrl: 'cabin.png'});
     var SummitIcon = new Icon({iconUrl: 'summit.png'});
-    var StartIcon = new Icon({iconUrl: 'home.png'});
-    var AccomodationIcon = new Icon({iconUrl: 'accomodation.png'});
-    var POIICon = new Icon({iconUrl: 'point-of-interest.png'});
-    var EndIcon = new Icon({iconUrl: 'welcome_to_whitehorse.png'});
-    var BorderIcon = new Icon({iconUrl: 'border.png'});
-
-    // Read markers data from data.csv
-    $.get('CrossCanadaPoints.csv', function(csvString) {
-    // Use PapaParse to convert string to array of objects
-      var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
-      // For each row in data, create a marker and add it to the map
-      // For each row, columns `Latitude`, `Longitude`, and `Title` are required
-      for (var i in data) {
-        var row = data[i];
-        if (row.Point_Type == 'Camp') {
-            var xcanadaicon = CampIcon;
-	    var popuptxt = "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>"
-          } else if (row.Point_Type == 'Start') {
-            var xcanadaicon = StartIcon;
-	    var popuptxt = '<video controls autoplay><source src="RoadTrip.mp4"></source></video>'
-	  } else if (row.Point_Type == 'Attraction') {
-	    var xcanadaicon = POIICon;
-	    var popuptxt = "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>"
-	  } else if (row.Point_Type == 'Accommodation') {
-	    var xcanadaicon = AccomodationIcon;
-	    var popuptxt = "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>"
-	  } else if (row.Point_Type == 'Border') {
-	    var xcanadaicon = BorderIcon;
-	    var popuptxt = "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>" 
-          } else {
-	    var xcanadaicon = EndIcon;
-	    var popuptxt = "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>"
-	  };   
-	      
-        var xCanadamarker = L.marker([row.Latitude, row.Longitude], {
-	  icon: xcanadaicon,
-	  opacity: 1
-        }).bindPopup(
-	  popuptxt, {
-	   maxWidth: "auto"
-          }).addTo(xCanadaPoints);		
-          xCanadamarker.addTo(map);
-        }
-      });
 	  
     // Read markers data from data.csv
     $.get('Camps.csv', function(csvString) {
@@ -353,7 +290,6 @@
 	canoeTacks.setStyle(Canoestyle);
 	bikeTracks.setStyle(Bikestyle);
 	XCountrySkiTracks.setStyle(XCountrySkistyle);
-	xCanadaDrive.setStyle(DriveStyle)
     }
     map.on('click', onMapClick);
 	  

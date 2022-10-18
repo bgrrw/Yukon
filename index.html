@@ -21,6 +21,7 @@
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
 
   <!-- Javascript Variable of tracks from geojson -->
+  <script src="CrossCanadaDrive.js" type="text/javascript"></script>
   <script src="GPX_Sources.js" type="text/javascript"></script>
   <script src="Canoe.js" type="text/javascript"></script>
   <script src="Bike.js" type="text/javascript"></script>
@@ -170,6 +171,11 @@
         layer.setStyle(highlight);  //highlights selected.
      });}
    
+    //Cross-Candada Drive
+    var xCanadaDrive = L.geoJSON(CrossCanadaDrive, {
+      onEachFeature: forEachFeature,
+      style: style}).addTo(map);
+	  
     //HikingGPX Tracks
     var customLayer = L.geoJson(null, {
       // http://leafletjs.com/reference.html#geojson-style
@@ -234,7 +240,26 @@
           Campsmarker.addTo(map);
         }
       });
-	  
+
+    // Read markers data from data.csv
+    $.get('CrossCanadaPoints.csv', function(csvString) {
+    // Use PapaParse to convert string to array of objects
+      var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+      // For each row in data, create a marker and add it to the map
+      // For each row, columns `Latitude`, `Longitude`, and `Title` are required
+      for (var i in data) {
+        var row = data[i];
+        var xCanadamarker = L.marker([row.Latitude, row.Longitude], {
+	  //icon: CabinIcon,
+	  opacity: 1
+        }).bindPopup(
+	  "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>", {
+	   maxWidth: "auto"
+          }).addTo(Cabins);		
+          xCanadamarker.addTo(map);
+        }
+      });
+	 
     // Read markers data from data.csv
     $.get('Cabins.csv', function(csvString) {
     // Use PapaParse to convert string to array of objects
@@ -298,6 +323,15 @@
 	XCountrySkiTracks.setStyle(XCountrySkistyle);
     }
     map.on('click', onMapClick);
+	  
+    map.on('zoomend', function () {
+      if (map.getZoom() < 9 && !map.hasLayer(hikes)) {
+        map.addLayer(hikes);
+        }
+      if (map.getZoom() >= 9 && map.hasLayer(hikes)) {
+        map.removeLayer(hikes)
+        }
+      });
   </script>
 </body>
 </html>

@@ -90,7 +90,7 @@
 	    maxZoom:20
 	})
     };
-    
+    var xCanadaPoints = L.layerGroup()
     var Summits = L.layerGroup()
     var Camps = L.layerGroup()
     var Cabins = L.layerGroup()
@@ -138,6 +138,12 @@
       'opacity': 1,	
     };	  
 
+    function DriveStyle(feature) {
+    return {
+        color: '#000000',
+		weight: 2,
+		dashArray: '10, 5'
+    }};  
     function Hikestyle(feature) {
     return {
         color: '#f00',
@@ -255,7 +261,7 @@
         }).bindPopup(
 	  "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>", {
 	   maxWidth: "auto"
-          }).addTo(Cabins);		
+          }).addTo(xCanadaPoints);		
           xCanadamarker.addTo(map);
         }
       });
@@ -321,15 +327,18 @@
 	canoeTacks.setStyle(Canoestyle);
 	bikeTracks.setStyle(Bikestyle);
 	XCountrySkiTracks.setStyle(XCountrySkistyle);
+	xCanadaDrive.setStyle(DriveStyle)
     }
     map.on('click', onMapClick);
 	  
     map.on('zoomend', function () {
-      if (map.getZoom() < 9 && !map.hasLayer(hikes)) {
-        map.addLayer(hikes);
+      if (map.getZoom() < 9) {
+        map.addLayer(xCanadaPoints);
+	map.addLayer(xCanadaDrive);
         }
-      if (map.getZoom() >= 9 && map.hasLayer(hikes)) {
-        map.removeLayer(hikes)
+      if (map.getZoom() >= 9 ) {
+        map.removeLayer(xCanadaPoints)
+        map.addLayer(xCanadaDrive);
         }
       });
   </script>

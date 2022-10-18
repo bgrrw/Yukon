@@ -238,15 +238,20 @@
       for (var i in data) {
         var row = data[i];
         if (row.Point_Type == 'Camp') {
-            var xcanadaicon = CampIcon
+            var xcanadaicon = CampIcon,
+	    var popuptxt = "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>"
+          } else if (row.Point_Type == 'Start') {
+            var xcanadaicon = CabinIcon,
+	     var popuptxt = '<video controls autoplay><source src="RoadTrip.mp4"></source></video>'
           } else {
-            var xcanadaicon = CabinIcon
-          };   
+	    var xcanadaicon = CabinIcon,
+	     var popuptxt = "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>"
+	  };   
         var xCanadamarker = L.marker([row.Latitude, row.Longitude], {
 	  icon: xcanadaicon,
 	  opacity: 1
         }).bindPopup(
-	  "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>", {
+	  popuptxt, {
 	   maxWidth: "auto"
           }).addTo(xCanadaPoints);		
           xCanadamarker.addTo(map);

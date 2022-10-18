@@ -611,9 +611,9 @@ var CrossCanadaDrive = {
       },
       "properties" : {
         "OBJECTID" : 1,
-        "Name" : "Watson Lake YT - Whitehorse YT",
+        "name" : "Watson Lake YT - Whitehorse YT",
         "Shape_Length" : 6.7913256231735524,
-        "Date" : "2019-09-21",
+        "time" : "2019-09-21",
         "Length" : 427.350022293493
       }
     },
@@ -5589,9 +5589,9 @@ var CrossCanadaDrive = {
       },
       "properties" : {
         "OBJECTID" : 2,
-        "Name" : "Fort Nelson BC - Watson Lake YT",
+        "name" : "Fort Nelson BC - Watson Lake YT",
         "Shape_Length" : 7.4000562696304799,
-        "Date" : "2019-09-20",
+        "time" : "2019-09-20",
         "Length" : 509.37604178291832
       }
     },
@@ -15559,9 +15559,9 @@ var CrossCanadaDrive = {
       },
       "properties" : {
         "OBJECTID" : 3,
-        "Name" : "Jasper AB- Fort Nelson BC",
+        "name" : "Jasper AB- Fort Nelson BC",
         "Shape_Length" : 11.523216125682859,
-        "Date" : "2019-09-19",
+        "time" : "2019-09-19",
         "Length" : 955.45680701745528
       }
     },
@@ -21161,9 +21161,9 @@ var CrossCanadaDrive = {
       },
       "properties" : {
         "OBJECTID" : 4,
-        "Name" : "Calgary AB - Jasper AB",
+        "name" : "Calgary AB - Jasper AB",
         "Shape_Length" : 5.6288812432023843,
-        "Date" : "2019-09-18",
+        "time" : "2019-09-18",
         "Length" : 464.51200076831782
       }
     },
@@ -32727,9 +32727,9 @@ var CrossCanadaDrive = {
       },
       "properties" : {
         "OBJECTID" : 5,
-        "Name" : "Brandon MB - Calgary AB",
+        "name" : "Brandon MB - Calgary AB",
         "Shape_Length" : 15.244122507735334,
-        "Date" : "2019-09-17",
+        "time" : "2019-09-17",
         "Length" : 1146.4800688600294
       }
     },
@@ -43907,9 +43907,9 @@ var CrossCanadaDrive = {
       },
       "properties" : {
         "OBJECTID" : 6,
-        "Name" : "Thunder Bay ON - Brandon MB",
+        "name" : "Thunder Bay ON - Brandon MB",
         "Shape_Length" : 12.078559402855664,
-        "Date" : "2019-09-16",
+        "time" : "2019-09-16",
         "Length" : 943.23444958631148
       }
     },
@@ -56783,9 +56783,9 @@ var CrossCanadaDrive = {
       },
       "properties" : {
         "OBJECTID" : 7,
-        "Name" : "Belleville ON - Thunder Bay ON",
+        "name" : "Belleville ON - Thunder Bay ON",
         "Shape_Length" : 17.736599032878829,
-        "Date" : "2019-09-15",
+        "time" : "2019-09-15",
         "Length" : 1562.2670759799405
       }
     }

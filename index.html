@@ -228,25 +228,6 @@
     var CampIcon = new Icon({iconUrl: 'tent.png'});
     var CabinIcon = new Icon({iconUrl: 'cabin.png'});
     var SummitIcon = new Icon({iconUrl: 'summit.png'});
-	  
-    // Read markers data from data.csv
-    $.get('Camps.csv', function(csvString) {
-    // Use PapaParse to convert string to array of objects
-      var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
-      // For each row in data, create a marker and add it to the map
-      // For each row, columns `Latitude`, `Longitude`, and `Title` are required
-      for (var i in data) {
-        var row = data[i];
-        var Campsmarker = L.marker([row.Latitude, row.Longitude], {
-	  icon: CampIcon,
-	  opacity: 1
-        }).bindPopup(
-	  "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>", {
-	   maxWidth: "auto"
-          }).addTo(Camps);		
-          Campsmarker.addTo(map);
-        }
-      });
 
     // Read markers data from data.csv
     $.get('CrossCanadaPoints.csv', function(csvString) {
@@ -264,6 +245,30 @@
 	   maxWidth: "auto"
           }).addTo(xCanadaPoints);		
           xCanadamarker.addTo(map);
+        }
+      });
+	  
+    // Read markers data from data.csv
+    $.get('Camps.csv', function(csvString) {
+    // Use PapaParse to convert string to array of objects
+      var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+      // For each row in data, create a marker and add it to the map
+      // For each row, columns `Latitude`, `Longitude`, and `Title` are required
+      for (var i in data) {
+        var row = data[i];
+	
+        var Campsmarker = L.marker([row.Latitude, row.Longitude], {
+          if (row.Type == 'Camp') {
+            icon: CampIcon
+          } else {
+            icon: CabinIcon,
+          },
+	  opacity: 1
+        }).bindPopup(
+	  "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>", {
+	   maxWidth: "auto"
+          }).addTo(Camps);		
+          Campsmarker.addTo(map);
         }
       });
 	 

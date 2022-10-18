@@ -179,7 +179,7 @@
    
     //Cross-Candada Drive
     var xCanadaDrive = L.geoJSON(CrossCanadaDrive, {
-	    style: DriveStyle,
+      style: DriveStyle,
       onEachFeature: forEachFeature
       }).addTo(map);
 	  
@@ -238,7 +238,11 @@
       for (var i in data) {
         var row = data[i];
         var xCanadamarker = L.marker([row.Latitude, row.Longitude], {
-	  //icon: CabinIcon,
+          if (row[2] == 'Camp') {
+            icon: CampIcon
+          } else {
+            icon: CabinIcon,
+          },
 	  opacity: 1
         }).bindPopup(
 	  "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>", {
@@ -256,13 +260,8 @@
       // For each row, columns `Latitude`, `Longitude`, and `Title` are required
       for (var i in data) {
         var row = data[i];
-	
         var Campsmarker = L.marker([row.Latitude, row.Longitude], {
-          if (row.Type == 'Camp') {
-            icon: CampIcon
-          } else {
-            icon: CabinIcon,
-          },
+          icon: CampIcon,
 	  opacity: 1
         }).bindPopup(
 	  "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>", {

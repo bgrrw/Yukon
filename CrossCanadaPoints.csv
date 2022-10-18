@@ -1,4 +1,4 @@
-OBJECTID *,Name,Type,Latitude,Longitude,PIC_URL
+OBJECTID *,Name,Point_Type,Latitude,Longitude,PIC_URL
 1,"Motel 6 Fort Nelson, BC",Accommodation,58.802546,-122.68596,
 2,Thunder Bay,Accommodation,48.385958,-89.272036,
 3,Air Force Lodge,Accommodation,60.053395,-128.665855,

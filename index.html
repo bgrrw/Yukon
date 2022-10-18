@@ -238,7 +238,7 @@
       for (var i in data) {
         var row = data[i];
         var xCanadamarker = L.marker([row.Latitude, row.Longitude], {
-          if (row[2] == 'Camp') {
+          if (row.Point_Type == 'Camp') {
             icon: CampIcon
           } else {
             icon: CabinIcon,

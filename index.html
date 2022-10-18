@@ -237,12 +237,13 @@
       // For each row, columns `Latitude`, `Longitude`, and `Title` are required
       for (var i in data) {
         var row = data[i];
-        var xCanadamarker = L.marker([row.Latitude, row.Longitude], {
-          if (row.Point_Type == 'Camp') {
-            icon: CampIcon
+        if (row.Point_Type == 'Camp') {
+            var xcanadaicon = CampIcon
           } else {
-            icon: CabinIcon,
-          },
+            var xcanadaicon = CabinIcon,
+          };   
+        var xCanadamarker = L.marker([row.Latitude, row.Longitude], {
+	  icon: xcanadaicon,
 	  opacity: 1
         }).bindPopup(
 	  "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>", {

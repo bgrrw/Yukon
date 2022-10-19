@@ -220,6 +220,7 @@
         var row = data[i];
 	try {
 	  if (row.PIC_URL.slice(-3) == "mp4") {
+		  console.log(row.PIC_URL);
 	    popuptxt = "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><video width='320' controls autoplay><source src='"+row.PIC_URL+"'></source></video>"
 	  }
 	}

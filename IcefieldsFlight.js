@@ -1,10 +1,11 @@
+// JavaScript source code
 var icefieldsFlight = {
     "type": "FeatureCollection",
     "features": [
         {
             "type": "Feature",
             "properties": {
-                "name": "2021-07-03 12:27:25",
+                "name": "Icefield Flight",
                 "time": "2021-07-03T18:06:07Z",
                 "coordTimes": [
                     "2021-07-03T18:06:07Z",

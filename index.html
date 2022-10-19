@@ -99,14 +99,14 @@
     var Bikes = L.layerGroup()
     var Canoes = L.layerGroup()
     var XCountrySki = L.layerGroup()
-    var icefieldsFlight = L.layerGroup()
+    var Flight = L.layerGroup()
 
     var overlays = {
 	'<p style="display:inline; color:#f00">Hikes</p>': Hikes,
 	'<p style="display:inline; color:#FFA500">Bikes</p>': Bikes,
 	'<p style="display:inline; color:#003371">Canoes</p>': Canoes,
 	'<p style="display:inline; color:#4F7942">X-Country Ski</p>': XCountrySki,
-	'<p style="display:inline; color:#B25CCC">IceFields Flight</p>': icefieldsFlight,
+	'<p style="display:inline; color:#B25CCC">IceFields Flight</p>': Flight,
 	'Summits<img src="summit.png" style="width:32px;height:32px;">': Summits,
 	'Camps<img src="tent.png" style="width:32px;height:32px;">': Camps,
 	'Cabins<img src="cabin.png" style="width:32px;height:32px;">': Cabins,
@@ -160,7 +160,7 @@
 		weight: 2
     }};
 	  
-    function IceFieldFlightStyle(feature) {
+    function FlightStyle(feature) {
     return {
         color: '#B25CCC',
 		weight: 2,
@@ -176,7 +176,7 @@
 	canoeTacks.setStyle(Canoestyle);
 	bikeTracks.setStyle(Bikestyle);
 	XCountrySkiTracks.setStyle(XCountrySkistyle);
-	IcefieldFlightTracks.setStyle(IceFieldFlightStyle);
+	IcefieldFlightTracks.setStyle(FlightStyle);
         layer.setStyle(highlight);  //highlights selected.
      });}
    	  
@@ -217,9 +217,9 @@
 	  
     //IcefieldFlightTracks Tracks
     var IcefieldFlightTracks = L.geoJSON(icefieldsFlight, {
-      style: IceFieldFlightStyle,
+      style: FlightStyle,
       onEachFeature: forEachFeature
-    }).addTo(icefieldsFlight).addTo(map); 
+    }).addTo(Flight).addTo(map); 
 		  	  
     // Point Layes
     var CampIcon = new Icon({iconUrl: 'tent.png'});

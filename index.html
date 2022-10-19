@@ -99,14 +99,14 @@
     var Bikes = L.layerGroup()
     var Canoes = L.layerGroup()
     var XCountrySki = L.layerGroup()
-    var IceFieldsFlight = L.layerGroup()
+    var icefieldsFlight = L.layerGroup()
 
     var overlays = {
 	'<p style="display:inline; color:#f00">Hikes</p>': Hikes,
 	'<p style="display:inline; color:#FFA500">Bikes</p>': Bikes,
 	'<p style="display:inline; color:#003371">Canoes</p>': Canoes,
 	'<p style="display:inline; color:#4F7942">X-Country Ski</p>': XCountrySki,
-	'<p style="display:inline; color:#B25CCC">IceFields Flight</p>': IceFieldsFlight,
+	'<p style="display:inline; color:#B25CCC">IceFields Flight</p>': icefieldsFlight,
 	'Summits<img src="summit.png" style="width:32px;height:32px;">': Summits,
 	'Camps<img src="tent.png" style="width:32px;height:32px;">': Camps,
 	'Cabins<img src="cabin.png" style="width:32px;height:32px;">': Cabins,
@@ -118,7 +118,7 @@
       zoom: 5.5,
       zoomControl: false,
       zoomSnap: 0.25,
-      layers: [baseLayers["Terrain"],Hikes,Bikes,Canoes,XCountrySki,IceFieldsFlight,Summits,Camps,Cabins,Bears]
+      layers: [baseLayers["Terrain"],Hikes,Bikes,Canoes,XCountrySki,icefieldsFlight,Summits,Camps,Cabins,Bears]
     });
   for (var i = 0; i < overlays.length; i += 1) {overlays[i];}
 	  
@@ -216,10 +216,10 @@
     }).addTo(XCountrySki).addTo(map); 
 	  
     //IcefieldFlightTracks Tracks
-    var IcefieldFlightTracks = L.geoJSON(IcefieldFlightTracks, {
+    var IcefieldFlightTracks = L.geoJSON(icefieldsFlight, {
       style: IceFieldFlightStyle,
       onEachFeature: forEachFeature
-    }).addTo(IceFieldsFlight).addTo(map); 
+    }).addTo(icefieldsFlight).addTo(map); 
 		  	  
     // Point Layes
     var CampIcon = new Icon({iconUrl: 'tent.png'});

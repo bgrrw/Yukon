@@ -222,7 +222,7 @@
           icon: CampIcon,
 	  opacity: 1
         }).bindPopup(
-	  "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "' onerror=this.style.display='none' class=popupImage/>", {
+          "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " onerror=this.style.display='none' class=popupImage " + "/>", {
 	   maxWidth: "auto"
           }).addTo(Camps);		
           Campsmarker.addTo(map);

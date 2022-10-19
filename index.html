@@ -218,6 +218,12 @@
       // For each row, columns `Latitude`, `Longitude`, and `Title` are required
       for (var i in data) {
         var row = data[i];
+	if (row.PIC_URL.substr(row.PIC_URL.length - 3) == "mp4") {
+	  popuptxt = "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><video width='320' controls autoplay><source src='"+row.PIC_URL+"'></source></video>"
+	} else {
+	  popuptxt = "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " onerror=this.style.display='none' class=popupImage " + "/>"
+	};
+		
         var Campsmarker = L.marker([row.Latitude, row.Longitude], {
           icon: CampIcon,
 	  opacity: 1

@@ -86,7 +86,7 @@
   <!-- <div id="map-title">Brad & Sam's Yukon Adventures</div> -->
   <div id="map"></div>
   <div id="title-pane"><p>Brad & Sam's Yukon Adventures</p></div>
-  <div id="CrossCanada-link"><a href='https://bgrrw.github.io/CrossCanadaRoadTrip/'><img src="Car.png"  width="225"/></div>
+  <div id="CrossCanada-link"><a href='https://bgrrw.github.io/CrossCanadaRoadTrip/'><img src="car.png"  width="225"/></div>
 
 
   <!-- Create the interactive map content with JavaScript (.js) -->
@@ -248,7 +248,6 @@
 	  if (row.PIC_URL == null) {
 	    popuptxt = "<h1>" + row.Name +"</h1>"
 	  } else if (row.PIC_URL.slice(-3) == "mp4") {
-	    console.log(row.PIC_URL);
 	    popuptxt = "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><video width='320' controls autoplay><source src='"+row.PIC_URL+"'></source></video>"
 	   } else {
   	  popuptxt = "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " onerror=this.style.display='none' class=popupImage " + "/>"

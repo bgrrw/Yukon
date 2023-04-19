@@ -60,5 +60,6 @@ var listOfFilesPath = [
   "GPX/9972780319.gpx",
   "GPX/10777336032.gpx",
   "GPX/10777513154.gpx",
-  "GPX/M'ClintockWestRidge.gpx"
+  "GPX/M'ClintockWestRidge.gpx",
+  "GPX/KingsThrone.gpx"
 ];

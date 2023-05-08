@@ -86,7 +86,7 @@
   <!-- <div id="map-title">Brad & Sam's Yukon Adventures</div> -->
   <div id="map"></div>
   <div id="title-pane"><p>Brad & Sam's Yukon Adventures</p></div>
-  <div id="CrossCanada-link"><a href='https://bgrrw.github.io/CrossCanadaRoadTrip/'><img src="car.png"  width="225"/></div>
+  <!--<div id="CrossCanada-link"><a href='https://bgrrw.github.io/CrossCanadaRoadTrip/'><img src="car.png"  width="225"/></div>-->
 
 
   <!-- Create the interactive map content with JavaScript (.js) -->
@@ -109,15 +109,17 @@
     var Hikes = L.layerGroup()
     var Bikes = L.layerGroup()
     var Canoes = L.layerGroup()
+	var Paddleboards = L.layerGroup()
     var XCountrySki = L.layerGroup()
     var Flight = L.layerGroup()
 
     var overlays = {
-	'<p style="display:inline; color:#f00">Hikes</p>': Hikes,
-	'<p style="display:inline; color:#FFA500">Bikes</p>': Bikes,
-	'<p style="display:inline; color:#003371">Canoes</p>': Canoes,
-	'<p style="display:inline; color:#A83800">X-Country Ski</p>': XCountrySki,
-	'<p style="display:inline; color:#B25CCC">IceFields Flight</p>': Flight,
+	'<p style="display:inline; color:#e41a1c">Hikes</p>': Hikes,
+	'<p style="display:inline; color:#ff7f00">Bikes</p>': Bikes,
+	'<p style="display:inline; color:#377eb8">Canoes</p>': Canoes,
+	'<p style="display:inline; color:#4daf4a">Paddleboards</p>': Paddleboards,
+	'<p style="display:inline; color:#ffff33">X-Country Ski</p>': XCountrySki,
+	'<p style="display:inline; color:#984ea3">IceFields Flight</p>': Flight,
 	'Summits<img src="summit.png" style="width:32px;height:32px;">': Summits,
 	'Camps<img src="tent.png" style="width:32px;height:32px;">': Camps,
 	'Cabins<img src="cabin.png" style="width:32px;height:32px;">': Cabins,
@@ -129,7 +131,7 @@
       zoom: 5.5,
       zoomControl: false,
       zoomSnap: 0.25,
-      layers: [baseLayers["Terrain"],Hikes,Bikes,Canoes,XCountrySki,Flight,Summits,Camps,Cabins,Bears]
+      layers: [baseLayers["Terrain"],Hikes,Bikes,Canoes,Paddlboard,XCountrySki,Flight,Summits,Camps,Cabins,Bears]
     });
   for (var i = 0; i < overlays.length; i += 1) {overlays[i];}
 	  
@@ -152,28 +154,35 @@
 
     function Hikestyle(feature) {
     return {
-        color: '#f00',
+        color: '#e41a1c',//'#f00',
 		weight: 2
     }};
     function Bikestyle(feature) {
     return {
-        color: '#FFA500',
+        color: '#ff7f00',//'#FFA500',
 		weight: 2
     }};
     function Canoestyle(feature) {
     return {
-        color: '#003371',
+        color: '#377eb8',//'#003371',
 		weight: 2
     }};
-    function XCountrySkistyle(feature) {
+    
+	function Paddleboardstyle(feature) {
     return {
-        color: '#A83800',
+        color: '#4daf4a',
 		weight: 2
     }};
-	  
+	
+	function XCountrySkistyle(feature) {
+    return {
+        color: '#ffff33',//'#A83800',
+		weight: 2
+    }};
+		  
     function FlightStyle(feature) {
     return {
-        color: '#B25CCC',
+        color: '#984ea3',//'#B25CCC',
 		weight: 2,
 	        dashArray: '10, 5'
     }};
@@ -183,23 +192,35 @@
       layer.on("click", function (e) {
 	layer.bringToFront();
 	hikeTracks.setStyle(Hikestyle);
-	customLayer.setStyle(Hikestyle);
+	hikegpx.setStyle(Hikestyle);
 	canoeTacks.setStyle(Canoestyle);
 	bikeTracks.setStyle(Bikestyle);
 	XCountrySkiTracks.setStyle(XCountrySkistyle);
 	IcefieldFlightTracks.setStyle(FlightStyle);
+	paddleboardTracks.setStyle(Paddleboardstyle);
         layer.setStyle(highlight);  //highlights selected.
      });}
    	  
-    //HikingGPX Tracks
-    var customLayer = L.geoJson(null, {
+    //Hiking GPX Tracks
+    var hikegpx = L.geoJson(null, {
       // http://leafletjs.com/reference.html#geojson-style
       style: Hikestyle,
       onEachFeature: forEachFeature
     });
 
     for (var i = 0; i < listOfFilesPath.length; i += 1) {
-      omnivore.gpx(listOfFilesPath[i], null, customLayer).addTo(Hikes).addTo(map);
+      omnivore.gpx(listOfFilesPath[i], null, hikegpx).addTo(Hikes).addTo(map);
+    };
+	
+	//Paddleboard GPX Tracks
+    var paddleboardTracks = L.geoJson(null, {
+      // http://leafletjs.com/reference.html#geojson-style
+      style: Paddleboardstyle,
+      onEachFeature: forEachFeature
+    });
+
+    for (var i = 0; i < listOfPaddleboardGPX.length; i += 1) {
+      omnivore.gpx(listOfPaddleboardGPX[i], null, paddleboardTracks).addTo(Paddleboards).addTo(map);
     };
 
     //GPS Unit Hiking Tracks

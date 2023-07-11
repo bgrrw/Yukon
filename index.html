@@ -251,7 +251,7 @@
     var FlightTracks = L.geoJSON(icefieldsFlight, {
       style: FlightStyle,
       onEachFeature: forEachFeature
-    }).addTo(Flight).addTo(map);
+    });
 
     for (var i = 0; i < listOfFilesPath.length; i += 1) {
       omnivore.gpx(listOfFilesPath[i], null, flighttracks).addTo(FlightTracks).addTo(map);

@@ -248,14 +248,16 @@
     }).addTo(XCountrySki).addTo(map); 
 	  
     //IcefieldFlightTracks Tracks
-    var FlightTracks = L.geoJSON(icefieldsFlight, {
+    var FlightTracks = L.geoJson(null, {
+      // http://leafletjs.com/reference.html#geojson-style
       style: FlightStyle,
       onEachFeature: forEachFeature
     });
 
-    for (var i = 0; i < listOfFilesPath.length; i += 1) {
-      omnivore.gpx(listOfFilesPath[i], null, flighttracks).addTo(FlightTracks).addTo(map);
+    for (var i = 0; i < listOfPaddleboardGPX.length; i += 1) {
+      omnivore.gpx(listOfPaddleboardGPX[i], null, flighttracks).addTo(FlightTracks).addTo(map);
     };
+	  
 		  	  
     // Point Layes
     var CampIcon = new Icon({iconUrl: 'tent.png'});

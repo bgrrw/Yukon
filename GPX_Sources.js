@@ -74,7 +74,7 @@ var listOfPaddleboardGPX = [
   "GPX/11526232508.gpx"
  ];
 
-var flighttracks = [
+var flighttracksGPX = [
   "GPX/2021-07-03 12_27_25.gpx",
   "GPX/11440102844.gpx",
   "GPX/11440106384.gpx"

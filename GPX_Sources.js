@@ -68,5 +68,8 @@ var listOfFilesPath = [
 
 var listOfPaddleboardGPX = [
   "GPX/11061360609.gpx",
-  "GPX/11069273960.gpx"
+  "GPX/11069273960.gpx",
+  "GPX/11417286906.gpx",
+  "GPX/11526231967.gpx",
+  "GPX/11526232508.gpx"
  ];

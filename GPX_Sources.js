@@ -65,8 +65,7 @@ var listOfFilesPath = [
   "GPX/10969483245.gpx",
   "GPX/10969482004.gpx",
   "GPX/11628404962.gpx",
-  "GPX/11635965802.gpx",
-  "GPX/11679591872.gpx"
+  "GPX/11635965802.gpx"
 ];
 
 var listOfPaddleboardGPX = [
@@ -78,7 +77,8 @@ var listOfPaddleboardGPX = [
   "GPX/11576634222.gpx",
   "GPX/11576633138.gpx",
   "GPX/11576631912.gpx",
-  "GPX/11627030218.gpx"
+  "GPX/11627030218.gpx",
+  "GPX/11679591872.gpx"
  ];
 
 var flighttracksGPX = [

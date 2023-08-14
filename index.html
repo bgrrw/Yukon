@@ -120,6 +120,9 @@
     var XCountrySki = L.layerGroup()
     var Flights = L.layerGroup()
 
+    var markersLayer = new L.LayerGroup();
+    map.addLayer(markersLayer);
+
     var overlays = {
 	'<p style="display:inline; color:#e41a1c">Hikes</p>': Hikes,
 	'<p style="display:inline; color:#ff7f00">Bikes</p>': Bikes,
@@ -366,6 +369,10 @@
     var bear2 = L.marker([61.02654, -138.59722], {icon: bearIcon}).addTo(map).addTo(Bears);
     var bear2 = L.marker([59.1118, -135.3663], {icon: blackbearIcon}).addTo(map).addTo(Bears);
 
+    //Track markers
+    for(var i in names)
+        L.marker(L.latLng(locations[i].loc), {title: names[i]}).addTo( markersLayer );
+
     function onMapClick(e) {
 	hikeTracks.setStyle(Hikestyle);
 	hikegpx.setStyle(Hikestyle);
@@ -379,7 +386,7 @@
     map.on('click', onMapClick);
 
     //inizialize Leaflet List Markers
-    var list = new L.Control.ListMarkers({layer: Hikes, itemIcon: null});
+    var list = new L.Control.ListMarkers({layer: markersLayer, itemIcon: null});
 	
     list.on('item-mouseover', function(e) {
         e.layer.setIcon(L.icon({

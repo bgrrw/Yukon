@@ -195,6 +195,7 @@
 	hikegpx.setStyle(Hikestyle);
 	canoeTacks.setStyle(Canoestyle);
 	bikeTracks.setStyle(Bikestyle);
+	bikegpx.setStyle(Bikestyle);
 	XCountrySkiTracks.setStyle(XCountrySkistyle);
 	FlightTracks.setStyle(FlightStyle);
 	paddleboardTracks.setStyle(Paddleboardstyle);
@@ -208,8 +209,8 @@
       onEachFeature: forEachFeature
     });
 
-    for (var i = 0; i < listOfFilesPath.length; i += 1) {
-      omnivore.gpx(listOfFilesPath[i], null, hikegpx).addTo(Hikes).addTo(map);
+    for (var i = 0; i < listOfHikeGPX.length; i += 1) {
+      omnivore.gpx(listOfHikeGPX[i], null, hikegpx).addTo(Hikes).addTo(map);
     };
 	
     //Paddleboard GPX Tracks
@@ -221,6 +222,17 @@
 
     for (var i = 0; i < listOfPaddleboardGPX.length; i += 1) {
       omnivore.gpx(listOfPaddleboardGPX[i], null, paddleboardTracks).addTo(Paddleboards).addTo(map);
+    };
+	
+	//Bike GPX Tracks
+    var bikegpx = L.geoJson(null, {
+      // http://leafletjs.com/reference.html#geojson-style
+      style: Bikestyle,
+      onEachFeature: forEachFeature
+    });
+
+    for (var i = 0; i < listOfPaddleboardGPX.length; i += 1) {
+      omnivore.gpx(listOfPaddleboardGPX[i], null, bikegpx).addTo(Bikes).addTo(map);
     };
 
     //FlightTracks Tracks

@@ -25,7 +25,7 @@ L.Control.ListMarkers = L.Control.extend({
 		layer: false,
 		maxItems: 20,
 		collapsed: false,		
-		label: 'name',
+		label: 'Name',
 		itemIcon: 'summit.png',
 		itemArrow: '&#10148;',	//visit: https://character-code.com/arrows-html-codes.php
 		maxZoom: 9,

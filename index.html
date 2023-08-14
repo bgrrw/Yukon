@@ -121,7 +121,8 @@
     var Flights = L.layerGroup()
 
     var markersLayer = new L.LayerGroup();
-    map.addLayer(markersLayer);
+    markersLayer.addTo(map);
+
 
     var overlays = {
 	'<p style="display:inline; color:#e41a1c">Hikes</p>': Hikes,

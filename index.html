@@ -97,7 +97,7 @@
   <script>
 
     const names = []
-    const location = []
+    const locations = []
 	    
     var baseLayers = {
 	'Terrain': L.tileLayer('http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}',{
@@ -209,7 +209,7 @@
         layer.setStyle(highlight);  //highlights selected.
      }),
 	names.push(feature.properties.name),
-	location.push(feature.geometry.coordinates[0])};
+	locations.push(feature.geometry.coordinates[0])};
    	  
     //Hiking GPX Tracks
     var hikegpx = L.geoJson(null, {
@@ -394,7 +394,7 @@
     map.addControl( list );
 
     console.log(names[0]);
-    console.log(location[0]);
+    console.log(locations[0]);
 	  
   </script>
 </body>

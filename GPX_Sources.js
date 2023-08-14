@@ -1,4 +1,4 @@
-var listOfFilesPath = [
+var listOfHikeGPX = [
   "GPX/6232552278.gpx",
   "GPX/6248041580.gpx",
   "GPX/6436183052.gpx",
@@ -84,4 +84,8 @@ var flighttracksGPX = [
   "GPX/2021-07-03 12_27_25.gpx",
   "GPX/11440102844.gpx",
   "GPX/11440106384.gpx"
+  ];
+
+var listOfBikeGPX = [
+  "GPX/11783238378.gpx"
   ];

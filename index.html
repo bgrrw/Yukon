@@ -224,15 +224,15 @@
       omnivore.gpx(listOfPaddleboardGPX[i], null, paddleboardTracks).addTo(Paddleboards).addTo(map);
     };
 	
-	//Bike GPX Tracks
+    //Bike GPX Tracks
     var bikegpx = L.geoJson(null, {
       // http://leafletjs.com/reference.html#geojson-style
       style: Bikestyle,
       onEachFeature: forEachFeature
     });
 
-    for (var i = 0; i < listOfPaddleboardGPX.length; i += 1) {
-      omnivore.gpx(listOfPaddleboardGPX[i], null, bikegpx).addTo(Bikes).addTo(map);
+    for (var i = 0; i < bikegpx.length; i += 1) {
+      omnivore.gpx(bikegpx[i], null, bikegpx).addTo(Bikes).addTo(map);
     };
 
     //FlightTracks Tracks
@@ -363,6 +363,7 @@
 	canoeTacks.setStyle(Canoestyle);
 	paddleboardTracks.setStyle(Paddleboardstyle);
 	bikeTracks.setStyle(Bikestyle);
+	bikegpx.setStyle(Bikestyle);
 	XCountrySkiTracks.setStyle(XCountrySkistyle);
 	FlightTracks.setStyle(FlightStyle);
     }

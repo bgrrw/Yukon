@@ -7,7 +7,6 @@ var listOfFilesPath = [
   "GPX/6712720017.gpx",
   "GPX/6719076157.gpx",
   "GPX/6798112747.gpx",
-  "GPX/6918738078.gpx",
   "GPX/6918756090.gpx",
   "GPX/6918820863.gpx",
   "GPX/7077127246.gpx",

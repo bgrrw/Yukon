@@ -92,6 +92,8 @@
   <!-- Create the interactive map content with JavaScript (.js) -->
   <script>
 
+    const names = []
+	    
     var baseLayers = {
 	'Terrain': L.tileLayer('http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}',{
 		maxZoom: 20,
@@ -200,7 +202,8 @@
 	FlightTracks.setStyle(FlightStyle);
 	paddleboardTracks.setStyle(Paddleboardstyle);
         layer.setStyle(highlight);  //highlights selected.
-     });}
+     }),
+	names.push(feature.properties.name);}
    	  
     //Hiking GPX Tracks
     var hikegpx = L.geoJson(null, {
@@ -368,6 +371,8 @@
 	FlightTracks.setStyle(FlightStyle);
     }
     map.on('click', onMapClick);
+
+    console.log(names);
 	  
   </script>
 </body>

@@ -209,7 +209,7 @@
         layer.setStyle(highlight);  //highlights selected.
      }),
 	names.push(feature.properties.name),
-	locations.push(feature.geometry.coordinates[0])};
+	locations.push(feature.geometry.coordinates[0][0])};
    	  
     //Hiking GPX Tracks
     var hikegpx = L.geoJson(null, {

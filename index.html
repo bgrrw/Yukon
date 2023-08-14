@@ -97,6 +97,7 @@
   <script>
 
     const names = []
+    const location = []
 	    
     var baseLayers = {
 	'Terrain': L.tileLayer('http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}',{
@@ -207,7 +208,8 @@
 	paddleboardTracks.setStyle(Paddleboardstyle);
         layer.setStyle(highlight);  //highlights selected.
      }),
-	names.push(feature.properties.name);}
+	names.push(feature.properties.name),
+	location.push(feature.geometry.coordinates[0])};
    	  
     //Hiking GPX Tracks
     var hikegpx = L.geoJson(null, {
@@ -391,7 +393,8 @@
 
     map.addControl( list );
 
-    console.log(names);
+    console.log(names[0]);
+    console.log(location[0]);
 	  
   </script>
 </body>

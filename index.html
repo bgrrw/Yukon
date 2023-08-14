@@ -120,9 +120,6 @@
     var XCountrySki = L.layerGroup()
     var Flights = L.layerGroup()
 
-    var markersLayer = L.LayerGroup().addTo(map)
-
-
     var overlays = {
 	'<p style="display:inline; color:#e41a1c">Hikes</p>': Hikes,
 	'<p style="display:inline; color:#ff7f00">Bikes</p>': Bikes,
@@ -213,7 +210,10 @@
      }),
 	names.push(feature.properties.name),
 	locations.push(feature.geometry.coordinates[0][0])};
-   	  
+
+    var markersLayer = new L.LayerGroup();	//layer contain searched elements
+    map.addLayer(markersLayer);
+	  
     //Hiking GPX Tracks
     var hikegpx = L.geoJson(null, {
       // http://leafletjs.com/reference.html#geojson-style

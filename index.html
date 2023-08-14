@@ -231,8 +231,8 @@
       onEachFeature: forEachFeature
     });
 
-    for (var i = 0; i < bikegpx.length; i += 1) {
-      omnivore.gpx(bikegpx[i], null, bikegpx).addTo(Bikes).addTo(map);
+    for (var i = 0; i < listOfBikeGPX .length; i += 1) {
+      omnivore.gpx(listOfBikeGPX[i], null, bikegpx).addTo(Bikes).addTo(map);
     };
 
     //FlightTracks Tracks

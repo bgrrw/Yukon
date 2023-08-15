@@ -371,7 +371,12 @@
 
     //Track markers
     for(var i in names)
-        L.marker(L.latLng(Number(String(locations[i]).split(',')[1]),Number(String(locations[i]).split(',')[0])), {title: names[i]}).addTo( markersLayer );
+	try {
+	  L.marker(L.latLng(Number(String(locations[i]).split(',')[1]),Number(String(locations[i]).split(',')[0])), {title: names[i]}).addTo( markersLayer );
+	    }
+	  catch {
+		console.log(names[i]);
+	    }
 
     function onMapClick(e) {
 	hikeTracks.setStyle(Hikestyle);
@@ -400,10 +405,10 @@
 
     map.addControl( list );
 
-    console.log(names[0]);
-    console.log(String(locations[0]).split(',')[1]);
-    console.log(String(locations[0]).split(',')[0]);
-    console.log(String(locations[0]).split(',')[1]+","+String(locations[0]).split(',')[0]);
+    //console.log(names[0]);
+    //console.log(String(locations[0]).split(',')[1]);
+    //console.log(String(locations[0]).split(',')[0]);
+    //console.log(String(locations[0]).split(',')[1]+","+String(locations[0]).split(',')[0]);
 	  
   </script>
 </body>

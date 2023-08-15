@@ -354,6 +354,7 @@
 
     //Track markers
     for(var i in names)
+	  L.marker(L.latLng(Number(String(locations2[i]).split(',')[1]),Number(String(locations2[i]).split(',')[0])), {title: names[i]}).addTo(markersLayer);
 	try {
 	  L.marker(L.latLng(Number(String(locations[i]).split(',')[1]),Number(String(locations[i]).split(',')[0])), {title: names[i]}).addTo(markersLayer);
 	    }

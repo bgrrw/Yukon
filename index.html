@@ -370,8 +370,8 @@
     var bear2 = L.marker([59.1118, -135.3663], {icon: blackbearIcon}).addTo(map).addTo(Bears);
 
     //Track markers
-    //for(var i in names)
-       // L.marker(L.latLng(locations[i]), {title: names[i]}).addTo( markersLayer );
+    for(var i in names)
+        L.marker(L.latLng(String(locations[i]).split(',')[1]+","+String(locations[i]).split(',')[0]), {title: names[i]}).addTo( markersLayer );
 
     function onMapClick(e) {
 	hikeTracks.setStyle(Hikestyle);

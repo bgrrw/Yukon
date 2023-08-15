@@ -380,8 +380,16 @@
 	  L.marker(L.latLng(Number(String(locations[i]).split(',')[1]),Number(String(locations[i]).split(',')[0])), {title: names[i]}).addTo( markersLayer );
 	    }
 	  catch (e) {
-		L.marker(L.latLng(Number(String(locations2[i]).split(',')[1]),Number(String(locations2[i]).split(',')[0])), {title: names[i]}).addTo( markersLayer );
-	    }
+		try {
+		  L.marker(L.latLng(Number(String(locations2[i]).split(',')[1]),Number(String(locations2[i]).split(',')[0])), {title: names[i]}).addTo( markersLayer );
+		    }
+		  catch (e) {
+			console.log("Error", e.stack);
+      			console.log("Error", e.name);
+    			console.log("Error", e.message);  
+			//L.marker(L.latLng(Number(String(locations2[i]).split(',')[1]),Number(String(locations2[i]).split(',')[0])), {title: names[i]}).addTo( markersLayer );
+		      }
+		  }
 
     function onMapClick(e) {
 	hikeTracks.setStyle(Hikestyle);

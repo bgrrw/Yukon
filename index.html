@@ -356,11 +356,11 @@
     for(var i in names)
 	try {
 	  L.marker(L.latLng(Number(String(locations[i]).split(',')[1]),Number(String(locations[i]).split(',')[0])), {title: names[i]}).addTo(markersLayer);
-	  console.log(names[i]);
 	    }
 	  catch (e) {
 		try {
 		  L.marker(L.latLng(Number(String(locations2[i]).split(',')[1]),Number(String(locations2[i]).split(',')[0])), {title: names[i]}).addTo(markersLayer);
+		  console.log(names[i]);
 		    }
 		  catch (e) {
 			console.log("Error", e.stack);

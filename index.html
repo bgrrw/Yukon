@@ -262,29 +262,7 @@
       omnivore.gpx(flighttracksGPX[i], null, FlightTracks).addTo(Flights).addTo(map);
     };
 	  
-    //GPS Unit Hiking Tracks
-    var hikeTracks = L.geoJSON(GPSHikes, {
-      style: Hikestyle,
-      onEachFeature: forEachFeature
-    }).addTo(Hikes).addTo(map);  
-	  
-    //Canoe Tracks
-    var canoeTacks = L.geoJSON(CanoeTracks, {
-      style: Canoestyle,
-      onEachFeature: forEachFeature
-    }).addTo(Canoes).addTo(map);
-	  
-    //Bike Tracks
-    var bikeTracks = L.geoJSON(bikeTracks, {
-      style: Bikestyle,
-      onEachFeature: forEachFeature
-    }).addTo(Bikes).addTo(map);
-	  
-    //XCountrySkiTracks Tracks
-    var XCountrySkiTracks = L.geoJSON(XCountrySkiTracks, {
-      style: XCountrySkistyle,
-      onEachFeature: forEachFeature
-    }).addTo(XCountrySki).addTo(map);	  
+	//ADD BACK HERE  
 		  	  
     // Point Layes
     var CampIcon = new Icon({iconUrl: 'tent.png'});

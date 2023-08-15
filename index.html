@@ -209,9 +209,10 @@
 	paddleboardTracks.setStyle(Paddleboardstyle);
         layer.setStyle(highlight);  //highlights selected.
         }),
-      names.push(feature.properties.name),
-      locations.push(feature.geometry.coordinates[0][0]),
-      locations2.push(feature.geometry.coordinates[0])
+      L.marker(L.latLng(Number(String(feature.geometry.coordinates[0]).split(',')[1]),Number(String(feature.geometry.coordinates[0]).split(',')[0])), {title: feature.properties.name}).addTo(markersLayer);
+      //names.push(feature.properties.name),
+      //locations.push(feature.geometry.coordinates[0][0]),
+      //locations2.push(feature.geometry.coordinates[0])
         };
 	
 
@@ -374,12 +375,12 @@
     var bear2 = L.marker([61.02654, -138.59722], {icon: bearIcon}).addTo(map).addTo(Bears);
     var bear2 = L.marker([59.1118, -135.3663], {icon: blackbearIcon}).addTo(map).addTo(Bears);
 
-    console.log(names);
-    console.log(names.length);
+    //console.log(names);
+    //console.log(names.length);
     //Track markers
-    for (var i in names)
-      L.marker(L.latLng(Number(String(locations2[i]).split(',')[1]),Number(String(locations2[i]).split(',')[0])), {title: names[i]}).addTo(markersLayer);
-      console.log(names[i]);
+    //for (var i in names)
+      //L.marker(L.latLng(Number(String(locations2[i]).split(',')[1]),Number(String(locations2[i]).split(',')[0])), {title: names[i]}).addTo(markersLayer);
+      //console.log(names[i]);
 
     function onMapClick(e) {
 	hikeTracks.setStyle(Hikestyle);

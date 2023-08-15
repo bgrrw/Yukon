@@ -376,7 +376,8 @@
     //Track markers
     for(var i in names)
 	try {
-	  L.marker(L.latLng(Number(String(locations[i]).split(',')[1]),Number(String(locations[i]).split(',')[0])), {title: names[i]}).addTo( markersLayer );
+	  L.marker(L.latLng(Number(String(locations[i]).split(',')[1]),Number(String(locations[i]).split(',')[0])), 
+		   {iconUrl: 'blank.png'}, {title: names[i]}).addTo( markersLayer );
 	    }
 	  catch (e) {
 		L.marker(L.latLng(Number(String(locations2[i]).split(',')[1]),Number(String(locations2[i]).split(',')[0])), {title: names[i]}).addTo( markersLayer );
@@ -400,7 +401,7 @@
 	
     list.on('item-mouseover', function(e) {
         e.layer.setIcon(L.icon({
-	    iconUrl: 'blackbear.png'
+	    iconUrl: 'Hiking.png'
 	}))
     }).on('item-mouseout', function(e) {
 	e.layer.setIcon(L.icon({

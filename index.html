@@ -210,7 +210,6 @@
         layer.setStyle(highlight);  //highlights selected.
      }),
         names.push(feature.properties.name),
-        console.log(feature.properties.name),
         locations.push(feature.geometry.coordinates[0][0]),
 	locations2.push(feature.geometry.coordinates[0])
         };
@@ -381,15 +380,7 @@
 	    }
 	  catch (e) {
 		L.marker(L.latLng(Number(String(locations2[i]).split(',')[1]),Number(String(locations2[i]).split(',')[0])), {title: names[i]}).addTo( markersLayer );
-    		console.log("Error", e.stack);
-    		console.log("Error", e.name);
-    		console.log("Error", e.message);
 		console.log(names[i]);
-		console.log(String(locations[i]));
-		console.log(String(locations[i]).split(','));
-		console.log(String(locations[i]).split(',')[1]);
-    		console.log(String(locations[i]).split(',')[0]);
-    		console.log(String(locations[i]).split(',')[1]+","+String(locations[i]).split(',')[0]);
 	    }
 
     function onMapClick(e) {

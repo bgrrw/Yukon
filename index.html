@@ -210,8 +210,12 @@
      }),
 	names.push(feature.properties.name),
 	console.log(feature.properties.name);
-	locations.push(feature.geometry.coordinates[0][0]);
-	console.log(feature.geometry.coordinates[0])};
+	if (feature.geometry.coordinates[0].length > 3) {
+		locations.push(feature.geometry.coordinates[0][0])
+	} else {
+		locations.push(feature.geometry.coordinates[0])
+	};
+	
 
     var markersLayer = new L.LayerGroup();	//layer contain searched elements
     map.addLayer(markersLayer);

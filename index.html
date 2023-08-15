@@ -141,7 +141,7 @@
       zoomSnap: 0.25,
       layers: [baseLayers["Terrain"],Hikes,Bikes,Canoes,Paddleboards,XCountrySki,Flights,Summits,Camps,Cabins,Bears]
     });
-  for (var i = 0; i < overlays.length; i += 1) {overlays[i];}
+    for (var i = 0; i < overlays.length; i += 1) {overlays[i];}
 	  
 	  
     var layerControl = L.control.layers(baseLayers,overlays).addTo(map);
@@ -352,9 +352,10 @@
     var bear2 = L.marker([61.02654, -138.59722], {icon: bearIcon}).addTo(map).addTo(Bears);
     var bear2 = L.marker([59.1118, -135.3663], {icon: blackbearIcon}).addTo(map).addTo(Bears);
 
+    console.log(names);
     //Track markers
     for (var i in names) 
-	  console.log(names[i]);
+      console.log(names[i]);
 
     function onMapClick(e) {
 	hikeTracks.setStyle(Hikestyle);

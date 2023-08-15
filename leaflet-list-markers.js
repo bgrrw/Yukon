@@ -28,7 +28,7 @@ L.Control.ListMarkers = L.Control.extend({
 		label: 'title',
 		itemIcon: 'summit.png',
 		itemArrow: '&#10148;',	//visit: https://character-code.com/arrows-html-codes.php
-		maxZoom: 5,
+		//maxZoom: 5,
 		position: 'bottomleft'
 		//TODO autocollapse
 	},

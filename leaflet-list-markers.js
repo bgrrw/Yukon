@@ -28,7 +28,7 @@ L.Control.ListMarkers = L.Control.extend({
 		label: 'title',
 		itemIcon: 'summit.png',
 		itemArrow: '&#10148;',	//visit: https://character-code.com/arrows-html-codes.php
-		//maxZoom: 5,
+		maxZoom: 15,
 		position: 'bottomleft'
 		//TODO autocollapse
 	},
@@ -168,7 +168,7 @@ L.Control.ListMarkers = L.Control.extend({
 
     _moveTo: function(latlng) {
 		if(this.options.maxZoom)
-			this._map.setView(latlng, Math.min(this._map.getZoom(), this.options.maxZoom) );
+			this._map.setView(latlng, Math.max(this._map.getZoom(), this.options.maxZoom) );
 		else
 			this._map.panTo(latlng);    
     }

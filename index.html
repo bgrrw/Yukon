@@ -208,10 +208,10 @@
 	FlightTracks.setStyle(FlightStyle);
 	paddleboardTracks.setStyle(Paddleboardstyle);
         layer.setStyle(highlight);  //highlights selected.
-     }),
-        names.push(feature.properties.name),
-        locations.push(feature.geometry.coordinates[0][0]),
-	locations2.push(feature.geometry.coordinates[0])
+        }),
+      names.push(feature.properties.name),
+      locations.push(feature.geometry.coordinates[0][0]),
+      locations2.push(feature.geometry.coordinates[0])
         };
 	
 
@@ -381,7 +381,6 @@
 	    }
 	  catch (e) {
 		L.marker(L.latLng(Number(String(locations2[i]).split(',')[1]),Number(String(locations2[i]).split(',')[0])), {title: names[i]}).addTo( markersLayer );
-		console.log(names[i]);
 	    }
 
     function onMapClick(e) {
@@ -411,7 +410,7 @@
 
     map.addControl( list );
 
-    //console.log(names[0]);
+    console.log(names);
     //console.log(String(locations[0]).split(',')[1]);
     //console.log(String(locations[0]).split(',')[0]);
     //console.log(String(locations[0]).split(',')[1]+","+String(locations[0]).split(',')[0]);

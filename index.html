@@ -354,6 +354,10 @@
 
     //Track markers
     for(var i in names)
+	  console.log(names[i]);
+	  console.log(String(locations[0]).split(',')[1]);
+          console.log(String(locations[0]).split(',')[0]);
+          console.log(String(locations[0]).split(',')[1]+","+String(locations[0]).split(',')[0]);
 	  L.marker(L.latLng(Number(String(locations2[i]).split(',')[1]),Number(String(locations2[i]).split(',')[0])), {title: names[i]}).addTo(markersLayer);
 	try {
 	  L.marker(L.latLng(Number(String(locations[i]).split(',')[1]),Number(String(locations[i]).split(',')[0])), {title: names[i]}).addTo(markersLayer);
@@ -398,9 +402,9 @@
 
     map.addControl( list );
 
-    console.log(names);
-    console.log(locations);
-    console.log(locations2);
+    //console.log(names);
+    //console.log(locations);
+    //console.log(locations2);
     //console.log(String(locations[0]).split(',')[1]);
     //console.log(String(locations[0]).split(',')[0]);
     //console.log(String(locations[0]).split(',')[1]+","+String(locations[0]).split(',')[0]);

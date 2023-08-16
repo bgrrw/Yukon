@@ -210,12 +210,12 @@
         layer.setStyle(highlight);  //highlights selected.
         }),
       //Creates points from activities and adds them to layer for list panel
-      L.marker(L.latLng(Number(String(feature.geometry.coordinates[0]).split(',')[1]),Number(String(feature.geometry.coordinates[0]).split(',')[0])), {title: feature.properties.name, iconUrl: 'blank.png'}).addTo(markersLayer);
+      L.marker(L.latLng(Number(String(feature.geometry.coordinates[0]).split(',')[1]),Number(String(feature.geometry.coordinates[0]).split(',')[0])), {title: feature.properties.name, icon: BlankIcon}).addTo(markersLayer);
         };
 	
 
     var markersLayer = new L.LayerGroup();	//layer contain searched elements
-    map.addLayer(markersLayer);
+    //map.addLayer(markersLayer);
 	  
     //Hiking GPX Tracks
     var hikegpx = L.geoJson(null, {

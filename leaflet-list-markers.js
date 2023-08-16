@@ -23,7 +23,7 @@ L.Control.ListMarkers = L.Control.extend({
 
 	options: {		
 		layer: false,
-		maxItems: 20,
+		maxItems: 100,
 		collapsed: false,		
 		label: 'title',
 		itemIcon: 'summit.png',

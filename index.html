@@ -153,6 +153,12 @@
 	popupAnchor:  [0, -32]
 	}
     });
+
+    // Point Layes
+    var CampIcon = new Icon({iconUrl: 'tent.png'});
+    var CabinIcon = new Icon({iconUrl: 'cabin.png'});
+    var SummitIcon = new Icon({iconUrl: 'summit.png'});
+    var BlankIcon = new Icon({iconUrl: 'blank.png'});
 	  
     var highlight = {
       'color': '#70F3FF',
@@ -284,12 +290,6 @@
       style: XCountrySkistyle,
       onEachFeature: forEachFeature
     }).addTo(XCountrySki).addTo(map);	 
-		  	  
-    // Point Layes
-    var CampIcon = new Icon({iconUrl: 'tent.png'});
-    var CabinIcon = new Icon({iconUrl: 'cabin.png'});
-    var SummitIcon = new Icon({iconUrl: 'summit.png'});
-    var BlankIcon = new Icon({iconUrl: 'blank.png'});
 	  
     // Read markers data from data.csv
     $.get('Camps.csv', function(csvString) {

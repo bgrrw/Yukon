@@ -209,10 +209,8 @@
 	paddleboardTracks.setStyle(Paddleboardstyle);
         layer.setStyle(highlight);  //highlights selected.
         }),
-      L.marker(L.latLng(Number(String(feature.geometry.coordinates[0]).split(',')[1]),Number(String(feature.geometry.coordinates[0]).split(',')[0])), {title: feature.properties.name}).addTo(markersLayer);
-      //names.push(feature.properties.name),
-      //locations.push(feature.geometry.coordinates[0][0]),
-      //locations2.push(feature.geometry.coordinates[0])
+      //Creates points from activities and adds them to layer for list panel
+      L.marker(L.latLng(Number(String(feature.geometry.coordinates[0]).split(',')[1]),Number(String(feature.geometry.coordinates[0]).split(',')[0])), {title: feature.properties.name, iconUrl: 'blank.png'}).addTo(markersLayer);
         };
 	
 

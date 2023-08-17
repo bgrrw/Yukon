@@ -470,6 +470,7 @@
       };
 
     var list = new L.Control.ListMarkers({layer: hikemarkersLayer, itemIcon: null});
+    map.addControl( list );
 	  
     list.on('item-mouseover', function(e) {
         e.layer.setIcon(L.icon({

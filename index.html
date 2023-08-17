@@ -160,7 +160,7 @@
 	}
     });
 
-    // Point Layes
+    // Point icons
     var CampIcon = new Icon({iconUrl: 'Icons/tent.png'});
     var CabinIcon = new Icon({iconUrl: 'Icons/cabin.png'});
     var SummitIcon = new Icon({iconUrl: 'Icons/summit.png'});
@@ -227,10 +227,26 @@
 	paddleboardTracks.setStyle(Paddleboardstyle);
         layer.setStyle(highlight);  //highlights selected.
         });
-      //Creates points from activities and adds them to layer for list panel
-      //L.marker(L.latLng(Number(String(feature.geometry.coordinates[0]).split(',')[1]),Number(String(feature.geometry.coordinates[0]).split(',')[0])), {title: feature.properties.name, icon: BlankIcon}).addTo(markersLayer);
         };
 
+    //Functions for creating activity markers
+    function hikemarkercreate(feature, layer) {
+	//Creates points from activities and adds them to layer for list panel
+        L.marker(L.latLng(Number(String(feature.geometry.coordinates[0]).split(',')[1]),Number(String(feature.geometry.coordinates[0]).split(',')[0])), {title: feature.properties.name, icon: BlankIcon}).addTo(hikemarkersLayer);
+	forEachFeature(feature, layer);
+        };
+	
+    var hikemarkersLayer = new L.LayerGroup();	//layer contain searched elements
+    map.addLayer(hikemarkersLayer);
+
+    function bikemarkercreate(feature, layer) {
+	//Creates points from activities and adds them to layer for list panel
+        L.marker(L.latLng(Number(String(feature.geometry.coordinates[0]).split(',')[1]),Number(String(feature.geometry.coordinates[0]).split(',')[0])), {title: feature.properties.name, icon: BlankIcon}).addTo(bikemarkersLayer);
+	forEachFeature(feature, layer);
+        };
+	
+    var bikemarkersLayer = new L.LayerGroup();	//layer contain searched elements
+    map.addLayer(bikemarkersLayer);
 
     function canoemarkercreate(feature, layer) {
 	//Creates points from activities and adds them to layer for list panel
@@ -240,40 +256,85 @@
 	
     var canoemarkersLayer = new L.LayerGroup();	//layer contain searched elements
     map.addLayer(canoemarkersLayer);
+
+    function SUPmarkercreate(feature, layer) {
+	//Creates points from activities and adds them to layer for list panel
+        L.marker(L.latLng(Number(String(feature.geometry.coordinates[0]).split(',')[1]),Number(String(feature.geometry.coordinates[0]).split(',')[0])), {title: feature.properties.name, icon: BlankIcon}).addTo(SUPmarkersLayer);
+	forEachFeature(feature, layer);
+        };
+	
+    var SUPmarkersLayer = new L.LayerGroup();	//layer contain searched elements
+    map.addLayer(SUPmarkersLayer);
+
+    function skimarkercreate(feature, layer) {
+	//Creates points from activities and adds them to layer for list panel
+        L.marker(L.latLng(Number(String(feature.geometry.coordinates[0]).split(',')[1]),Number(String(feature.geometry.coordinates[0]).split(',')[0])), {title: feature.properties.name, icon: BlankIcon}).addTo(skimarkersLayer);
+	forEachFeature(feature, layer);
+        };
+	
+    var skimarkersLayer = new L.LayerGroup();	//layer contain searched elements
+    map.addLayer(skimarkersLayer);
 	  
+    /////////////////////	  
+    //Add activity tracks
+    /////////////////////
 	  
     //Hiking GPX Tracks
     var hikegpx = L.geoJson(null, {
       // http://leafletjs.com/reference.html#geojson-style
       style: Hikestyle,
-      onEachFeature: forEachFeature
+      onEachFeature: hikemarkercreate
     });
 
     for (var i = 0; i < listOfHikeGPX.length; i += 1) {
       omnivore.gpx(listOfHikeGPX[i], null, hikegpx).addTo(Hikes).addTo(map);
     };
-	
-    //Paddleboard GPX Tracks
-    var paddleboardTracks = L.geoJson(null, {
-      // http://leafletjs.com/reference.html#geojson-style
-      style: Paddleboardstyle,
-      onEachFeature: forEachFeature
-    });
 
-    for (var i = 0; i < listOfPaddleboardGPX.length; i += 1) {
-      omnivore.gpx(listOfPaddleboardGPX[i], null, paddleboardTracks).addTo(Paddleboards).addTo(map);
-    };
-	
+    //GPS Unit Hiking Tracks
+    var hikeTracks = L.geoJSON(GPSHikes, {
+      style: Hikestyle,
+      onEachFeature: hikemarkercreate
+    }).addTo(Hikes).addTo(map);  
+
     //Bike GPX Tracks
     var bikegpx = L.geoJson(null, {
       // http://leafletjs.com/reference.html#geojson-style
       style: Bikestyle,
-      onEachFeature: forEachFeature
+      onEachFeature: bikemarkercreate
     });
 
     for (var i = 0; i < listOfBikeGPX .length; i += 1) {
       omnivore.gpx(listOfBikeGPX[i], null, bikegpx).addTo(Bikes).addTo(map);
     };
+
+    //Bike Tracks
+    var bikeTracks = L.geoJSON(bikeTracks, {
+      style: Bikestyle,
+      onEachFeature: bikemarkercreate
+    }).addTo(Bikes).addTo(map);
+
+    //Canoe Tracks
+    var canoeTacks = L.geoJSON(CanoeTracks, {
+      style: Canoestyle,
+      onEachFeature: canoemarkercreate
+    }).addTo(Canoes).addTo(map);	  
+	  
+    //Paddleboard GPX Tracks
+    var paddleboardTracks = L.geoJson(null, {
+      // http://leafletjs.com/reference.html#geojson-style
+      style: Paddleboardstyle,
+      onEachFeature: SUPmarkercreate
+    });
+
+    for (var i = 0; i < listOfPaddleboardGPX.length; i += 1) {
+      omnivore.gpx(listOfPaddleboardGPX[i], null, paddleboardTracks).addTo(Paddleboards).addTo(map);
+    };
+
+    //XCountrySkiTracks Tracks
+    var XCountrySkiTracks = L.geoJSON(XCountrySkiTracks, {
+      style: XCountrySkistyle,
+      onEachFeature: skimarkercreate
+    }).addTo(XCountrySki).addTo(map);	
 
     //FlightTracks Tracks
     var FlightTracks = L.geoJson(null, {
@@ -284,31 +345,7 @@
 
     for (var i = 0; i < flighttracksGPX.length; i += 1) {
       omnivore.gpx(flighttracksGPX[i], null, FlightTracks).addTo(Flights).addTo(map);
-    };
-	  
-    //GPS Unit Hiking Tracks
-    var hikeTracks = L.geoJSON(GPSHikes, {
-      style: Hikestyle,
-      onEachFeature: forEachFeature
-    }).addTo(Hikes).addTo(map);  
-	  
-    //Canoe Tracks
-    var canoeTacks = L.geoJSON(CanoeTracks, {
-      style: Canoestyle,
-      onEachFeature: canoemarkercreate
-    }).addTo(Canoes).addTo(map);
-	  
-    //Bike Tracks
-    var bikeTracks = L.geoJSON(bikeTracks, {
-      style: Bikestyle,
-      onEachFeature: forEachFeature
-    }).addTo(Bikes).addTo(map);
-	  
-    //XCountrySkiTracks Tracks
-    var XCountrySkiTracks = L.geoJSON(XCountrySkiTracks, {
-      style: XCountrySkistyle,
-      onEachFeature: forEachFeature
-    }).addTo(XCountrySki).addTo(map);	 
+    }; 
 	  
     // Read markers data from data.csv
     $.get('Camps.csv', function(csvString) {
@@ -336,7 +373,11 @@
           Campsmarker.addTo(map);
         }
       });
-	 
+
+    /////////////////////	  
+    //Add points
+    /////////////////////
+	  
     // Read markers data from data.csv
     $.get('Cabins.csv', function(csvString) {
     // Use PapaParse to convert string to array of objects
@@ -392,12 +433,9 @@
     var bear2 = L.marker([61.02654, -138.59722], {icon: bearIcon}).addTo(map).addTo(Bears);
     var bear2 = L.marker([59.1118, -135.3663], {icon: blackbearIcon}).addTo(map).addTo(Bears);
 
-    //console.log(names);
-    //console.log(names.length);
-    //Track markers
-    //for (var i in names)
-      //L.marker(L.latLng(Number(String(locations2[i]).split(',')[1]),Number(String(locations2[i]).split(',')[0])), {title: names[i]}).addTo(markersLayer);
-      //console.log(names[i]);
+    ////////////////////////	  
+    //Interaction Functions
+    ////////////////////////
 
     function onMapClick(e) {
 	hikeTracks.setStyle(Hikestyle);
@@ -416,17 +454,21 @@
 
     function ActivitySelectFunction() {
       var x = document.getElementById("ActivitySelect").value;
-      if (x = "Canoes") {
-  	var list = new L.Control.ListMarkers({layer: canoemarkersLayer, itemIcon: null});
+      if (x = "Hikes") {
+  	var list = new L.Control.ListMarkers({layer: hikemarkersLayer, itemIcon: null});
 	map.addControl( list );
       } else if (x = "Bikes") {
-  	//  block of code to be executed if the condition1 is false and condition2 is true
-      } else if (x = "Hikes") {
-
+  	var list = new L.Control.ListMarkers({layer: bikemarkersLayer, itemIcon: null});
+	map.addControl( list );
+      } else if (x = "Canoes") {
+  	var list = new L.Control.ListMarkers({layer: canoemarkersLayer, itemIcon: null});
+	map.addControl( list );
       } else if (x = "Paddleboards") {
-  	//  block of code to be executed if the condition1 is false and condition2 is true
+  	var list = new L.Control.ListMarkers({layer: SUPmarkersLayer, itemIcon: null});
+	map.addControl( list );
       } else {
-  	//  block of code to be executed if the condition1 is false and condition2 is false
+  	var list = new L.Control.ListMarkers({layer: skimarkersLayer, itemIcon: null});
+	map.addControl( list );
       };
 	    
       };

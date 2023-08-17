@@ -211,23 +211,6 @@
 		weight: 2,
 	        dashArray: '10, 5'
     }};
-
-
-    function ActivitySelectFunction() {
-      var x = document.getElementById("ActivitySelect").value;
-      if (x = "Hikes") {
-  	//  block of code to be executed if condition1 is true
-      } else if (x = "Bikes") {
-  	//  block of code to be executed if the condition1 is false and condition2 is true
-      } else if (x = "Canoes") {
-  	var list = new L.Control.ListMarkers({layer: canoemarkersLayer, itemIcon: null});
-      } else if (x = "Paddleboards") {
-  	//  block of code to be executed if the condition1 is false and condition2 is true
-      } else {
-  	//  block of code to be executed if the condition1 is false and condition2 is false
-      };
-	    
-      };
 	  
     //Function for binding popup and highlighting on click  
     function forEachFeature(feature, layer) {
@@ -431,7 +414,23 @@
     //inizialize Leaflet List Markers
     //var list = new L.Control.ListMarkers({layer: canoemarkersLayer, itemIcon: null});
 
-	
+    function ActivitySelectFunction() {
+      var x = document.getElementById("ActivitySelect").value;
+      if (x = "Canoes") {
+  	var list = new L.Control.ListMarkers({layer: canoemarkersLayer, itemIcon: null});
+	map.addControl( list );
+      } else if (x = "Bikes") {
+  	//  block of code to be executed if the condition1 is false and condition2 is true
+      } else if (x = "Hikes") {
+
+      } else if (x = "Paddleboards") {
+  	//  block of code to be executed if the condition1 is false and condition2 is true
+      } else {
+  	//  block of code to be executed if the condition1 is false and condition2 is false
+      };
+	    
+      };
+	  
     list.on('item-mouseover', function(e) {
         e.layer.setIcon(L.icon({
 	    iconUrl: 'Icons/canoe.png'
@@ -441,8 +440,6 @@
 	    iconUrl: 'Icons/blank.png'
 	}))
     });
-
-    map.addControl( list );
 	  
   </script>
 </body>

@@ -76,7 +76,11 @@
   color: white;
   text-shadow: 2px 2px 20px red;
   }
-	  
+
+  #ActivitySelect {
+  position: absolute;
+  z-index: 400;
+  }	  
 	  
   .popupImage {
     max-width: 200px;
@@ -91,14 +95,16 @@
   <div id="map"></div>
   <div id="title-pane"><p>Brad & Sam's Yukon Adventures</p></div>
   <!--<div id="CrossCanada-link"><a href='https://bgrrw.github.io/CrossCanadaRoadTrip/'><img src="car.png"  width="225"/></div>-->
-
+  <select id="ActivitySelect" onchange="ActivitySelectFunction()">
+	<option value="Hikes">Hikes</option>
+	<option value="Bikes">Bikes</option>
+	<option value="Canoes">Canoes</option>
+	<option value="Paddleboards">Paddleboards</option>
+	<option value="X-Country">X-Country Skis</option>
+  </select>
 
   <!-- Create the interactive map content with JavaScript (.js) -->
   <script>
-
-    const names = []
-    const locations = []
-    const locations2 = []
 	    
     var baseLayers = {
 	'Terrain': L.tileLayer('http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}',{
@@ -163,7 +169,8 @@
     var BikeIcon = new Icon({iconUrl: 'Icons/bike.png'});
     var CanoeIcon = new Icon({iconUrl: 'Icons/canoe.png'});
     var SUPIcon = new Icon({iconUrl: 'Icons/SUP.png'});
-	  
+
+    // Line Styles
     var highlight = {
       'color': '#70F3FF',
       'weight': 3,
@@ -204,7 +211,25 @@
 		weight: 2,
 	        dashArray: '10, 5'
     }};
+
+
+    function ActivitySelectFunction() {
+      var x = document.getElementById("mySelect").value;
+      if (x = "Hikes") {
+  	//  block of code to be executed if condition1 is true
+      } else if (x = "Bikes") {
+  	//  block of code to be executed if the condition1 is false and condition2 is true
+      } else if (x = "Canoes") {
+  	var list = new L.Control.ListMarkers({layer: canoemarkersLayer, itemIcon: null});
+      } else if (x = "Paddleboards") {
+  	//  block of code to be executed if the condition1 is false and condition2 is true
+      } else {
+  	//  block of code to be executed if the condition1 is false and condition2 is false
+      };
+	    
+      };
 	  
+    //Function for binding popup and highlighting on click  
     function forEachFeature(feature, layer) {
       layer.bindPopup('<h1>'+feature.properties.name+'</h1>'+feature.properties.time.slice(0,10)),
       layer.on("click", function (e) {
@@ -222,15 +247,17 @@
       //Creates points from activities and adds them to layer for list panel
       //L.marker(L.latLng(Number(String(feature.geometry.coordinates[0]).split(',')[1]),Number(String(feature.geometry.coordinates[0]).split(',')[0])), {title: feature.properties.name, icon: BlankIcon}).addTo(markersLayer);
         };
+
+
     function canoemarkercreate(feature, layer) {
 	//Creates points from activities and adds them to layer for list panel
         L.marker(L.latLng(Number(String(feature.geometry.coordinates[0]).split(',')[1]),Number(String(feature.geometry.coordinates[0]).split(',')[0])), {title: feature.properties.name, icon: BlankIcon}).addTo(markersLayer);
 	forEachFeature(feature, layer);
         };
 	
-
-    var markersLayer = new L.LayerGroup();	//layer contain searched elements
-    map.addLayer(markersLayer);
+    var canoemarkersLayer = new L.LayerGroup();	//layer contain searched elements
+    map.addLayer(canoemarkersLayer);
+	  
 	  
     //Hiking GPX Tracks
     var hikegpx = L.geoJson(null, {
@@ -402,8 +429,8 @@
     map.on('click', onMapClick);
 
     //inizialize Leaflet List Markers
-    var list = new L.Control.ListMarkers({layer: markersLayer, itemIcon: null});
-    //var list = new L.Control.ListMarkers2({layer: markersLayer, itemIcon: null});
+    //var list = new L.Control.ListMarkers({layer: canoemarkersLayer, itemIcon: null});
+
 	
     list.on('item-mouseover', function(e) {
         e.layer.setIcon(L.icon({
@@ -416,13 +443,6 @@
     });
 
     map.addControl( list );
-
-    //console.log(names);
-    //console.log(locations);
-    //console.log(locations2);
-    //console.log(String(locations[0]).split(',')[1]);
-    //console.log(String(locations[0]).split(',')[0]);
-    //console.log(String(locations[0]).split(',')[1]+","+String(locations[0]).split(',')[0]);
 	  
   </script>
 </body>

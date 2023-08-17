@@ -469,9 +469,10 @@
       } else {
   	var list = new L.Control.ListMarkers({layer: skimarkersLayer, itemIcon: null});
 	map.addControl( list );
+      };    
       };
-	    
-      };
+
+    ActivitySelectFunction()
 	  
     list.on('item-mouseover', function(e) {
         e.layer.setIcon(L.icon({

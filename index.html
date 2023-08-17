@@ -454,11 +454,11 @@
 
     function ActivitySelectFunction() {
       var x = document.getElementById("ActivitySelect").value;
-      list.removeFrom(map);
       if (x = "Hikes") {
   	var list = new L.Control.ListMarkers({layer: hikemarkersLayer, itemIcon: null});
 	map.addControl( list );
       } else if (x = "Bikes") {
+	map.removeControl( list);
   	var list = new L.Control.ListMarkers({layer: bikemarkersLayer, itemIcon: null});
 	map.addControl( list );
       } else if (x = "Canoes") {

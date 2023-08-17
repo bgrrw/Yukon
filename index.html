@@ -453,27 +453,23 @@
     //var list = new L.Control.ListMarkers({layer: canoemarkersLayer, itemIcon: null});
 
     function ActivitySelectFunction() {
+      map.removeControl(list)
       var x = document.getElementById("ActivitySelect").value;
       if (x = "Hikes") {
   	var list = new L.Control.ListMarkers({layer: hikemarkersLayer, itemIcon: null});
-	map.addControl( list );
       } else if (x = "Bikes") {
-	map.removeControl( list);
   	var list = new L.Control.ListMarkers({layer: bikemarkersLayer, itemIcon: null});
-	map.addControl( list );
       } else if (x = "Canoes") {
   	var list = new L.Control.ListMarkers({layer: canoemarkersLayer, itemIcon: null});
-	map.addControl( list );
       } else if (x = "Paddleboards") {
   	var list = new L.Control.ListMarkers({layer: SUPmarkersLayer, itemIcon: null});
-	map.addControl( list );
       } else {
   	var list = new L.Control.ListMarkers({layer: skimarkersLayer, itemIcon: null});
-	map.addControl( list );
-      };    
+      };
+      map.addControl( list );
       };
 
-    ActivitySelectFunction()
+    var list = new L.Control.ListMarkers({layer: hikemarkersLayer, itemIcon: null});
 	  
     list.on('item-mouseover', function(e) {
         e.layer.setIcon(L.icon({

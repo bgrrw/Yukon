@@ -216,7 +216,12 @@
         layer.setStyle(highlight);  //highlights selected.
         }),
       //Creates points from activities and adds them to layer for list panel
-      L.marker(L.latLng(Number(String(feature.geometry.coordinates[0]).split(',')[1]),Number(String(feature.geometry.coordinates[0]).split(',')[0])), {title: feature.properties.name, icon: BlankIcon}).addTo(markersLayer);
+      //L.marker(L.latLng(Number(String(feature.geometry.coordinates[0]).split(',')[1]),Number(String(feature.geometry.coordinates[0]).split(',')[0])), {title: feature.properties.name, icon: BlankIcon}).addTo(markersLayer);
+        };
+    function canoemarkercreate(feature, layer) {
+	//Creates points from activities and adds them to layer for list panel
+        L.marker(L.latLng(Number(String(feature.geometry.coordinates[0]).split(',')[1]),Number(String(feature.geometry.coordinates[0]).split(',')[0])), {title: feature.properties.name, icon: BlankIcon}).addTo(markersLayer);
+	forEachFeature(feature, layer);
         };
 	
 
@@ -276,7 +281,7 @@
     //Canoe Tracks
     var canoeTacks = L.geoJSON(CanoeTracks, {
       style: Canoestyle,
-      onEachFeature: forEachFeature
+      onEachFeature: canoemarkercreate
     }).addTo(Canoes).addTo(map);
 	  
     //Bike Tracks
@@ -389,7 +394,6 @@
 	bikegpx.setStyle(Bikestyle);
 	XCountrySkiTracks.setStyle(XCountrySkistyle);
 	FlightTracks.setStyle(FlightStyle);
-	map.addControl( list );
     }
     map.on('click', onMapClick);
 
@@ -407,7 +411,7 @@
 	}))
     });
 
-    //map.addControl( list );
+    map.addControl( list );
 
     //console.log(names);
     //console.log(locations);

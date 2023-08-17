@@ -389,11 +389,12 @@
 	bikegpx.setStyle(Bikestyle);
 	XCountrySkiTracks.setStyle(XCountrySkistyle);
 	FlightTracks.setStyle(FlightStyle);
-	var list = new L.Control.ListMarkers({layer: markersLayer, itemIcon: null});
+	map.addControl( list );
     }
     map.on('click', onMapClick);
 
     //inizialize Leaflet List Markers
+    var list = new L.Control.ListMarkers({layer: markersLayer, itemIcon: null});
     //var list = new L.Control.ListMarkers2({layer: markersLayer, itemIcon: null});
 	
     list.on('item-mouseover', function(e) {
@@ -406,7 +407,7 @@
 	}))
     });
 
-    map.addControl( list );
+    //map.addControl( list );
 
     //console.log(names);
     //console.log(locations);

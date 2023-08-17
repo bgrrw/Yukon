@@ -454,7 +454,7 @@
 
     function ActivitySelectFunction() {
       var x = document.getElementById("ActivitySelect").value;
-      map.removeControl( list );
+      list.removeFrom(map);
       if (x = "Hikes") {
   	var list = new L.Control.ListMarkers({layer: hikemarkersLayer, itemIcon: null});
 	map.addControl( list );

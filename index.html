@@ -251,7 +251,7 @@
 
     function canoemarkercreate(feature, layer) {
 	//Creates points from activities and adds them to layer for list panel
-        L.marker(L.latLng(Number(String(feature.geometry.coordinates[0]).split(',')[1]),Number(String(feature.geometry.coordinates[0]).split(',')[0])), {title: feature.properties.name, icon: BlankIcon}).addTo(markersLayer);
+        L.marker(L.latLng(Number(String(feature.geometry.coordinates[0]).split(',')[1]),Number(String(feature.geometry.coordinates[0]).split(',')[0])), {title: feature.properties.name, icon: BlankIcon}).addTo(canoemarkersLayer);
 	forEachFeature(feature, layer);
         };
 	

@@ -453,7 +453,7 @@
     //var list = new L.Control.ListMarkers({layer: canoemarkersLayer, itemIcon: null});
 
     function ActivitySelectFunction() {
-      map.removeControl(list)
+      map.removeControl(list);
       var x = document.getElementById("ActivitySelect").value;
       if (x = "Hikes") {
   	var list = new L.Control.ListMarkers({layer: hikemarkersLayer, itemIcon: null});
@@ -471,6 +471,7 @@
 
     var list = new L.Control.ListMarkers({layer: hikemarkersLayer, itemIcon: null});
     map.addControl( list );
+    map.removeControl(list);
 	  
     list.on('item-mouseover', function(e) {
         e.layer.setIcon(L.icon({

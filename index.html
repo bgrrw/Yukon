@@ -466,20 +466,25 @@
 
     function ActivitySelectFunction() {
       var list = new L.Control.ListMarkers({layer: hikemarkersLayer, itemIcon: null});
-      //map.removeControl(list);
+      map.removeControl(list);
       var x = document.getElementById("ActivitySelect").value;
       if (x == "Hikes") {
+	console.log("hike");
   	list = new L.Control.ListMarkers({layer: hikemarkersLayer, itemIcon: null});
       } else if (x == "Bikes") {
+	console.log("bike");
   	list = new L.Control.ListMarkers({layer: bikemarkersLayer, itemIcon: null});
       } else if (x == "Canoes") {
+	console.log("canoe");
   	list = new L.Control.ListMarkers({layer: canoemarkersLayer, itemIcon: null});
       } else if (x == "Paddleboards") {
+	console.log("paddle");
   	list = new L.Control.ListMarkers({layer: SUPmarkersLayer, itemIcon: null});
       } else {
+	console.log("ski");
   	list = new L.Control.ListMarkers({layer: skimarkersLayer, itemIcon: null});
       };
-      //map.addControl(list);
+      map.addControl(list);
       };
 
     var list = new L.Control.ListMarkers({layer: hikemarkersLayer, itemIcon: null});

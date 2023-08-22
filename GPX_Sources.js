@@ -90,3 +90,7 @@ var flighttracksGPX = [
 var listOfBikeGPX = [
   "GPX/11783238378.gpx"
   ];
+
+var listOfCanoeGPX = [
+    "GPX/11845147566.gpx"
+  ];

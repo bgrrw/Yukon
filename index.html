@@ -317,7 +317,18 @@
     var canoeTacks = L.geoJSON(CanoeTracks, {
       style: Canoestyle,
       onEachFeature: canoemarkercreate
-    }).addTo(Canoes).addTo(map);	  
+    }).addTo(Canoes).addTo(map);
+
+    //Canoe GPX Tracks
+    var Canoegpx = L.geoJson(null, {
+      // http://leafletjs.com/reference.html#geojson-style
+      style: Canoestyle,
+      onEachFeature: canoemarkercreate
+    });
+
+    for (var i = 0; i < listOfCanoeGPX.length; i += 1) {
+      omnivore.gpx(listOfCanoeGPX[i], null, Canoegpx).addTo(Canoes).addTo(map);
+    };
 	  
     //Paddleboard GPX Tracks
     var paddleboardTracks = L.geoJson(null, {

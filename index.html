@@ -466,24 +466,24 @@
 
     function ActivitySelectFunction() {
       var list = new L.Control.ListMarkers({layer: hikemarkersLayer, itemIcon: null});
-      map.removeControl(list);
+      //map.removeControl(list);
       var x = document.getElementById("ActivitySelect").value;
       if (x == "Hikes") {
-  	var list = new L.Control.ListMarkers({layer: hikemarkersLayer, itemIcon: null});
+  	list = new L.Control.ListMarkers({layer: hikemarkersLayer, itemIcon: null});
       } else if (x == "Bikes") {
-  	var list = new L.Control.ListMarkers({layer: bikemarkersLayer, itemIcon: null});
+  	list = new L.Control.ListMarkers({layer: bikemarkersLayer, itemIcon: null});
       } else if (x == "Canoes") {
-  	var list = new L.Control.ListMarkers({layer: canoemarkersLayer, itemIcon: null});
+  	list = new L.Control.ListMarkers({layer: canoemarkersLayer, itemIcon: null});
       } else if (x == "Paddleboards") {
-  	var list = new L.Control.ListMarkers({layer: SUPmarkersLayer, itemIcon: null});
+  	list = new L.Control.ListMarkers({layer: SUPmarkersLayer, itemIcon: null});
       } else {
-  	var list = new L.Control.ListMarkers({layer: skimarkersLayer, itemIcon: null});
+  	list = new L.Control.ListMarkers({layer: skimarkersLayer, itemIcon: null});
       };
-      map.addControl( list );
+      //map.addControl(list);
       };
 
     var list = new L.Control.ListMarkers({layer: hikemarkersLayer, itemIcon: null});
-    map.addControl( list );
+    map.addControl(list);
     //map.removeControl(list);
 	  
     list.on('item-mouseover', function(e) {

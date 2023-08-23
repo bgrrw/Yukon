@@ -508,7 +508,9 @@
 	e.layer.setIcon(L.icon({
 	    iconUrl: 'Icons/blank.png'
 	}))
-    });
+    }).on('item-click', function(e) {
+	e.layer.setStyle(highlight);
+	});
 	  
   </script>
 </body>

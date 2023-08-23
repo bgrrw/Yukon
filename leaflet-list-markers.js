@@ -76,7 +76,7 @@ L.Control.ListMarkers = L.Control.extend({
 			.on(a, 'click', L.DomEvent.stop, this)
 			.on(a, 'click', function(e) {
 				this._moveTo( layer.getLatLng() );
-				that.fire(layer.setStyle(highlight));
+				that.fire('item-click', {layer: layer });
 			}, this)
 			.on(a, 'mouseover', function(e) {
 				that.fire('item-mouseover', {layer: layer });

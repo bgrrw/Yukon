@@ -88,7 +88,8 @@ var flighttracksGPX = [
   ];
 
 var listOfBikeGPX = [
-  "GPX/11783238378.gpx"
+  "GPX/11783238378.gpx",
+  "GPX/12098680532.gpx"
   ];
 
 var listOfCanoeGPX = [

@@ -78,7 +78,8 @@ var listOfPaddleboardGPX = [
   "GPX/11576633138.gpx",
   "GPX/11576631912.gpx",
   "GPX/11627030218.gpx",
-  "GPX/11679591872.gpx"
+  "GPX/11679591872.gpx",
+  "GPX/12018301114.gpx"
  ];
 
 var flighttracksGPX = [

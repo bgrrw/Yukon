@@ -99,3 +99,7 @@ var listOfCanoeGPX = [
     "GPX/12150348183.gpx",
     "GPX/12150350884.gpx"
   ];
+
+var listOfSkiGPX = [
+    "GPX/McIntyreSkiTrails.gpx"
+  ];

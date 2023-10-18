@@ -345,7 +345,11 @@
     var XCountrySkiTracks = L.geoJSON(XCountrySkiTracks, {
       style: XCountrySkistyle,
       onEachFeature: skimarkercreate
-    }).addTo(XCountrySki).addTo(map);	
+    }).addTo(XCountrySki).addTo(map);
+
+    for (var i = 0; i < listOfSkiGPX.length; i += 1) {
+      omnivore.gpx(listOfSkiGPX[i], null, XCountrySkiTracks).addTo(XCountrySki).addTo(map);
+    };
 
     //FlightTracks Tracks
     var FlightTracks = L.geoJson(null, {

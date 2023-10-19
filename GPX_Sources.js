@@ -101,4 +101,6 @@ var listOfCanoeGPX = [
   ];
 
 var listOfSkiGPX = [
+  "GPX/activity_6368872971.gpx",
+  "GPX/activity_6442711175.gpx"
   ];

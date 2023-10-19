@@ -30,6 +30,7 @@
   <script src="Bike.js" type="text/javascript"></script>
   <script src="GPSHikes.js" type="text/javascript"></script>
   <script src="XCountrySki.js" type="text/javascript"></script>
+  <script src="McIntyre.js" type="text/javascript"></script>
   <!-- <script src="IcefieldsFlight.js" type="text/javascript"></script> -->
 
   <!-- Position the map and title with Cascading Style Sheet (CSS) -->
@@ -347,17 +348,24 @@
       onEachFeature: skimarkercreate
     }).addTo(XCountrySki).addTo(map);
 
+    var McIntyreSkiTracks = L.geoJSON(McIntyreSkiTracks, {
+      style: XCountrySkistyle,
+      onEachFeature: skimarkercreate
+    }).addTo(XCountrySki).addTo(map);
+
     //for (var i = 0; i < listOfSkiGPX.length; i += 1) {
     //  omnivore.gpx(listOfSkiGPX[i], null, XCountrySkiTracks).addTo(XCountrySki).addTo(map);
     //};
-    var skikmz = L.kmzLayer();
+    //var skikmz = L.kmzLayer(
+	//style: XCountrySkistyle
+    //);
 
-    skikmz.on('load', function(e) {
-      e.layer.addTo(XCountrySki).addTo(map);
-    });
+    //skikmz.on('load', function(e) {
+    //  e.layer.addTo(XCountrySki).addTo(map);
+    //});
 
-    // Add remote KMZ files as layers (NB if they are 3rd-party servers, they MUST have CORS enabled)
-    skikmz.load('McIntyre.kmz');
+    // Add KMZ files as layers 
+    //skikmz.load('McIntyre.kmz');
 
     //FlightTracks Tracks
     var FlightTracks = L.geoJson(null, {

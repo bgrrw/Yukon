@@ -4,7 +4,7 @@ var McIntyreSkiTracks = {
 		{
 			"type": "Feature", 
 			"properties": { 
-				"Name": "Mt. McIntyre Ski Trails 
+				"Name": "Mt. McIntyre Ski Trails" 
 			}, 
 			"geometry": { 
 				"type": "MultiLineString", 

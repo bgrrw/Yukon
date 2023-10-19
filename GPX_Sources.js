@@ -101,5 +101,4 @@ var listOfCanoeGPX = [
   ];
 
 var listOfSkiGPX = [
-    "GPX/McIntyreSkiTrails.gpx"
   ];

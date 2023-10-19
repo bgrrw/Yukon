@@ -354,19 +354,9 @@
       onEachFeature: skimarkercreate
     }).addTo(XCountrySki).addTo(map);
 
-    //for (var i = 0; i < listOfSkiGPX.length; i += 1) {
-    //  omnivore.gpx(listOfSkiGPX[i], null, XCountrySkiTracks).addTo(XCountrySki).addTo(map);
-    //};
-    //var skikmz = L.kmzLayer(
-	//style: XCountrySkistyle
-    //);
-
-    //skikmz.on('load', function(e) {
-    //  e.layer.addTo(XCountrySki).addTo(map);
-    //});
-
-    // Add KMZ files as layers 
-    //skikmz.load('McIntyre.kmz');
+    for (var i = 0; i < listOfSkiGPX.length; i += 1) {
+      omnivore.gpx(listOfSkiGPX[i], null, XCountrySkiTracks).addTo(XCountrySki).addTo(map);
+    };
 
     //FlightTracks Tracks
     var FlightTracks = L.geoJson(null, {

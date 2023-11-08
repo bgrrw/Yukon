@@ -75,7 +75,7 @@ L.Control.ListMarkers = L.Control.extend({
 			.disableClickPropagation(a)
 			.on(a, 'click', L.DomEvent.stop, this)
 			.on(a, 'click', function(e) {
-				this._moveTo( layer.getLatLng() );
+				this._moveTo( layer.getLatLng(),layer );
 			}, this)
 			.on(a, 'mouseover', function(e) {
 				that.fire('item-mouseover', {layer: layer });
@@ -166,7 +166,7 @@ L.Control.ListMarkers = L.Control.extend({
 		L.DomUtil.addClass(this._container, 'list-markers-collapsed');
 	},
 
-    _moveTo: function(latlng) {
+    _moveTo: function(latlng,layer) {
 		if(this.options.maxZoom)
 			this._map.setView(latlng, Math.max(this._map.getZoom(), this.options.maxZoom) );
 		else

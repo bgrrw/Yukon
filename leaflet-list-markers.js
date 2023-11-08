@@ -76,7 +76,6 @@ L.Control.ListMarkers = L.Control.extend({
 			.on(a, 'click', L.DomEvent.stop, this)
 			.on(a, 'click', function(e) {
 				this._moveTo( layer.getLatLng() );
-				layer.fire('click'); //DELETE THIS IF IT DOESN"T WORK
 			}, this)
 			.on(a, 'mouseover', function(e) {
 				that.fire('item-mouseover', {layer: layer });
@@ -171,7 +170,8 @@ L.Control.ListMarkers = L.Control.extend({
 		if(this.options.maxZoom)
 			this._map.setView(latlng, Math.max(this._map.getZoom(), this.options.maxZoom) );
 		else
-			this._map.panTo(latlng);    
+			this._map.panTo(latlng);
+	    	layer.fire('click'); //DELETE THIS IF IT DOESN"T WORK
     }
 });
 

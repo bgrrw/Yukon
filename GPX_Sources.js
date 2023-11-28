@@ -69,7 +69,8 @@ var listOfHikeGPX = [
   "GPX/12150349294.gpx",
   "GPX/12509494346.gpx",
   "GPX/12720866946.gpx",
-  "GPX/12798539773.gpx"
+  "GPX/12798539773.gpx",
+  "GPX/12898173743.gpx"
 ];
 
 var listOfPaddleboardGPX = [

@@ -289,10 +289,10 @@
       // http://leafletjs.com/reference.html#geojson-style
       style: Hikestyle,
       onEachFeature: hikemarkercreate
-    });
+    }).addTo(features);
 
     for (var i = 0; i < listOfHikeGPX.length; i += 1) {
-      omnivore.gpx(listOfHikeGPX[i], null, hikegpx).addTo(features).addTo(Hikes).addTo(map);
+      omnivore.gpx(listOfHikeGPX[i], null, hikegpx).addTo(Hikes).addTo(map);
     };
 
     //GPS Unit Hiking Tracks

@@ -14,7 +14,8 @@
   <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
   <!-- GPX -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.7.0/gpx.min.js"></script>
-	
+  <!-- Deflate plugin -->
+  <script src="https://unpkg.com/Leaflet.Deflate/dist/L.Deflate.js"></script>
   <!-- Leaflet-KMZ -->
   <script src="https://unpkg.com/leaflet-kmz@latest/dist/leaflet-kmz.js"></script>
 
@@ -149,7 +150,9 @@
       layers: [baseLayers["Terrain"],Hikes,Bikes,Canoes,Paddleboards,XCountrySki,Flights,Summits,Camps,Cabins,Bears]
     });
     for (var i = 0; i < overlays.length; i += 1) {overlays[i];}
-	  
+
+    const features = L.deflate({minSize: 10})
+    features.addTo(map);
 	  
     var layerControl = L.control.layers(baseLayers,overlays).addTo(map);
     
@@ -289,7 +292,7 @@
     });
 
     for (var i = 0; i < listOfHikeGPX.length; i += 1) {
-      omnivore.gpx(listOfHikeGPX[i], null, hikegpx).addTo(Hikes).addTo(map);
+      omnivore.gpx(listOfHikeGPX[i], null, hikegpx).addTo(Hikes).addTo(map).addTo(features);
     };
 
     //GPS Unit Hiking Tracks

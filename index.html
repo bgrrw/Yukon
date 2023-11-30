@@ -292,9 +292,9 @@
     });
 
     for (var i = 0; i < listOfHikeGPX.length; i += 1) {
-      omnivore.gpx(listOfHikeGPX[i], null, hikegpx).addTo(Hikes).addTo(map);
+     var gpx = omnivore.gpx(listOfHikeGPX[i], null, hikegpx).addTo(Hikes).addTo(map);
+     gpx..addTo(features)
     };
-    hikegpx.addTo(features);
 
     //GPS Unit Hiking Tracks
     var hikeTracks = L.geoJSON(GPSHikes, {

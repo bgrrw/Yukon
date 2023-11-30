@@ -151,7 +151,8 @@
     });
     for (var i = 0; i < overlays.length; i += 1) {overlays[i];}
 
-    const features = L.deflate({minSize: 10});
+    const features = L.deflate({minSize: 10})
+    features.addTo(map);
 	  
     var layerControl = L.control.layers(baseLayers,overlays).addTo(map);
     
@@ -291,16 +292,14 @@
     });
 
     for (var i = 0; i < listOfHikeGPX.length; i += 1) {
-      omnivore.gpx(listOfHikeGPX[i], null, hikegpx).addTo(Hikes).addTo(features);
+      omnivore.gpx(listOfHikeGPX[i], null, hikegpx).addTo(Hikes).addTo(map);
     };
-
-    features.addTo(map);
 
     //GPS Unit Hiking Tracks
     var hikeTracks = L.geoJSON(GPSHikes, {
       style: Hikestyle,
       onEachFeature: hikemarkercreate
-    }).addTo(Hikes).addTo(map);  
+    }).addTo(features).addTo(Hikes).addTo(map);  
 
     //Bike GPX Tracks
     var bikegpx = L.geoJson(null, {

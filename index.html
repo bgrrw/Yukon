@@ -142,7 +142,7 @@
 	'Bears <img src="Icons/bear.png" style="width:32px;height:32px;">': Bears
     };
 	  
-    var map = L.map('map', {
+    const map = L.map('map', {
       center: [65, -135],
       zoom: 5.5,
       zoomControl: false,
@@ -151,8 +151,7 @@
     });
     for (var i = 0; i < overlays.length; i += 1) {overlays[i];}
 
-    const features = L.deflate({minSize: 10})
-    features.addTo(map);
+    const features = L.deflate({minSize: 10});
 	  
     var layerControl = L.control.layers(baseLayers,overlays).addTo(map);
     
@@ -294,6 +293,8 @@
     for (var i = 0; i < listOfHikeGPX.length; i += 1) {
       omnivore.gpx(listOfHikeGPX[i], null, hikegpx).addTo(Hikes).addTo(features);
     };
+
+    features.addTo(map);
 
     //GPS Unit Hiking Tracks
     var hikeTracks = L.geoJSON(GPSHikes, {

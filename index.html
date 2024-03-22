@@ -295,14 +295,14 @@
     });
 
     for (var i = 0; i < listOfHikeGPX.length; i += 1) {
-     var gpx = omnivore.gpx(listOfHikeGPX[i], null, hikegpx).addTo(Hikes).addTo(map);
+     var gpx = omnivore.gpx(listOfHikeGPX[i], null, hikegpx).addTo(Hikes).addTo(deflate_features);
     };
 
     //GPS Unit Hiking Tracks
     var hikeTracks = L.geoJSON(GPSHikes, {
       style: Hikestyle,
       onEachFeature: hikemarkercreate
-    }).addTo(Hikes).addTo(map).addTo(deflate_features);  
+    }).addTo(Hikes).addTo(deflate_features);  
 
     //Bike GPX Tracks
     var bikegpx = L.geoJson(null, {

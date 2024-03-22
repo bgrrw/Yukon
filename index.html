@@ -126,7 +126,11 @@ a<!DOCTYPE html>
     var Bears = L.layerGroup()
     
     //var Hikes = L.layerGroup()
-    const Hikes = L.deflate({minSize: 20})
+    const hikeDeflateIcon = L.icon({
+      iconUrl: 'Icons/hiking.png',
+      iconSize: [24, 24]
+    });	  
+    const Hikes = L.deflate({minSize: 30, markerOptions: {icon: hikeDeflateIcon}});
     var Bikes = L.layerGroup()
     var Canoes = L.layerGroup()
     var Paddleboards = L.layerGroup()

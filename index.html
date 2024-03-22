@@ -157,7 +157,7 @@ a<!DOCTYPE html>
     const deflate_features = L.deflate({minSize: 10})
     deflate_features.addTo(map);
 	  
-    var layerControl = L.control.layers(baseLayers,overlays).addTo(map);
+    var layerControl = L.control.layers(baseLayers).addTo(map);
     
     var Icon = L.Icon.extend({
       options: {

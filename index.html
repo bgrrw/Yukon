@@ -150,7 +150,7 @@ a<!DOCTYPE html>
       zoom: 5.5,
       zoomControl: false,
       zoomSnap: 0.25,
-      layers: [baseLayers["Terrain"],Hikes,Bikes,Canoes,XCountrySki,Flights,Summits,Camps,Cabins,Bears]
+      layers: [baseLayers["Terrain"],Hikes,Bikes,Canoes,Paddleboards,XCountrySki,Flights,Summits,Camps,Cabins,Bears]
     });
     //for (var i = 0; i < overlays.length; i += 1) {overlays[i];}
 
@@ -295,7 +295,7 @@ a<!DOCTYPE html>
     });
 
     for (var i = 0; i < listOfHikeGPX.length; i += 1) {
-     var gpx = omnivore.gpx(listOfHikeGPX[i], null, hikegpx).addTo(Hikes);
+     var gpx = omnivore.gpx(listOfHikeGPX[i], null, hikegpx);
     };
 
     //GPS Unit Hiking Tracks
@@ -325,7 +325,7 @@ a<!DOCTYPE html>
     var canoeTacks = L.geoJSON(CanoeTracks, {
       style: Canoestyle,
       onEachFeature: canoemarkercreate
-    }).addTo(Canoes).addTo(map);
+    }).addTo(Canoes);
 
     //Canoe GPX Tracks
     var Canoegpx = L.geoJson(null, {
@@ -335,7 +335,7 @@ a<!DOCTYPE html>
     });
 
     for (var i = 0; i < listOfCanoeGPX.length; i += 1) {
-      omnivore.gpx(listOfCanoeGPX[i], null, Canoegpx).addTo(Canoes).addTo(map);
+      omnivore.gpx(listOfCanoeGPX[i], null, Canoegpx).addTo(Canoes);
     };
 	  
     //Paddleboard GPX Tracks
@@ -353,12 +353,12 @@ a<!DOCTYPE html>
     var XCountrySkiTracks = L.geoJSON(XCountrySkiTracks, {
       style: XCountrySkistyle,
       onEachFeature: skimarkercreate
-    }).addTo(XCountrySki).addTo(map);
+    }).addTo(XCountrySki);
 
     var McIntyreSkiTracks = L.geoJSON(McIntyreSkiTracks, {
       style: XCountrySkistyle,
       onEachFeature: skimarkercreate
-    }).addTo(XCountrySki).addTo(map);
+    }).addTo(XCountrySki);
 
     for (var i = 0; i < listOfSkiGPX.length; i += 1) {
       omnivore.gpx(listOfSkiGPX[i], null, XCountrySkiTracks).addTo(XCountrySki).addTo(map);
@@ -372,8 +372,12 @@ a<!DOCTYPE html>
     });
 
     for (var i = 0; i < flighttracksGPX.length; i += 1) {
-      omnivore.gpx(flighttracksGPX[i], null, FlightTracks).addTo(Flights).addTo(map);
+      omnivore.gpx(flighttracksGPX[i], null, FlightTracks).addTo(Flights);
     }; 
+	  
+    /////////////////////	  
+    //Add points
+    /////////////////////
 	  
     // Read markers data from data.csv
     $.get('Camps.csv', function(csvString) {
@@ -401,10 +405,6 @@ a<!DOCTYPE html>
           Campsmarker.addTo(map);
         }
       });
-
-    /////////////////////	  
-    //Add points
-    /////////////////////
 	  
     // Read markers data from data.csv
     $.get('Cabins.csv', function(csvString) {

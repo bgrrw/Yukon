@@ -303,7 +303,7 @@ a<!DOCTYPE html>
     var hikeTracks = L.geoJSON(GPSHikes, {
       style: Hikestyle,
       onEachFeature: hikemarkercreate
-    }).addTo(Hikes).addTo(deflate_features);  
+    }).addTo(Hikes);  
 
     //Bike GPX Tracks
     var bikegpx = L.geoJson(null, {

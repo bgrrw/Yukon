@@ -150,9 +150,9 @@ a<!DOCTYPE html>
       zoom: 5.5,
       zoomControl: false,
       zoomSnap: 0.25,
-      layers: [baseLayers["Terrain"],Hikes,Bikes,Canoes,XCountrySki,Flights,Summits,Camps,Cabins,Bears]
+      layers: [baseLayers["Terrain"],Hikes,Bikes,Canoes,Paddleboards,XCountrySki,Flights,Summits,Camps,Cabins,Bears]
     });
-    for (var i = 0; i < overlays.length; i += 1) {overlays[i];}
+    //for (var i = 0; i < overlays.length; i += 1) {overlays[i];}
 
     const deflate_features = L.deflate({minSize: 10})
     deflate_features.addTo(map);
@@ -346,7 +346,7 @@ a<!DOCTYPE html>
     });
 
     for (var i = 0; i < listOfPaddleboardGPX.length; i += 1) {
-      omnivore.gpx(listOfPaddleboardGPX[i], null, paddleboardTracks).addTo(Paddleboards).addTo(map);
+      omnivore.gpx(listOfPaddleboardGPX[i], null, paddleboardTracks).addTo(Paddleboards);
     };
 
     //XCountrySkiTracks Tracks

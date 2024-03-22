@@ -20,7 +20,6 @@ var listOfHikeGPX = [
   "GPX/7446396579.gpx",
   "GPX/7446403654.gpx",
   "GPX/7478835426.gpx",
-  "GPX/7642681710.gpx",
   "GPX/7712210129.gpx",
   "GPX/7784504462.gpx",
   "GPX/7860241286.gpx",

@@ -125,7 +125,8 @@ a<!DOCTYPE html>
     var Cabins = L.layerGroup()
     var Bears = L.layerGroup()
     
-    var Hikes = L.layerGroup()
+    //var Hikes = L.layerGroup()
+    const Hikes = L.deflate({minSize: 20})
     var Bikes = L.layerGroup()
     var Canoes = L.layerGroup()
     var Paddleboards = L.layerGroup()
@@ -154,8 +155,8 @@ a<!DOCTYPE html>
     });
     //for (var i = 0; i < overlays.length; i += 1) {overlays[i];}
 
-    const deflate_features = L.deflate({minSize: 10})
-    deflate_features.addTo(map);
+    //const deflate_features = L.deflate({minSize: 10})
+    //deflate_features.addTo(map);
 	  
     var layerControl = L.control.layers(baseLayers,overlays).addTo(map);
     

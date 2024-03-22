@@ -127,7 +127,8 @@ a<!DOCTYPE html>
     
     //var Hikes = L.layerGroup()
     const hikeDeflateIcon = L.icon({
-      iconUrl: 'Icons/hiking.png'
+      iconUrl: 'Icons/hiking.png',
+      iconSize: [32, 32]
     });	  
     const Hikes = L.deflate({minSize: 30, markerOptions: {icon: hikeDeflateIcon}});
     var Bikes = L.layerGroup()

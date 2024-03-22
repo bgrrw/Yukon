@@ -312,14 +312,14 @@
     });
 
     for (var i = 0; i < listOfBikeGPX .length; i += 1) {
-      omnivore.gpx(listOfBikeGPX[i], null, bikegpx).addTo(Bikes).addTo(map);
+      omnivore.gpx(listOfBikeGPX[i], null, bikegpx).addTo(Bikes);
     };
 
     //Bike Tracks
     var bikeTracks = L.geoJSON(bikeTracks, {
       style: Bikestyle,
       onEachFeature: bikemarkercreate
-    }).addTo(Bikes).addTo(map);
+    }).addTo(Bikes);
 
     //Canoe Tracks
     var canoeTacks = L.geoJSON(CanoeTracks, {

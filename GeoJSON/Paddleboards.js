@@ -1,4 +1,4 @@
-var HikeGPX = {
+var PaddleboardGPX = {
     "type": "FeatureCollection",
     "features": [
             {

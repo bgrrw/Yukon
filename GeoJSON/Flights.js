@@ -1,4 +1,4 @@
-var HikeGPX = {
+var FlightGPX = {
     "type": "FeatureCollection",
     "features": [
             {

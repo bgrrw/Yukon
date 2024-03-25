@@ -396,6 +396,12 @@
       omnivore.gpx(listOfSkiGPX[i], null, XCountrySkiTracks).addTo(XCountrySki).addTo(map);
     };
 
+    ///flight GPX Tracks
+    var FlightTracks = L.geoJSON(FlightGPX, {
+      style: FlightStyle,
+      onEachFeature: forEachFeature
+    }).addTo(Flights);
+	  /*
     //FlightTracks Tracks
     var FlightTracks = L.geoJson(null, {
       // http://leafletjs.com/reference.html#geojson-style
@@ -406,6 +412,7 @@
     for (var i = 0; i < flighttracksGPX.length; i += 1) {
       omnivore.gpx(flighttracksGPX[i], null, FlightTracks).addTo(Flights);
     }; 
+    */
 	  
     /////////////////////	  
     //Add points

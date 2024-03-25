@@ -29,13 +29,16 @@
   <script src="leaflet-list-markers.js"></script>
 	
   <!-- Javascript Variable of tracks from geojson -->
+  <script src="GeoJSON/Hikes1.js" type="text/javascript"></script>
+  <script src="GeoJSON/Hikes2.js" type="text/javascript"></script>
+  <script src="GeoJSON/Hikes3.js" type="text/javascript"></script>
   <script src="GeoJSON/Bikes.js" type="text/javascript"></script>
   <script src="GeoJSON/Canoes.js" type="text/javascript"></script>
   <script src="GeoJSON/Flights.js" type="text/javascript"></script>
   <script src="GeoJSON/Paddleboards.js" type="text/javascript"></script>
   <script src="GeoJSON/Skis.js" type="text/javascript"></script>
 	
-  <script src="GPX_Sources.js" type="text/javascript"></script>
+  <!--<script src="GPX_Sources.js" type="text/javascript"></script>-->
 	
   <script src="Canoe.js" type="text/javascript"></script>
   <script src="Bike.js" type="text/javascript"></script>
@@ -299,7 +302,7 @@
     /////////////////////	  
     //Add activity tracks
     /////////////////////
-	  
+	  /*
     //Hiking GPX Tracks
     var hikegpx = L.geoJson(null, {
       // http://leafletjs.com/reference.html#geojson-style
@@ -310,9 +313,20 @@
     for (var i = 0; i < listOfHikeGPX.length; i += 1) {
      var gpx = omnivore.gpx(listOfHikeGPX[i], null, hikegpx).addTo(Hikes);
     };
+	*/
 
     //GPS Unit Hiking Tracks
-    var hikeTracks = L.geoJSON(GPSHikes, {
+    var hikeTracks = L.geoJSON(HikeGPX1, {
+      style: Hikestyle,
+      onEachFeature: hikemarkercreate
+    }).addTo(Hikes);
+
+    var hikeTracks = L.geoJSON(HikeGPX2, {
+      style: Hikestyle,
+      onEachFeature: hikemarkercreate
+    }).addTo(Hikes);  
+
+    var hikeTracks = L.geoJSON(HikeGPX3, {
       style: Hikestyle,
       onEachFeature: hikemarkercreate
     }).addTo(Hikes);  

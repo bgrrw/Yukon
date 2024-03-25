@@ -31,10 +31,15 @@
   <!-- Javascript Variable of tracks from geojson -->
   <script src="GPX_Sources.js" type="text/javascript"></script>
   <script src="Canoe.js" type="text/javascript"></script>
+  <script src="GeoJSON/Canoe.js" type="text/javascript"></script>
   <script src="Bike.js" type="text/javascript"></script>
+  <script src="GeoJSON/Bike.js" type="text/javascript"></script>
   <script src="GPSHikes.js" type="text/javascript"></script>
   <script src="XCountrySki.js" type="text/javascript"></script>
+  <script src="GeoJSON/Skis.js" type="text/javascript"></script>
   <script src="McIntyre.js" type="text/javascript"></script>
+  <script src="GeoJSON/Paddleboards.js" type="text/javascript"></script>
+  <script src="GeoJSON/Flights.js" type="text/javascript"></script>
   <!-- <script src="IcefieldsFlight.js" type="text/javascript"></script> -->
 
   <!-- Position the map and title with Cascading Style Sheet (CSS) -->
@@ -309,6 +314,7 @@
       onEachFeature: hikemarkercreate
     }).addTo(Hikes);  
 
+	  /*
     //Bike GPX Tracks
     var bikegpx = L.geoJson(null, {
       // http://leafletjs.com/reference.html#geojson-style
@@ -319,19 +325,20 @@
     for (var i = 0; i < listOfBikeGPX .length; i += 1) {
       omnivore.gpx(listOfBikeGPX[i], null, bikegpx).addTo(Bikes);
     };
-
+*/
     //Bike Tracks
     var bikeTracks = L.geoJSON(bikeTracks, {
       style: Bikestyle,
       onEachFeature: bikemarkercreate
     }).addTo(Bikes);
 
-    //Canoe Tracks
-    var canoeTacks = L.geoJSON(CanoeTracks, {
-      style: Canoestyle,
-      onEachFeature: canoemarkercreate
-    }).addTo(Canoes);
+    //Bike Tracks
+    var bikeTracks = L.geoJSON(BikeGPX, {
+      style: Bikestyle,
+      onEachFeature: bikemarkercreate
+    }).addTo(Bikes);
 
+	  /*
     //Canoe GPX Tracks
     var Canoegpx = L.geoJson(null, {
       // http://leafletjs.com/reference.html#geojson-style
@@ -342,7 +349,21 @@
     for (var i = 0; i < listOfCanoeGPX.length; i += 1) {
       omnivore.gpx(listOfCanoeGPX[i], null, Canoegpx).addTo(Canoes);
     };
+	  */
 	  
+    //Canoe Tracks
+    var canoeTacks = L.geoJSON(CanoeTracks, {
+      style: Canoestyle,
+      onEachFeature: canoemarkercreate
+    }).addTo(Canoes);
+
+    //Canoe Tracks
+    var canoeTacks = L.geoJSON(CanoeGPX, {
+      style: Canoestyle,
+      onEachFeature: canoemarkercreate
+    }).addTo(Canoes);
+
+	  /*
     //Paddleboard GPX Tracks
     var paddleboardTracks = L.geoJson(null, {
       // http://leafletjs.com/reference.html#geojson-style
@@ -353,7 +374,14 @@
     for (var i = 0; i < listOfPaddleboardGPX.length; i += 1) {
       omnivore.gpx(listOfPaddleboardGPX[i], null, paddleboardTracks).addTo(Paddleboards);
     };
+    */
+    ///Paddleboard GPX Tracks
+    var XCountrySkiTracks = L.geoJSON(PaddleboardGPX, {
+      style: Paddleboardstyle,
+      onEachFeature: SUPmarkercreate
+    }).addTo(Paddleboards);
 
+	  
     //XCountrySkiTracks Tracks
     var XCountrySkiTracks = L.geoJSON(XCountrySkiTracks, {
       style: XCountrySkistyle,

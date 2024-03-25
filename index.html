@@ -241,7 +241,7 @@
 	hikegpx.setStyle(Hikestyle);
 	canoeTacks.setStyle(Canoestyle);
 	bikeTracks.setStyle(Bikestyle);
-	bikegpx.setStyle(Bikestyle);
+	//bikegpx.setStyle(Bikestyle);
 	XCountrySkiTracks.setStyle(XCountrySkistyle);
 	McIntyreSkiTracks.setStyle(XCountrySkistyle);
 	FlightTracks.setStyle(FlightStyle);
@@ -379,7 +379,7 @@
     };
     */
     ///Paddleboard GPX Tracks
-    var XCountrySkiTracks = L.geoJSON(PaddleboardGPX, {
+    var paddleboardTracks = L.geoJSON(PaddleboardGPX, {
       style: Paddleboardstyle,
       onEachFeature: SUPmarkercreate
     }).addTo(Paddleboards);
@@ -508,10 +508,10 @@
 	hikeTracks.setStyle(Hikestyle);
 	hikegpx.setStyle(Hikestyle);
 	canoeTacks.setStyle(Canoestyle);
-	Canoegpx.setStyle(Canoestyle);
+	//Canoegpx.setStyle(Canoestyle);
 	paddleboardTracks.setStyle(Paddleboardstyle);
 	bikeTracks.setStyle(Bikestyle);
-	bikegpx.setStyle(Bikestyle);
+	//bikegpx.setStyle(Bikestyle);
 	XCountrySkiTracks.setStyle(XCountrySkistyle);
 	McIntyreSkiTracks.setStyle(XCountrySkistyle);
 	FlightTracks.setStyle(FlightStyle);

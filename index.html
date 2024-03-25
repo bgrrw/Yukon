@@ -396,10 +396,6 @@
       onEachFeature: skimarkercreate
     }).addTo(XCountrySki);
 
-    for (var i = 0; i < listOfSkiGPX.length; i += 1) {
-      omnivore.gpx(listOfSkiGPX[i], null, XCountrySkiTracks).addTo(XCountrySki).addTo(map);
-    };
-
     ///flight GPX Tracks
     var FlightTracks = L.geoJSON(FlightGPX, {
       style: FlightStyle,

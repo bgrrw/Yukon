@@ -132,11 +132,11 @@
     var Bears = L.layerGroup()
     
     var Hikes = L.layerGroup()
-    //const hikeDeflateIcon = L.icon({
-    //  iconUrl: 'Icons/hiking.png',
-    //  iconSize: [32, 32]
-    //});	  
-    //const Hikes = L.deflate({minSize: 30, markerOptions: {icon: hikeDeflateIcon}});
+    const hikeDeflateIcon = L.icon({
+      iconUrl: 'Icons/HikeMarker.png',
+      iconSize: [32, 32]
+    });	  
+    const Hikes = L.deflate({minSize: 30, markerOptions: {icon: hikeDeflateIcon}});
     var Bikes = L.layerGroup()
     var Canoes = L.layerGroup()
     var Paddleboards = L.layerGroup()
@@ -165,8 +165,8 @@
     });
     //for (var i = 0; i < overlays.length; i += 1) {overlays[i];}
 
-    //const deflate_features = L.deflate({minSize: 10})
-    //deflate_features.addTo(map);
+    const deflate_features = L.deflate({minSize: 10})
+    deflate_features.addTo(map);
 	  
     var layerControl = L.control.layers(baseLayers,overlays).addTo(map);
     

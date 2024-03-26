@@ -116,7 +116,15 @@
 
   <!-- Create the interactive map content with JavaScript (.js) -->
   <script>
-	    
+
+    var Icon = L.Icon.extend({
+      options: {
+        iconSize:     [32, 32],
+	iconAnchor:   [16, 32],
+	popupAnchor:  [0, -32]
+	}
+    });
+	
     var baseLayers = {
 	'Terrain': L.tileLayer('http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}',{
 		maxZoom: 20,
@@ -132,15 +140,20 @@
     var Bears = L.layerGroup()
     
     //var Hikes = L.layerGroup()
-    const hikeDeflateIcon = L.icon({
-      iconUrl: 'Icons/HikeMarker.png',
-      iconSize: [32, 32]
-    });	  
+    var hikeDeflateIcon = new Icon({iconUrl: 'Icons/HikeMarker.png'});
     const Hikes = L.deflate({minSize: 30, markerOptions: {icon: hikeDeflateIcon}});
-    var Bikes = L.layerGroup()
-    var Canoes = L.layerGroup()
-    var Paddleboards = L.layerGroup()
-    var XCountrySki = L.layerGroup()
+    //var Bikes = L.layerGroup()
+    var BikeDeflateIcon = new Icon({iconUrl: 'Icons/BikeMarker.png'});
+    const Bikes = L.deflate({minSize: 30, markerOptions: {icon: BikeDeflateIcon}});
+    //var Canoes = L.layerGroup()
+    var CanoeDeflateIcon = new Icon({iconUrl: 'Icons/CanoeMarker.png'});
+    const Canoes = L.deflate({minSize: 30, markerOptions: {icon: CanoeDeflateIcon}});	  
+    //var Paddleboards = L.layerGroup()
+    var PaddleboardDeflateIcon = new Icon({iconUrl: 'Icons/PaddleboardMarker.png'});
+    const Paddleboards = L.deflate({minSize: 30, markerOptions: {icon: PaddleboardDeflateIcon}});	  
+    ///var XCountrySki = L.layerGroup()
+    var SkiDeflateIcon = new Icon({iconUrl: 'Icons/SkiMarker.png'});
+    const XCountrySki = L.deflate({minSize: 30, markerOptions: {icon: SkiDeflateIcon}});	
     var Flights = L.layerGroup()
 
     var overlays = {
@@ -170,14 +183,6 @@
 	  
     var layerControl = L.control.layers(baseLayers,overlays).addTo(map);
     
-    var Icon = L.Icon.extend({
-      options: {
-        iconSize:     [32, 32],
-	iconAnchor:   [16, 32],
-	popupAnchor:  [0, -32]
-	}
-    });
-
     // Point icons
     var CampIcon = new Icon({iconUrl: 'Icons/tent.png'});
     var CabinIcon = new Icon({iconUrl: 'Icons/cabin.png'});

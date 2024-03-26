@@ -247,14 +247,20 @@
       layer.on("click", function (e) {
 	layer.bringToFront();
 	hikeTracks.setStyle(Hikestyle);
+	hikeTracks1.setStyle(Hikestyle);
+	hikeTracks2.setStyle(Hikestyle);
+	hikeTracks3.setStyle(Hikestyle);
 	//hikegpx.setStyle(Hikestyle);
 	canoeTacks.setStyle(Canoestyle);
+	canoeTacks1.setStyle(Canoestyle);
+	//Canoegpx.setStyle(Canoestyle);
+	paddleboardTracks.setStyle(Paddleboardstyle);
 	bikeTracks.setStyle(Bikestyle);
+	bikeTracks1.setStyle(Bikestyle);
 	//bikegpx.setStyle(Bikestyle);
 	XCountrySkiTracks.setStyle(XCountrySkistyle);
 	McIntyreSkiTracks.setStyle(XCountrySkistyle);
 	FlightTracks.setStyle(FlightStyle);
-	paddleboardTracks.setStyle(Paddleboardstyle);
         layer.setStyle(highlight);  //highlights selected.
         });
         };
@@ -327,17 +333,17 @@
       onEachFeature: hikemarkercreate
     }).addTo(Hikes);
 
-    var hikeTracks = L.geoJSON(HikeGPX1, {
+    var hikeTracks1 = L.geoJSON(HikeGPX1, {
       style: Hikestyle,
       onEachFeature: hikemarkercreate
     }).addTo(Hikes);
 
-    var hikeTracks = L.geoJSON(HikeGPX2, {
+    var hikeTracks2 = L.geoJSON(HikeGPX2, {
       style: Hikestyle,
       onEachFeature: hikemarkercreate
     }).addTo(Hikes);  
 
-    var hikeTracks = L.geoJSON(HikeGPX3, {
+    var hikeTracks3 = L.geoJSON(HikeGPX3, {
       style: Hikestyle,
       onEachFeature: hikemarkercreate
     }).addTo(Hikes);  
@@ -361,7 +367,7 @@
     }).addTo(Bikes);
 
     //Bike Tracks
-    var bikeTracks = L.geoJSON(BikeGPX, {
+    var bikeTracks1 = L.geoJSON(BikeGPX, {
       style: Bikestyle,
       onEachFeature: bikemarkercreate
     }).addTo(Bikes);
@@ -386,7 +392,7 @@
     }).addTo(Canoes);
 
     //Canoe Tracks
-    var canoeTacks = L.geoJSON(CanoeGPX, {
+    var canoeTacks1 = L.geoJSON(CanoeGPX, {
       style: Canoestyle,
       onEachFeature: canoemarkercreate
     }).addTo(Canoes);
@@ -538,11 +544,16 @@
 
     function onMapClick(e) {
 	hikeTracks.setStyle(Hikestyle);
+	hikeTracks1.setStyle(Hikestyle);
+	hikeTracks2.setStyle(Hikestyle);
+	hikeTracks3.setStyle(Hikestyle);
 	//hikegpx.setStyle(Hikestyle);
 	canoeTacks.setStyle(Canoestyle);
+	canoeTacks1.setStyle(Canoestyle);
 	//Canoegpx.setStyle(Canoestyle);
 	paddleboardTracks.setStyle(Paddleboardstyle);
 	bikeTracks.setStyle(Bikestyle);
+	bikeTracks1.setStyle(Bikestyle);
 	//bikegpx.setStyle(Bikestyle);
 	XCountrySkiTracks.setStyle(XCountrySkistyle);
 	McIntyreSkiTracks.setStyle(XCountrySkistyle);

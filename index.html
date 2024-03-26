@@ -316,6 +316,11 @@
 	*/
 
     //GPS Unit Hiking Tracks
+    var hikeTracks = L.geoJSON(GPSHikes, {
+      style: Hikestyle,
+      onEachFeature: hikemarkercreate
+    }).addTo(Hikes);
+
     var hikeTracks = L.geoJSON(HikeGPX1, {
       style: Hikestyle,
       onEachFeature: hikemarkercreate

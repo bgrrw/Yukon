@@ -142,6 +142,7 @@
     var Cabins = L.layerGroup()
     var Bears = L.layerGroup()
     var POIs = L.layerGroup()
+    var Monuments = L.layerGroup()
     
     //var Hikes = L.layerGroup()
     var hikeDeflateIcon = new Icon({iconUrl: 'Icons/HikeMarker.png'});
@@ -170,6 +171,7 @@
 	'Summits<img src="Icons/summit.png" style="width:32px;height:32px;">': Summits,
 	'Camps<img src="Icons/tent.png" style="width:32px;height:32px;">': Camps,
 	'POIs<img src="Icons/point-of-interest.png" style="width:32px;height:32px;">': POIs,
+	'Monuments<img src="Icons/Monument.png" style="width:32px;height:32px;">': Monuments,
 	'Cabins<img src="Icons/cabin.png" style="width:32px;height:32px;">': Cabins,
 	'Bears <img src="Icons/bear.png" style="width:32px;height:32px;">': Bears
     };
@@ -202,6 +204,7 @@
     var CabinIcon = new Icon({iconUrl: 'Icons/cabin.png'});
     var SummitIcon = new Icon({iconUrl: 'Icons/summit.png'});
     var POIIcon = new Icon({iconUrl: 'Icons/point-of-interest.png'});
+    var MonumentIcon = new Icon({iconUrl: 'Icons/Monument.png'});
     var BlankIcon = new Icon({iconUrl: 'Icons/blank.png'});
     var HikeIcon = new Icon({iconUrl: 'Icons/Hiking.png'});
     var BikeIcon = new Icon({iconUrl: 'Icons/bike.png'});
@@ -545,6 +548,24 @@
         }
       });
 
+    // Read markers data from data.csv
+    $.get('CSV/Monuments.csv', function(csvString) {
+    // Use PapaParse to convert string to array of objects
+      var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+      // For each row in data, create a marker and add it to the map
+      // For each row, columns `Latitude`, `Longitude`, and `Title` are required
+      for (var i in data) {
+        var row = data[i];
+        var Monumentmarker = L.marker([row.Latitude, row.Longitude], {
+	  icon: MonumentIcon,
+	  opacity: 1
+        }).bindPopup(
+	  "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " onerror=this.style.display='none' class=popupImage " + "/>", {
+	   maxWidth: "auto"
+          }).addTo(Monuments);		
+          Monumentmarker.addTo(map);
+        }
+      });
 	  
     var bear1 = L.marker([60.67231, -137.8], {icon: bearIcon}).addTo(map).addTo(Bears);
     var bear2 = L.marker([61.02654, -138.59722], {icon: bearIcon}).addTo(map).addTo(Bears);

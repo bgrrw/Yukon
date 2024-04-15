@@ -464,12 +464,15 @@
     */
 
     ///Road Tracks
-    var RoadTracks = omnivore.geojson('GeoJSON/YukonRoads.geojson',{
-	    color: '#343434',
+    var RoadTracks = L.geoJson(null, {
 	    onEachFeature: function (feature, layer) {
 		layer.bindPopup('<h1>'+feature.properties.ROUTE_NAME_1_EN+'</h1>')
-	    }
-    }).addTo(Roads);
+	    },
+	    style: function (feature) {return {color: '#343434'}}
+	  }).addTo(Roads);
+			 
+    var runRoads = omnivore.geojson('GeoJSON/YukonRoads.geojson', null, RoadTracks);
+
     /////////////////////	  
     //Add points
     /////////////////////

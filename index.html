@@ -44,6 +44,7 @@
   <script src="GeoJSON/Canoe.js" type="text/javascript"></script>
   <script src="GeoJSON/Bike.js" type="text/javascript"></script>
   <script src="GeoJSON/GPSHikes.js" type="text/javascript"></script>
+  <script src="GeoJSON/YukonRoads.js" type="text/javascript"></script>
   <!--<script src="GPX_Sources.js" type="text/javascript"></script>-->
   
   <!-- Position the map and title with Cascading Style Sheet (CSS) -->
@@ -168,6 +169,7 @@
 	'<p style="display:inline; color:#4daf4a">Paddleboards</p>': Paddleboards,
 	'<p style="display:inline; color:#c8a700">X-Country Ski</p>': XCountrySki,
 	'<p style="display:inline; color:#984ea3">Flights</p>': Flights,
+	'<p style="display:inline; color:#984ea3">Roads</p>': Roads,
 	'Summits<img src="Icons/summit.png" style="width:32px;height:32px;">': Summits,
 	'Camps<img src="Icons/tent.png" style="width:32px;height:32px;">': Camps,
 	'POIs<img src="Icons/point-of-interest.png" style="width:32px;height:32px;">': POIs,
@@ -459,6 +461,9 @@
       omnivore.gpx(flighttracksGPX[i], null, FlightTracks).addTo(Flights);
     }; 
     */
+
+    ///Road Tracks
+    var RoadTracks = L.geoJSON(Roads).addTo(map);
 	  
     /////////////////////	  
     //Add points

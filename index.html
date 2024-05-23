@@ -11,6 +11,8 @@
   <!-- Load Leaflet code library: see http://leafletjs.com/download.html -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
   <link rel="stylesheet" href="dist/leaflet-list-markers.css" />
+  <!--Measure path style-->
+  <link rel="stylesheet" href="dist/leaflet-measure-path.css" />
 	
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <!-- Deflate: substitutes polygons and lines with markers when their screen size falls below a defined threshold. -->
@@ -30,6 +32,8 @@
   <!-- Map credit -->
   <script type="text/javascript" src="dist/leaflet-control-credits.js"></script>
   <link rel="stylesheet" href="dist/leaflet-control-credits.css" />
+  <!--Measure path-->
+  <script src="dist/leaflet-measure-path.js"></script>
 	
   <!-- Javascript Variable of tracks from geojson -->
   <script src="GeoJSON/Hikes1.js" type="text/javascript"></script>
@@ -348,7 +352,7 @@
     var hikeTracks = L.geoJSON(GPSHikes, {
       style: Hikestyle,
       onEachFeature: hikemarkercreate
-    }).addTo(Hikes);
+    }).addTo(Hikes).showMeasurements();
 
     var hikeTracks1 = L.geoJSON(HikeGPX1, {
       style: Hikestyle,

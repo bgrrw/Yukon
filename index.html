@@ -265,6 +265,7 @@
     //Function for binding popup and highlighting on click  
     function forEachFeature(feature, layer) {
       layer.bindPopup('<h1>'+feature.properties.name+'</h1>'+feature.properties.time.slice(0,10)),
+      layer..showMeasurements(),
       layer.on("click", function (e) {
 	layer.bringToFront();
 	hikeTracks.setStyle(Hikestyle);
@@ -352,7 +353,7 @@
     var hikeTracks = L.geoJSON(GPSHikes, {
       style: Hikestyle,
       onEachFeature: hikemarkercreate
-    }).addTo(Hikes).showMeasurements();
+    }).addTo(Hikes);
 
     var hikeTracks1 = L.geoJSON(HikeGPX1, {
       style: Hikestyle,

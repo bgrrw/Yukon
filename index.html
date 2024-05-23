@@ -434,11 +434,7 @@
     var paddleboardTracks = L.geoJSON(PaddleboardGPX, {
       style: Paddleboardstyle,
       onEachFeature: SUPmarkercreate
-    }).addTo(Paddleboards).eachLayer(function(layer) {
-      if (layer.feature.geometry.type === 'LineString') {
-        layer.showMeasurements();;
-     }
-    });
+    }).addTo(Paddleboards);
 	  
     //XCountrySkiTracks Tracks
     var XCountrySkiTracks = L.geoJSON(SkiGPX, {

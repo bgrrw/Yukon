@@ -265,7 +265,6 @@
     //Function for binding popup and highlighting on click  
     function forEachFeature(feature, layer) {
       layer.bindPopup('<h1>'+feature.properties.name+'</h1>'+feature.properties.time.slice(0,10)),
-      layer.showMeasurements(),
       layer.on("click", function (e) {
 	layer.bringToFront();
 	hikeTracks.setStyle(Hikestyle);
@@ -435,8 +434,11 @@
     var paddleboardTracks = L.geoJSON(PaddleboardGPX, {
       style: Paddleboardstyle,
       onEachFeature: SUPmarkercreate
-    }).addTo(Paddleboards);
-
+    }).addTo(Paddleboards).eachLayer(function(layer) {
+      if (layer.feature.geometry.type === 'LineString') {
+        layer.showMeasurements();;
+     }
+    });
 	  
     //XCountrySkiTracks Tracks
     var XCountrySkiTracks = L.geoJSON(SkiGPX, {

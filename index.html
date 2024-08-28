@@ -288,6 +288,13 @@
 
     //Functions for creating activity markers
     function hikemarkercreate(feature, layer) {
+	    layer.bindPopup("Popup content");
+        layer.on('mouseover', function (e) {
+            this.openPopup();
+        });
+        layer.on('mouseout', function (e) {
+            this.closePopup();
+        });	
 	//Creates points from activities and adds them to layer for list panel
         L.marker(L.latLng(Number(String(feature.geometry.coordinates[0]).split(',')[1]),Number(String(feature.geometry.coordinates[0]).split(',')[0])), {title: feature.properties.name, icon: BlankIcon}).addTo(hikemarkersLayer);
 	forEachFeature(feature, layer);

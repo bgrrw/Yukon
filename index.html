@@ -113,13 +113,13 @@
   <div id="map"></div>
   <div id="title-pane"><p>Brad & Sam's Yukon Adventures</p></div>
   <!--<div id="CrossCanada-link"><a href='https://bgrrw.github.io/CrossCanadaRoadTrip/'><img src="car.png"  width="225"/></div>-->
-  <select id="ActivitySelect" onchange="ActivitySelectFunction()">
+  <!--<select id="ActivitySelect" onchange="ActivitySelectFunction()">
 	<option value="Hikes">Hikes</option>
 	<option value="Bikes">Bikes</option>
 	<option value="Canoes">Canoes</option>
 	<option value="Paddleboards">Paddleboards</option>
 	<option value="X-Country">X-Country Skis</option>
-  </select>
+  </select>-->
 
   <!-- Create the interactive map content with JavaScript (.js) -->
   <script>
@@ -611,7 +611,7 @@
 
     //inizialize Leaflet List Markers
     //var list = new L.Control.ListMarkers({layer: canoemarkersLayer, itemIcon: null});
-
+    /*
     function ActivitySelectFunction() {
       map.removeControl(list);
       var x = document.getElementById("ActivitySelect").value;
@@ -657,7 +657,7 @@
 	    iconUrl: 'Icons/blank.png'
 	}))
     });
-	  
+	*/  
   </script>
 </body>
 </html>

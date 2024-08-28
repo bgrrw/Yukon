@@ -265,6 +265,7 @@
     //Function for binding popup and highlighting on click  
     function forEachFeature(feature, layer) {
       layer.bindPopup('<h1>'+feature.properties.name+'</h1>'+feature.properties.time.slice(0,10)),
+      layer.bindTooltip('<h1>'+feature.properties.name+'</h1>'),
       layer.on("click", function (e) {
 	layer.bringToFront();
 	hikeTracks.setStyle(Hikestyle);
@@ -287,14 +288,7 @@
         };
 
     //Functions for creating activity markers
-    function hikemarkercreate(feature, layer) {
-	    layer.bindPopup("Popup content");
-        layer.on('mouseover', function (e) {
-            this.openPopup();
-        });
-        layer.on('mouseout', function (e) {
-            this.closePopup();
-        });	
+    function hikemarkercreate(feature, layer) {	
 	//Creates points from activities and adds them to layer for list panel
         L.marker(L.latLng(Number(String(feature.geometry.coordinates[0]).split(',')[1]),Number(String(feature.geometry.coordinates[0]).split(',')[0])), {title: feature.properties.name, icon: BlankIcon}).addTo(hikemarkersLayer);
 	forEachFeature(feature, layer);

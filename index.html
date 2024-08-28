@@ -79,6 +79,17 @@
     margin-top: 0;
     margin-bottom: 0;
   }
+  /* Make the tooltip background slightly transparent and text bold */
+  .leaflet-tooltip {
+      background-color: rgba(0, 0, 0, 0.7) !important; /* Slightly transparent black background */
+      color: white; /* White text */
+      font-weight: bold; /* Bold text */
+      border: 2px solid white; /* Optional: Add a white border */
+  }
+  /* Increase padding inside the tooltip */
+  .leaflet-tooltip-content {
+      padding: 5px 10px; /* Adjust padding as needed */
+  }
 	  
   #title-pane {
   position: absolute;
@@ -265,7 +276,20 @@
     //Function for binding popup and highlighting on click  
     function forEachFeature(feature, layer) {
       layer.bindPopup('<h1>'+feature.properties.name+'</h1>'+feature.properties.time.slice(0,10)),
-      layer.bindTooltip('<h1>'+feature.properties.name+'</h1>'),
+      layer.bindTooltip('<h1>'+feature.properties.name+'</h1>', {
+	   direction: 'center',  // Tooltip appears in the center of the line
+            offset: L.point(0, 0), // Centered offset
+            permanent: false, // Tooltip only appears on hover
+            sticky: true, // Tooltip remains open when mouse is moved over it
+            interactive: true, // Allows interaction with the tooltip
+        });,
+      // Increase the sensitivity area for hovering (wider hover area)
+      layer.on('mouseover', function(e) {
+          this.setStyle({ weight: 10 });  // Temporarily increase line weight on hover
+      });
+      layer.on('mouseout', function(e) {
+          this.setStyle({ weight: 2 });  // Revert line weight when not hovering
+      });,
       layer.on("click", function (e) {
 	layer.bringToFront();
 	hikeTracks.setStyle(Hikestyle);

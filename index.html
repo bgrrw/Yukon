@@ -282,14 +282,14 @@
             permanent: false, // Tooltip only appears on hover
             sticky: true, // Tooltip remains open when mouse is moved over it
             interactive: true, // Allows interaction with the tooltip
-        });,
+        });
       // Increase the sensitivity area for hovering (wider hover area)
       layer.on('mouseover', function(e) {
           this.setStyle({ weight: 10 });  // Temporarily increase line weight on hover
       });
       layer.on('mouseout', function(e) {
           this.setStyle({ weight: 2 });  // Revert line weight when not hovering
-      });,
+      });
       layer.on("click", function (e) {
 	layer.bringToFront();
 	hikeTracks.setStyle(Hikestyle);

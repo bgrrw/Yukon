@@ -83,14 +83,14 @@
   .leaflet-tooltip {
       background-color: rgba(0, 0, 0, 0.7) !important; /* Slightly transparent black background */
       color: white; /* White text */
-      font-size: 12px;
+      font-size: 8px;
       font-weight: bold; /* Bold text */
       border: 2px solid white; /* Optional: Add a white border */
       pointer-events: none; /* Ensure the tooltip does not block interactions */
   }
   /* Increase padding inside the tooltip */
   .leaflet-tooltip-content {
-      padding: 5px 10px; /* Adjust padding as needed */
+      padding: 5px 5px; /* Adjust padding as needed */
   }
 	  
   #title-pane {
@@ -287,7 +287,7 @@
         });
       // Increase the sensitivity area for hovering (wider hover area)
       layer.on('mouseover', function(e) {
-          this.setStyle({ weight: 10 });  // Temporarily increase line weight on hover
+          this.setStyle({ weight: 6 });  // Temporarily increase line weight on hover
       });
       layer.on('mouseout', function(e) {
           this.setStyle({ weight: 2 });  // Revert line weight when not hovering

@@ -140,7 +140,11 @@
 
   <!-- Create the interactive map content with JavaScript (.js) -->
   <script>
-
+    // Function to detect if the device is a touch device
+    function isTouchDevice() {
+      return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    }
+	  
     var Icon = L.Icon.extend({
       options: {
         iconSize:     [32, 32],
@@ -282,19 +286,22 @@
     //Function for binding popup and highlighting on click  
     function forEachFeature(feature, layer) {
       layer.bindPopup('<h1>'+feature.properties.name+'</h1>'+feature.properties.time.slice(0,10)),
-      layer.bindTooltip('<h1>'+feature.properties.name+'</h1>', {
-	   direction: 'center',  // Tooltip appears in the center of the line
-            offset: L.point(0, 0), // Centered offset
-            permanent: false, // Tooltip only appears on hover
-            sticky: true, // Tooltip remains open when mouse is moved over it
-            interactive: false, // Allows interaction with the tooltip
-        });
+      // Check if the device is a touch device
+      if (!isTouchDevice()) {
+        layer.bindTooltip('<h1>'+feature.properties.name+'</h1>', {
+	      direction: 'center',  // Tooltip appears in the center of the line
+              offset: L.point(0, 0), // Centered offset
+              permanent: false, // Tooltip only appears on hover
+              sticky: true, // Tooltip remains open when mouse is moved over it
+              interactive: false, // Allows interaction with the tooltip
+          });
+      };
       // Increase the sensitivity area for hovering (wider hover area)
       layer.on('mouseover', function(e) {
-          this.setStyle({ weight: 6 });  // Temporarily increase line weight on hover
+          layer.setStyle({ weight: 6 });  // Temporarily increase line weight on hover
       });
       layer.on('mouseout', function(e) {
-          this.setStyle({ weight: 2 });  // Revert line weight when not hovering
+          layer.setStyle({ weight: 2 });  // Revert line weight when not hovering
       });
       layer.on("click", function (e) {
 	layer.bringToFront();

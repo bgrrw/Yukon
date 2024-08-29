@@ -34,9 +34,6 @@
   <link rel="stylesheet" href="dist/leaflet-control-credits.css" />
   <!--Measure path-->
   <script src="dist/leaflet-measure-path.js"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/leaflet-geometryutil@0.8.1/src/leaflet.geometryutil.js"></script>
-  <script src="https://unpkg.com/leaflet-almostover@1.2.2/dist/leaflet-almostover.min.js"></script>
 	
   <!-- Javascript Variable of tracks from geojson -->
   <script src="GeoJSON/Hikes1.js" type="text/javascript"></script>
@@ -206,7 +203,7 @@
 	'Bears <img src="Icons/bear.png" style="width:32px;height:32px;">': Bears
     };
 	  
-    var map = L.map('map', {
+    const map = L.map('map', {
       almostOnMouseMove: false,
       center: [65, -135],
       zoom: 5.5,
@@ -215,8 +212,6 @@
       layers: [baseLayers["Terrain"],Hikes,Bikes,Canoes,Paddleboards,XCountrySki,Flights,Summits,Camps,Cabins,POIs,Monuments,Bears]
     });
     //for (var i = 0; i < overlays.length; i += 1) {overlays[i];}
-    console.log(map.almostOver);
-    map.almostOver.addLayer(Flights);
 	  
     const deflate_features = L.deflate({minSize: 10})
     deflate_features.addTo(map);

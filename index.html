@@ -35,6 +35,7 @@
   <!--Measure path-->
   <script src="dist/leaflet-measure-path.js"></script>
 
+  <script src="leaflet.geometryutil.js"></script>
   <script src="https://unpkg.com/leaflet-almostover@1.2.2/dist/leaflet-almostover.min.js"></script>
 	
   <!-- Javascript Variable of tracks from geojson -->
@@ -206,6 +207,7 @@
     };
 	  
     const map = L.map('map', {
+      almostOnMouseMove: false,
       center: [65, -135],
       zoom: 5.5,
       zoomControl: false,
@@ -289,16 +291,10 @@
     function forEachFeature(feature, layer) {
       layer.bindPopup('<h1>'+feature.properties.name+'</h1>'+feature.properties.time.slice(0,10));
       // Increase the clickable area on mobile devices
+      map.almostOver.addLayer(layer);
 
-      // Add the layer to the AlmostOver group
-      var almostOver = new L.AlmostOver({
-          onMouseOver: function(e) {
-              layer.openPopup(); // Open the popup when almost over
-          },
-          onMouseOut: function(e) {
-              layer.closePopup(); // Close the popup when not almost over
-          },
-          tolerance: 15  // Increase tolerance to make the area "almost over" larger
+      map.on('almost:click', function (e) {
+          layer.openPopup();
       });
 
       // Add the layer to the map and the almostOver group

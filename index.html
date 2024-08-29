@@ -296,10 +296,6 @@
       map.on('almost:click', function (e) {
           layer.openPopup();
       });
-
-      // Add the layer to the map and the almostOver group
-      almostOver.addLayer(layer);
-      almostOver.addTo(map);
 	    
       // Check if the device is a touch device
       if (!isTouchDevice()) {

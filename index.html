@@ -290,12 +290,6 @@
     //Function for binding popup and highlighting on click  
     function forEachFeature(feature, layer) {
       layer.bindPopup('<h1>'+feature.properties.name+'</h1>'+feature.properties.time.slice(0,10));
-      // Increase the clickable area on mobile devices
-      map.almostOver.addLayer(layer);
-
-      map.on('almost:click', function (e) {
-          layer.openPopup();
-      });
 	    
       // Check if the device is a touch device
       if (!isTouchDevice()) {
@@ -402,7 +396,7 @@
       style: Hikestyle,
       onEachFeature: hikemarkercreate
     }).addTo(Hikes);
-
+	  
     var hikeTracks1 = L.geoJSON(HikeGPX1, {
       style: Hikestyle,
       onEachFeature: hikemarkercreate
@@ -501,6 +495,8 @@
       style: FlightStyle,
       onEachFeature: forEachFeature
     }).addTo(Flights);
+
+    map.almostOver.addLayer(FlightTracks)
 	  /*
     //FlightTracks Tracks
     var FlightTracks = L.geoJson(null, {
@@ -658,6 +654,10 @@
     }
     map.on('click', onMapClick);
 
+    map.on('almost:click', function (e) {
+      var layer = e.layer;
+      layer.openPopup();
+    });
     //inizialize Leaflet List Markers
     //var list = new L.Control.ListMarkers({layer: canoemarkersLayer, itemIcon: null});
     /*

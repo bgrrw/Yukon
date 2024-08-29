@@ -286,6 +286,13 @@
     //Function for binding popup and highlighting on click  
     function forEachFeature(feature, layer) {
       layer.bindPopup('<h1>'+feature.properties.name+'</h1>'+feature.properties.time.slice(0,10));
+      // Increase the clickable area on mobile devices
+      if (isTouchDevice()) {
+          layer.setStyle({
+              weight: 10,  // Increase the line weight to make it easier to tap
+              opacity: 0,  // Make the increased weight transparent to keep the original appearance
+          });
+      };
       // Check if the device is a touch device
       if (!isTouchDevice()) {
         layer.bindTooltip('<h1>'+feature.properties.name+'</h1>', {

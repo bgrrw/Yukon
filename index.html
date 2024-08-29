@@ -215,6 +215,7 @@
       layers: [baseLayers["Terrain"],Hikes,Bikes,Canoes,Paddleboards,XCountrySki,Flights,Summits,Camps,Cabins,POIs,Monuments,Bears]
     });
     //for (var i = 0; i < overlays.length; i += 1) {overlays[i];}
+    console.log(map.almostOver);
     map.almostOver.addLayer(Flights);
 	  
     const deflate_features = L.deflate({minSize: 10})

@@ -188,6 +188,7 @@
     var SkiDeflateIcon = new Icon({iconUrl: 'Icons/SkiMarker.png'});
     var XCountrySki = L.deflate({minSize: 30, markerOptions: {icon: SkiDeflateIcon}});	
     var Flights = L.layerGroup()
+    map.almostOver.addLayer(Flights);
     var Roads = L.layerGroup()
 
     var overlays = {
@@ -495,8 +496,6 @@
       style: FlightStyle,
       onEachFeature: forEachFeature
     }).addTo(Flights);
-
-    map.almostOver.addLayer(FlightTracks);
 	  /*
     //FlightTracks Tracks
     var FlightTracks = L.geoJson(null, {

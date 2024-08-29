@@ -188,7 +188,6 @@
     var SkiDeflateIcon = new Icon({iconUrl: 'Icons/SkiMarker.png'});
     var XCountrySki = L.deflate({minSize: 30, markerOptions: {icon: SkiDeflateIcon}});	
     var Flights = L.layerGroup()
-    map.almostOver.addLayer(Flights);
     var Roads = L.layerGroup()
 
     var overlays = {
@@ -216,7 +215,8 @@
       layers: [baseLayers["Terrain"],Hikes,Bikes,Canoes,Paddleboards,XCountrySki,Flights,Summits,Camps,Cabins,POIs,Monuments,Bears]
     });
     //for (var i = 0; i < overlays.length; i += 1) {overlays[i];}
-
+    map.almostOver.addLayer(Flights);
+	  
     const deflate_features = L.deflate({minSize: 10})
     deflate_features.addTo(map);
 	  

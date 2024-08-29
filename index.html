@@ -282,15 +282,33 @@
 		weight: 2,
 	        dashArray: '10, 5'
     }};
+
+    function createBufferedLayer(feature, layer) {
+        // Create a buffer around the original geometry (e.g., 20 meters)
+        var bufferedGeometry = turf.buffer(feature, 20, { units: 'meters' });
+    
+        // Create a new layer for the buffer with no style so it's invisible
+        var bufferLayer = L.geoJSON(bufferedGeometry, {
+            style: function () {
+                return { opacity: 0, fillOpacity: 0 }; // Completely invisible
+            }
+        });
+
+        // Add the buffer layer to the map
+        bufferLayer.addTo(map);
+
+        // Set up the buffer layer to trigger the original layer's popup on click
+        bufferLayer.on('click', function() {
+            layer.openPopup();  // Open the original layer's popup
+        });
+    }
 	  
     //Function for binding popup and highlighting on click  
     function forEachFeature(feature, layer) {
       layer.bindPopup('<h1>'+feature.properties.name+'</h1>'+feature.properties.time.slice(0,10));
       // Increase the clickable area on mobile devices
       if (isTouchDevice()) {
-          layer.setStyle({
-              weight: 10,  // Increase the line weight to make it easier to tap
-              opacity: 0,  // Make the increased weight transparent to keep the original appearance
+          createBufferedLayer(feature, layer);
           });
       };
       // Check if the device is a touch device

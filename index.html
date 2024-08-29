@@ -285,7 +285,7 @@
 	  
     //Function for binding popup and highlighting on click  
     function forEachFeature(feature, layer) {
-      layer.bindPopup('<h1>'+feature.properties.name+'</h1>'+feature.properties.time.slice(0,10)),
+      layer.bindPopup('<h1>'+feature.properties.name+'</h1>'+feature.properties.time.slice(0,10));
       // Check if the device is a touch device
       if (!isTouchDevice()) {
         layer.bindTooltip('<h1>'+feature.properties.name+'</h1>', {

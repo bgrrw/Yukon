@@ -288,7 +288,6 @@
     function forEachFeature(feature, layer) {
 	  // Bind popup with name and time
 	  let popupContent = '<h1>' + feature.properties.name + '</h1>' + feature.properties.time.slice(0, 10);
-	  
 	  // Calculate the distance in kilometers if the feature is a LineString or Polygon
 	  if (feature.geometry.type === 'LineString' || feature.geometry.type === 'Polygon') {
 	    let latlngs = feature.geometry.coordinates.map(function(coord) {
@@ -297,10 +296,9 @@
 	    let distance = L.GeometryUtil.length(latlngs) / 1000; // Converts to kilometers
 	    popupContent += '<p>Distance: ' + distance.toFixed(2) + ' km</p>';
 	  }
-	
 	  // Bind the popup to the layer
 	  layer.bindPopup(popupContent);
-	};
+	
 	    
       //layer.bindPopup('<h1>'+feature.properties.name+'</h1>'+feature.properties.time.slice(0,10));
 	    

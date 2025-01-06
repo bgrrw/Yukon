@@ -113335,8 +113335,8 @@ var GPSHikes = {
       },
       "properties" : {
         "OBJECTID" : 28,
-        "time" : "2020-11-13 01:11:42",
-        "Shape_Length" : 11272.328330536249,
+        "time" : "2020-10-24 16:23:10",
+        "Shape_Length" : 7501,
         "Type" : "Hike",
         "name" : "Mount White"
       }

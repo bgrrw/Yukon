@@ -167,6 +167,7 @@
     };
     var Summits = L.layerGroup()
     var Camps = L.layerGroup()
+	var Camper = L.layerGroup()
     var Cabins = L.layerGroup()
     var Bears = L.layerGroup()
     var POIs = L.layerGroup()
@@ -200,6 +201,7 @@
 	//'<p style="display:inline; color:#343434">Roads Travelled</p>': Roads,
 	'Summits<img src="Icons/summit.png" style="width:32px;height:32px;">': Summits,
 	'Camps<img src="Icons/tent.png" style="width:32px;height:32px;">': Camps,
+	'Camper<img src="Icons/tent.png" style="width:32px;height:32px;">': Camper,
 	'POIs<img src="Icons/point-of-interest.png" style="width:32px;height:32px;">': POIs,
 	'Monuments<img src="Icons/Monument.png" style="width:32px;height:32px;">': Monuments,
 	'Cabins<img src="Icons/cabin.png" style="width:32px;height:32px;">': Cabins,
@@ -232,6 +234,7 @@
 	  
     // Point icons
     var CampIcon = new Icon({iconUrl: 'Icons/tent.png'});
+	var CamperIcon = new Icon({iconUrl: 'Icons/tent.png'});
     var CabinIcon = new Icon({iconUrl: 'Icons/cabin.png'});
     var SummitIcon = new Icon({iconUrl: 'Icons/summit.png'});
     var POIIcon = new Icon({iconUrl: 'Icons/point-of-interest.png'});
@@ -314,7 +317,7 @@
 	hikeTracks1.setStyle(Hikestyle);
 	hikeTracks2.setStyle(Hikestyle);
 	hikeTracks3.setStyle(Hikestyle);
-	//hikeTracks4.setStyle(Hikestyle);
+	hikeTracks4.setStyle(Hikestyle);
 	//hikegpx.setStyle(Hikestyle);
 	canoeTacks.setStyle(Canoestyle);
 	canoeTacks1.setStyle(Canoestyle);
@@ -413,10 +416,10 @@
       onEachFeature: hikemarkercreate
     }).addTo(Hikes); 
 
-    //var hikeTracks4 = L.geoJSON(HikeGPX4, {
-      //style: Hikestyle,
-      //onEachFeature: hikemarkercreate
-    //}).addTo(Hikes);
+    var hikeTracks4 = L.geoJSON(HikeGPX4, {
+      style: Hikestyle,
+      onEachFeature: hikemarkercreate
+    }).addTo(Hikes);
 
 	  /*
     //Bike GPX Tracks
@@ -556,6 +559,25 @@
       });
 	  
     // Read markers data from data.csv
+    $.get('CSV/Camper.csv', function(csvString) {
+    // Use PapaParse to convert string to array of objects
+      var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+      // For each row in data, create a marker and add it to the map
+      // For each row, columns `Latitude`, `Longitude`, and `Title` are required
+      for (var i in data) {
+        var row = data[i];
+        var Campermarker = L.marker([row.Latitude, row.Longitude], {
+	  icon: CamperIcon,
+	  opacity: 1
+        }).bindPopup(
+	  "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>", {
+	   maxWidth: "auto"
+          }).addTo(Camps);		
+          Campermarker.addTo(map);
+        }
+      });
+	  
+	  // Read markers data from data.csv
     $.get('CSV/Cabins.csv', function(csvString) {
     // Use PapaParse to convert string to array of objects
       var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
@@ -644,7 +666,7 @@
 	hikeTracks1.setStyle(Hikestyle);
 	hikeTracks2.setStyle(Hikestyle);
 	hikeTracks3.setStyle(Hikestyle);
-	//hikeTracks4.setStyle(Hikestyle);
+	hikeTracks4.setStyle(Hikestyle);
 	//hikegpx.setStyle(Hikestyle);
 	canoeTacks.setStyle(Canoestyle);
 	canoeTacks1.setStyle(Canoestyle);
@@ -715,4 +737,5 @@
   </script>
 </body>
 </html>
+
 

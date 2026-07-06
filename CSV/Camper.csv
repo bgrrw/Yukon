@@ -9,9 +9,11 @@ OBJECTID *,Name,Description,Map,WEBSITE,Latitude,Longitude,PIC_URL
 8,Haines Junction,,,,60.748172, -137.509214,https://lh3.googleusercontent.com/pw/AP1GczOGJejSTqYevDuUZ9DZ-XtjYdOeUGoUHpU3TXJs4qNkOYkbjLFKJ8mrS6gYP2Po7u4IaGBAwWjOFt8dQuKcFIj-LGJZxPMs4kbjt0j8AGdTAI6qDpeBhM9UAkzxmvgKhycTA3ymPeDNE2E5SynXoZ50zQ=w1740-h1305-s-no-gm?authuser=0
 9,Parade Field,,,,59.227642, -135.444106, 
 10,Mud Bay,,,,59.182425, -135.401491,https://lh3.googleusercontent.com/pw/AP1GczOCWl91GscuzCIEqWL57lGeMPB-dGF_BecxsO8lZcWJxZLjk53LvxFr9tasdooKgLdTEnrM6GEKLvPDNi6Lb4DPnxVgZYDOFjShPnwq7iWObSEYgXdhnFdvoTdQeRAZp84U2fjf8Te5xzDDEtMl3LBoyg=w1740-h1305-s-no-gm?authuser=0
-11,Boya Lake,,,,59.372368, -129.106485,
-12,Kinaskan Lake,,,,57.529734, -130.189846,
-13,Salmon Glacier,,,,56.169450, -130.051532,
-14,Skeena River,,,,54.710877, -128.314802,
-15,Prince Rupert,,,,54.313752, -130.329663,
-16,Dragon Lake,,,,55.328570, -128.946941,
+11,Continental Divide,,,,60.073673, -130.941517,
+12,Boya Lake,,,,59.372368, -129.106485,
+13,Kinaskan Lake,,,,57.529734, -130.189846,
+14,Salmon Glacier,,,,56.169450, -130.051532,
+15,Skeena River,,,,54.710877, -128.314802,
+16,Prince Rupert,,,,54.313752, -130.329663,
+17,Dragon Lake,,,,55.328570, -128.946941,
+18,Sawmill Point,,,,58.778541, -130.102999,

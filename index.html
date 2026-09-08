@@ -238,6 +238,7 @@
     // Point icons
     var CampIcon = new Icon({iconUrl: 'Icons/tent.png'});
 	var CamperIcon = new Icon({iconUrl: 'Icons/camper.png'});
+	var VanIcon = new Icon({iconUrl: 'Icons/van.png'});
     var CabinIcon = new Icon({iconUrl: 'Icons/cabin.png'});
     var SummitIcon = new Icon({iconUrl: 'Icons/summit.png'});
     var POIIcon = new Icon({iconUrl: 'Icons/point-of-interest.png'});
@@ -566,25 +567,37 @@
           Campsmarker.addTo(map);
         }
       });
-	  
-    // Read markers data from data.csv
-    $.get('CSV/Camper.csv', function(csvString) {
-    // Use PapaParse to convert string to array of objects
-      var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
-      // For each row in data, create a marker and add it to the map
-      // For each row, columns `Latitude`, `Longitude`, and `Title` are required
-      for (var i in data) {
-        var row = data[i];
-        var Campermarker = L.marker([row.Latitude, row.Longitude], {
-	  icon: CamperIcon,
-	  opacity: 1
-        }).bindPopup(
-	  "<h1>" + row.Name +"</h1><a href='" + row.PIC_URL + "'><img src='" + row.PIC_URL + "'" + " class=popupImage " + "/>", {
-	   maxWidth: "auto"
-          }).addTo(Camper);		
-          Campermarker.addTo(map);
-        }
-      });
+
+	// Read markers data from Camper.csv
+	$.get('CSV/Camper.csv', function(csvString) {
+	
+	  // Use PapaParse to convert string to array of objects
+	  var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+	
+	  // For each row in data, create a marker and add it to the map
+	  for (var i in data) {
+	    var row = data[i];
+	
+	    var Campermarker = L.marker([row.Latitude, row.Longitude], {
+	        // Use VanIcon when OBJECTID * is greater than 100
+	        // Otherwise use CamperIcon
+	        icon: row["OBJECTID *"] > 100 ? VanIcon : CamperIcon,
+	        opacity: 1
+	      }
+	    ).bindPopup(
+	      "<h1>" + row.Name + "</h1><a href='" +
+	      row.PIC_URL +
+	      "'><img src='" +
+	      row.PIC_URL +
+	      "' class='popupImage' />",
+	      {
+	        maxWidth: "auto"
+	      }
+	    ).addTo(Camper);
+	
+	    Campermarker.addTo(map);
+	  }
+	});
 	  
 	  // Read markers data from data.csv
     $.get('CSV/Cabins.csv', function(csvString) {

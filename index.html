@@ -570,18 +570,15 @@
 
 	// Read markers data from Camper.csv
 	$.get('CSV/Camper.csv', function(csvString) {
-	
 	  // Use PapaParse to convert string to array of objects
 	  var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
-	
 	  // For each row in data, create a marker and add it to the map
 	  for (var i in data) {
 	    var row = data[i];
-	
 	    var Campermarker = L.marker([row.Latitude, row.Longitude], {
-	        // Use VanIcon when OBJECTID * is greater than 100
+	        // Use VanIcon when OBJECTID * is greater than 99
 	        // Otherwise use CamperIcon
-	        icon: row["OBJECTID *"] > 100 ? VanIcon : CamperIcon,
+	        icon: row["OBJECTID *"] > 99 ? VanIcon : CamperIcon,
 	        opacity: 1
 	      }
 	    ).bindPopup(
@@ -594,7 +591,6 @@
 	        maxWidth: "auto"
 	      }
 	    ).addTo(Camper);
-	
 	    Campermarker.addTo(map);
 	  }
 	});
